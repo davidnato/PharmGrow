@@ -1,0 +1,22 @@
+.medicinesGroups{
+    display: flex;
+    flex-direction: row;
+    /* width: 100%; */
+    background: var(--dashboard-bg);
+}
+.search{
+    background: none !important;
+}
+.header{
+    background: #ffffff;
+}
+.medicinesGroups section{
+    width: 100%;
+}
+.title{
+    display: flex;
+    align-items: center;
+}
+.title span{
+    margin-top: 10px;
+}

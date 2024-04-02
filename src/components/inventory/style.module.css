@@ -1,0 +1,15 @@
+.inventoryComp{
+    display: flex;
+    flex-direction: row;
+    background: var(--dashboard-bg);
+    /* height: fit-content; */
+}
+.inventoryComp section{
+    width: 100%;
+}
+.header{
+    background: #ffffff;
+}
+/* .main{
+    
+} */

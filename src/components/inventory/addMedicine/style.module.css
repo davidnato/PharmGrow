@@ -1,0 +1,21 @@
+.addMedicineComp{
+    display: flex;
+    flex-direction: row;
+    background: var(--dashboard-bg);
+    /* width: 100%; */
+}
+.addMedicineComp section{
+    width: 100%;
+}
+.header{
+    background: #ffffff;
+    /* width: 100%; */
+}
+.title, .title span, .title span svg{
+    display: flex;
+    align-items: center;
+}
+.title span svg{
+    margin-top: 5px;
+}
+    

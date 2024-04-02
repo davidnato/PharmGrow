@@ -1,0 +1,17 @@
+import { MdOutlineHealthAndSafety, MdOutlineKeyboardArrowDown, MdKeyboardDoubleArrowRight, MdOutlineMedicalServices } from 'react-icons/md';
+import { FaNotesMedical } from "react-icons/fa6";
+import { HiOutlineExclamationTriangle } from "react-icons/hi2";
+
+export const analysisOne = [
+    { icon: <MdOutlineMedicalServices />, title: "298", description: "Medicines Available", footer: "View Full List", arrowRight: <MdKeyboardDoubleArrowRight/>},
+    {
+        icon: <MdOutlineMedicalServices />, title: "02", description: 'Medicine groups', arrowRight: <MdKeyboardDoubleArrowRight />
+    },
+    { icon: <HiOutlineExclamationTriangle />, title: "01", description: "Medicines Shortage", footer: "Resolve Now", arrowRight: <MdKeyboardDoubleArrowRight /> }
+]
+
+export const analysisTwo=[
+    {title: 'Medicine', count1: '302', count2: '11', count1Title: 'Total no of Medicines', count2Title: 'Medicine Groups'},
+    {title: 'Inventory in Qty', navigate: 'Send Stock Request', arrow: <MdOutlineKeyboardArrowDown/>, count1: '302', count2: '11', count1Title: 'Qty of Medicines sold', count2Title: 'Invoices Generated', count3: '08', count3Title: 'Stock Left'},
+   
+]
