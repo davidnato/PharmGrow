@@ -85,9 +85,10 @@
 }
 .navBar div{
     display: flex;
-    flex-direction: row;
+    /* flex-direction: column; */
     align-items: center;
     gap: 15px;
+    
 }
 .navBar div svg{
     height: 14px;
@@ -140,6 +141,9 @@
     border-radius: 5px;
     
 }
+.profile svg{
+    cursor: pointer;
+}
 .dropDown{
     position: absolute;
     background-color: #FFFFFF;
@@ -162,7 +166,7 @@
     right: 7px;
     /* padding-right: 10px; */
     width: 125px;
-    visibility: hidden;
+    /* visibility: hidden; */
     
 }
 .myProfile, .logout{

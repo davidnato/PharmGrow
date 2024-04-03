@@ -4,6 +4,11 @@ import { analysisTwo } from '../data'
 import { MdOutlineKeyboardArrowRight, MdOutlineAdd, MdOutlineDeleteOutline } from "react-icons/md";
 import dashboardstyle from '../../dashboard/style.module.css'
 import { CustomInput } from '../../input';
+import addstyle from '../addMedicine/style.module.css'
+import { MyButton } from '../../button';
+import { Link } from 'react-router-dom';
+import { routes } from '../../../utilities/routes';
+import { combinedClasses } from '../../../utilities/format';
 
 export const MedicinesGroupsComp = () => {
     return (
@@ -16,40 +21,47 @@ export const MedicinesGroupsComp = () => {
 
 export const MedicinesGroupsMain = () => {
     return (
-        <div className={dashboardstyle.main}>
+        <div className={combinedClasses(dashboardstyle.main, style.main)}>
             <div className={dashboardstyle.head}>
                 <div className={dashboardstyle.info}>
                     <h3 className={style.title}>Inventory <span>&nbsp; <MdOutlineKeyboardArrowRight /></span> &nbsp;List of Medicines</h3>
                     <p>List of Medicines available for sales</p>
                 </div>
                 <div className={dashboardstyle.downloadButton}>
-                    <button>
-                        <MdOutlineAdd />
-                        <p>Add New Item</p>
+                    <button >
+                        <Link to={routes.addMedicine()} className={combinedClasses(style.downloadButton, 'link')} >
+                            <MdOutlineAdd />
+                            <p>Add New Item</p>
+                        </Link>
                     </button>
                 </div>
             </div>
             <CustomInput type="search" placeholder="Search" className={style.search} />
             <AnalysisTwo />
             <div>
-                <div className={dashboardstyle.eachAnalysis}>
-                    <div className={dashboardstyle.row1}>
+                {/* <div className={dashboardstyle.eachAnalysis}> */}
+                <div className={addstyle.prescription}>
+                    <div>
                         <h6>How to use</h6>
-                        <p>Take this medication by mouth with or without food as directed by your doctor, usually once daily.</p>
+                        <p></p>
+                        {/* <p>Take this medication by mouth with or without food as directed by your doctor, usually once daily.</p> */}
                     </div>
-                    <div className={dashboardstyle.row2}>
-                        
-                        <div>
-                            <h3>Side Effects</h3>
-                            <p>Dizziness, lightheadedness, drowsiness, nausea, vomiting, tiredness, excess saliva/drooling, blurred vision, weight gain, constipation, headache, and trouble sleeping may occur. If any of these effects persist or worsen, consult your doctor.</p>
-                        </div>
+                    <div>
+                        <h6>Side Effects</h6>
+                        <p></p>
+                        {/* <p>Dizziness, lightheadedness, drowsiness, nausea, vomiting, tiredness, excess saliva/drooling, blurred vision, weight gain, constipation, headache, and trouble sleeping may occur. If any of these effects persist or worsen, consult your doctor.</p> */}
                     </div>
-
-                    <button>
-                        <MdOutlineDeleteOutline/>
-                        <p>Delete Medicine</p>
-                    </button>
                 </div>
+                <MyButton type='outline' title='Save Details' className={addstyle.btn}
+                // onClick={handleadd}
+                // disabled={isSubmitting}
+                >
+                    <MdOutlineDeleteOutline />
+                    Delete Medicine
+                </MyButton>
+
+
+                {/* </div> */}
             </div>
         </div>
     )

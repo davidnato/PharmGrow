@@ -43,13 +43,18 @@ input ::placeholder{
     font-size: 15px;
     font-family: "Inter", sans-serif;
 }
+
 .search{
     background: #E3EBF3;
     margin-top: 10px;
     padding: 15px 25px !important;
     box-shadow: none !important;
     width: 100%;
+    display: flex;
+    align-items: center;
+    
 }
+
 .loginBtn{
     width: fit-content;
 }
@@ -71,8 +76,16 @@ input ::placeholder{
         width: fit-content;
     }
 }
+/* .searchField{
+    display: flex;
+    align-items: center;
+} */
 .icon{
     position: absolute;
     right: 14px;
+    display: flex;
+    align-items: center;
+    margin-top: 7px;
+    cursor: pointer;
 }
 

@@ -2,14 +2,24 @@
     display: flex;
     flex-direction: row;
     background: var(--dashboard-bg);
+    
     /* height: fit-content; */
 }
 .inventoryComp section{
     width: 100%;
+    
 }
 .header{
     background: #ffffff;
+    color: var(--primary-blue);
 }
-/* .main{
-    
-} */
+.inventory .main{
+    padding: var(--side-bar-padding);
+    color: var(--primary-blue);
+}
+.downloadButton{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+  }

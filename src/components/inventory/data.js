@@ -1,13 +1,14 @@
 import { MdOutlineHealthAndSafety, MdOutlineKeyboardArrowDown, MdKeyboardDoubleArrowRight, MdOutlineMedicalServices } from 'react-icons/md';
 import { FaNotesMedical } from "react-icons/fa6";
 import { HiOutlineExclamationTriangle } from "react-icons/hi2";
+import { routes } from '../../utilities/routes';
 
 export const analysisOne = [
-    { icon: <MdOutlineMedicalServices />, title: "298", description: "Medicines Available", footer: "View Full List", arrowRight: <MdKeyboardDoubleArrowRight/>},
+    { icon: <MdOutlineMedicalServices />, title: "298", description: "Medicines Available", footer: "View Full List", arrowRight: <MdKeyboardDoubleArrowRight/>, url: routes.medicineslist()},
     {
-        icon: <MdOutlineMedicalServices />, title: "02", description: 'Medicine groups', arrowRight: <MdKeyboardDoubleArrowRight />
+        icon: <MdOutlineMedicalServices />, title: "02", description: 'Medicine groups', arrowRight: <MdKeyboardDoubleArrowRight />, footer: "View Full List",  url: routes.medicinegroups()
     },
-    { icon: <HiOutlineExclamationTriangle />, title: "01", description: "Medicines Shortage", footer: "Resolve Now", arrowRight: <MdKeyboardDoubleArrowRight /> }
+    { icon: <HiOutlineExclamationTriangle />, title: "01", description: "Medicines Shortage", footer: "Resolve Now", arrowRight: <MdKeyboardDoubleArrowRight />,  url: routes.notavailable() }
 ]
 
 export const analysisTwo=[

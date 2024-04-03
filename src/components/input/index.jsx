@@ -27,7 +27,7 @@ export const CustomInput = ({ ...props }) => {
     return (
         <div className={style.inputDiv}>
             {type === 'search' ?
-                <div className={style.inputFieldDiv}>
+                <div className={combinedClasses(style.inputFieldDiv, style.searchField)}>
                     <input {...props} type={type} className={style.search}/>
                     <div className={style.icon}>
                         <IoSearchOutline />

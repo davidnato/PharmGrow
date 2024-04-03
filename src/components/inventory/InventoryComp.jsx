@@ -2,7 +2,10 @@ import style from './style.module.css';
 import { LayoutHeader } from '../header'
 import { MdOutlineAdd } from "react-icons/md";
 import dashboardstyle from '../dashboard/style.module.css'
-import { analysisOne} from './data';
+import { analysisOne } from './data';
+import { routes } from '../../utilities/routes';
+import { Link } from 'react-router-dom';
+import { combinedClasses } from '../../utilities/format';
 
 export const InventoryComp = () => {
     return (
@@ -15,16 +18,18 @@ export const InventoryComp = () => {
 
 export const InventoryMain = () => {
     return (
-        <div className={dashboardstyle.main}>
+        <div className={combinedClasses(dashboardstyle.main, style.mainDiv)}>
             <div className={dashboardstyle.head}>
                 <div className={dashboardstyle.info}>
                     <h3>Inventory</h3>
                     <p>List of Medicines available for sales</p>
                 </div>
                 <div className={dashboardstyle.downloadButton}>
-                    <button>
-                        <MdOutlineAdd/>
-                        <p>Add New Item</p>
+                    <button >
+                        <Link to={routes.addMedicine()} className={combinedClasses(style.downloadButton, 'link')} >
+                            <MdOutlineAdd />
+                            <p>Add New Item</p>
+                        </Link>
                     </button>
                 </div>
             </div>
@@ -44,10 +49,14 @@ export const AnalysisOne = () => {
                             <h6>{analysis.title}</h6>
                             <div className={dashboardstyle.description}><p>{analysis.description}</p></div>
                         </div>
-                        <div className={dashboardstyle.footer}>
+                        {/* <div className={dashboardstyle.footer}>
                             <p>{analysis.footer}</p>
                             {analysis.arrowRight}
-                        </div>
+                        </div> */}
+                        <Link to={analysis.url} className={combinedClasses(dashboardstyle.footer, 'link')} >
+                            <p>{analysis.footer}</p>
+                            {analysis.arrowRight}
+                        </Link>
                     </div>
                 )
             }

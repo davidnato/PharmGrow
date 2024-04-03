@@ -10,6 +10,9 @@
 .header{
     background: #ffffff;
 }
+.medicinesGroups .main{
+    padding: var(--side-bar-padding);
+}
 .medicinesGroups section{
     width: 100%;
 }
@@ -20,3 +23,10 @@
 .title span{
     margin-top: 10px;
 }
+.downloadButton{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    background: #ffffff;
+  }

@@ -7,13 +7,13 @@ export const LayoutHeader = () => {
     return (
         <div className={style.header}>
             <CustomInput type="search" placeholder="Search for anything" className={style.search} />
-            <div className={style.language}>
+            {/* <div className={style.language}>
                 <div className={style.iconTitle}>
                     <IoLanguageOutline />
                     <p>English</p>
                 </div>
                 <MdOutlineKeyboardArrowDown />
-            </div>
+            </div> */}
             <div className={style.greetingTime}>
                 <div className={style.greeting}>
                     <div></div>

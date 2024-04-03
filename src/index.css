@@ -22,6 +22,15 @@ code {
   --dashboard-bg: #EDF1F5;
   --button-bg: #30407F;
   --side-bar-bg: #273360;
-  --primary-blue: #273360;
+  --primary-blue: #28374B;
   --off-white: #9A9A9A;
+  --add-medicine-label: #1D242E
+}
+.link{
+  text-decoration: none;
+  color: var(--primary-blue);
+}
+.bluebglink{
+  text-decoration: none;
+  color: #ffffff;
 }

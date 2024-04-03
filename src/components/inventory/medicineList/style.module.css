@@ -1,0 +1,15 @@
+.MedicinesListComp{
+    display: flex;
+    flex-direction: row;
+}
+.main{
+    padding: var(--side-bar-padding);
+    background: var(--dashboard-bg);
+    width: 100%;
+}
+.downloadButton{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}

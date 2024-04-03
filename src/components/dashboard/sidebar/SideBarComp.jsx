@@ -5,13 +5,21 @@ import { ReactComponent as ProfileDP } from '../../../assests/images/profileDP.s
 import { sideBarNavs1, sideBarNavs2, sideBarNavs3 } from './data';
 import { MdOutlineAccountCircle, MdOutlineLogout, MdOutlineKeyboardArrowDown, MdOutlineKeyboardArrowUp } from "react-icons/md";
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { combinedClasses } from '../../../utilities/format';
+// import { HandleDropDown } from '../../hooks/toggle';
 
 export const SideBarDiv = () => {
     const [show, setShow] = React.useState(false)
-    // const handleDropDown=()=>{
-    //     setShow(!show)
-    //     !show ? arrow===<MdOutlineKeyboardArrowDown/>:<MdOutlineKeyboardArrowUp/>
-    // }
+    const [dropDown, setDropDown] = React.useState(false)
+    const handleDropDown = () => {
+        setShow(!show)
+
+        // !show ? arrow===<MdOutlineKeyboardArrowDown/>:<MdOutlineKeyboardArrowUp/>
+    }
+    const navDropDown = () => {
+        setDropDown(!dropDown)
+    }
     return (
         <div className={style.sidebar}>
             <div className={style.headermain}>
@@ -29,23 +37,22 @@ export const SideBarDiv = () => {
                         </div>
 
                         <div className={style.profile}>
-                            <PiDotsThreeOutlineVerticalFill
-                            // onClick={handleDropDown}
-                            />
-
-                            <div className={style.whitebg}>
-                                <div className={style.dropDown}></div>
-                                <div className={style.myProfileDiv}>
-                                    <div className={style.myProfile}>
-                                        <MdOutlineAccountCircle />
-                                        <p>My Profile</p>
-                                    </div>
-                                    <div className={style.logout}>
-                                        <MdOutlineLogout />
-                                        <p>Logout</p>
+                            <PiDotsThreeOutlineVerticalFill onClick={handleDropDown} />
+                            {show &&
+                                <div className={style.whitebg}>
+                                    <div className={style.dropDown}></div>
+                                    <div className={style.myProfileDiv}>
+                                        <div className={style.myProfile}>
+                                            <MdOutlineAccountCircle />
+                                            <p>My Profile</p>
+                                        </div>
+                                        <div className={style.logout}>
+                                            <MdOutlineLogout />
+                                            <p>Logout</p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            }
 
                         </div>
                         {/* <div>
@@ -59,20 +66,26 @@ export const SideBarDiv = () => {
                         <div className={style.navDiv1}>
                             {
                                 sideBarNavs1.map((nav) =>
-                                    <div className={style.navBar}>
-                                        <div>
+                                    <Link to={nav.url} className={combinedClasses(style.navBar, 'bluebglink')}>
+                                        <div onClick={nav.dropDown && navDropDown}>
                                             {nav.icon}
                                             <h6>{nav.title}</h6>
+                                            {dropDown &&
+                                                <div className={style.navDropDown}>
+                                                    {/* {sideBarNavs1[1].map((sub) =>
+                                                        <h6>{sub.title}</h6>
+                                                    )} */}
+                                                </div>}
                                         </div>
                                         {nav.dropDown}
-                                    </div>
+                                    </Link>
                                 )
                             }
                         </div>
                         <div className={style.navDiv2}>
                             {
                                 sideBarNavs2.map((nav) =>
-                                    <div className={style.navBar}
+                                    <Link to={nav.url} className={combinedClasses(style.navBar, 'bluebglink')}
                                     // onClick={handleDropDown}
                                     >
                                         <div>
@@ -80,20 +93,20 @@ export const SideBarDiv = () => {
                                             <h6>{nav.title}</h6>
                                         </div>
                                         {nav.dropDown}
-                                    </div>
+                                    </Link>
                                 )
                             }
                         </div>
                         <div className={style.navDiv3}>
                             {
                                 sideBarNavs3.map((nav) =>
-                                    <div className={style.navBar}>
+                                    <Link to={nav.url} className={combinedClasses(style.navBar, 'bluebglink')}>
                                         <div>
                                             {nav.icon}
                                             <h6>{nav.title}</h6>
                                         </div>
                                         {nav.dropDown}
-                                    </div>
+                                    </Link>
                                 )
                             }
                         </div>

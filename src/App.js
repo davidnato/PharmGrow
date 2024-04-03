@@ -10,6 +10,7 @@ import { ToastContainer } from 'react-toastify';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import { routes } from './utilities/routes.js';
 import { IsProtectedRoute } from './hoc/isProtectedRoute.jsx';
+import { MedicinesListPage } from './pages/MedicinesList.jsx';
 
 const router = createBrowserRouter([
   {
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
   {
     path: routes.medicinegroups(),
     element: <MedicineGroupsPage/>
+  },
+  {
+    path: routes.medicineslist(),
+    element: <MedicinesListPage/>
   },
   {
     path: '*',
