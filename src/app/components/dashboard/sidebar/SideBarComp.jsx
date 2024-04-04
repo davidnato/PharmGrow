@@ -6,7 +6,7 @@ import { sideBarNavs1, sideBarNavs2, sideBarNavs3 } from './data';
 import { MdOutlineAccountCircle, MdOutlineLogout, MdOutlineKeyboardArrowDown, MdOutlineKeyboardArrowUp } from "react-icons/md";
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { combinedClasses } from '../../../utilities/format';
+import { combinedClasses } from '../../../../app/utilities/format';
 // import { HandleDropDown } from '../../hooks/toggle';
 
 export const SideBarDiv = () => {

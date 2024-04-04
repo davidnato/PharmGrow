@@ -2,7 +2,7 @@ import { HiOutlineEye, HiOutlineEyeOff } from "react-icons/hi";
 import { IoSearchOutline } from "react-icons/io5";
 import React from 'react'
 import style from './style.module.css'
-import { combinedClasses } from "../../utilities/format";
+import { combinedClasses } from "../../../app/utilities/format";
 
 
 export const CustomInput = ({ ...props }) => {

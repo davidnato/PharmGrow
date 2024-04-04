@@ -1,7 +1,7 @@
 import { MdOutlineSpaceDashboard, MdOutlineInventory2, MdOutlineKeyboardArrowDown, MdOutlineKeyboardArrowUp, MdOutlineHelpCenter, MdOutlineTune, MdOutlinePeople, MdOutlineNotifications, MdOutlineSettings } from "react-icons/md";
 import { PiChatDots } from "react-icons/pi";
 import { IoAnalytics } from "react-icons/io5";
-import { routes } from '../../../utilities/routes'
+import { routes } from '../../../../app/utilities/routes'
 
 export const sideBarNavs1 = [
     { icon: <MdOutlineSpaceDashboard />, title: 'Dashboard', url: routes.dashboard() },

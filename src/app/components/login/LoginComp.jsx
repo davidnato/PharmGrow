@@ -4,11 +4,11 @@ import style from './style.module.css'
 import { MyButton } from '../button'
 import { useState, useEffect } from 'react'
 import toast from 'react-hot-toast';
-import { isUserLogin } from '../../utilities/user'
+import { isUserLogin } from '../../../app/utilities/user'
 import { Logo } from '../logo'
 import { ReactComponent as Img } from '../../assests/images/right-column.svg'
 import { FcGoogle } from "react-icons/fc";
-import { routes } from '../../utilities/routes'
+import { routes } from '../../../app/utilities/routes'
 
 export const LoginDiv = () => {
     const [email, setEmail] = useState("")

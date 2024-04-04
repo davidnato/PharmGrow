@@ -1,5 +1,5 @@
 import React from "react"
-import { Login } from "../../src/components/login/index"
+import { Login } from "../components/login"
 
 export const LoginPage=()=>{
     return(

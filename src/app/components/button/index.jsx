@@ -1,4 +1,4 @@
-import {combinedClasses} from '../../utilities/format'
+import {combinedClasses} from '../../../app/utilities/format'
 import style from './style.module.css'
 
 export const MyButton=(props)=>{
