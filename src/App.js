@@ -51,6 +51,7 @@ const router = createBrowserRouter([
   }
 ])
 function App() {
+  const [info, setInfo] = React.useState({})
   return (
   <>
   <ToastContainer/>

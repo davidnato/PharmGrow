@@ -73,35 +73,38 @@
 .navBar{
     display: flex;
     flex-direction: row;
-    align-items: center;
+    /* align-items: center; */
     justify-content: space-between;
     padding: var(--side-bar-padding);
-    padding-top: 3px;
-    padding-bottom: 3px;
     cursor: pointer;
 }
-.navBar:active{
+.active{
     background: #c2c1dd;
 }
-.navBar div{
+.navBardiv{
     display: flex;
     /* flex-direction: column; */
-    align-items: center;
+    /* align-items: center; */
     gap: 15px;
     
+    
 }
-.navBar div svg{
+.navBardiv h6{
+    padding: 0;
+}
+.navBardiv svg{
     height: 14px;
     width: 14px;
+    margin-top: 3px;
 }
-.navBar div h6{
+.navBardiv h6{
     font-weight: 500;
     font-size: 14px;
     margin: 0;
 }
 .navDiv1 .navBar, .navDiv2 .navBar, .navDiv3 .navBar{
 
-    margin-bottom: 20px;
+    margin-bottom: 25px;
 }
 .navDiv2{
     border-top: 0.2px solid #FFFFFF;
@@ -194,4 +197,19 @@
     margin: 10px;
     display: flex;
     flex-wrap: nowrap;
+}
+.navTitle{
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.subtitle{
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    margin-top: 25px;
+    gap: 25px;
+    font-size: 14px;
+    font-weight: 500;
 }

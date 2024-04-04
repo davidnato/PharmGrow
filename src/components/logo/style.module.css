@@ -1,4 +1,6 @@
-.logo svg{
+.logo img{
     height: 50px;
     width: 150px;
+    /* margin-left: 65px; */
+    margin-bottom: 10px;
 }

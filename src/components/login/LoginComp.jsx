@@ -109,7 +109,7 @@ export const LoginDiv = () => {
     }, [])
     return (
         <section className={style.login}>
-            <LogoDiv />
+            <LogoDiv className={style.logo}/>
             <main className={style.main}>
                 {error && <div className={style.error}>{error}</div>}
                 <div className={style.loginIntro}>

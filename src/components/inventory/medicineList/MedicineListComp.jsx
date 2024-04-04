@@ -1,12 +1,16 @@
 import { SideBar } from "../../dashboard/sidebar"
 import style from './style.module.css';
 import dashboardstyle from '../../dashboard/style.module.css'
-import { MdOutlineKeyboardArrowRight, MdOutlineAdd, MdOutlineFilterAlt,MdOutlineKeyboardArrowDown } from "react-icons/md";
+import { MdOutlineKeyboardArrowRight, MdOutlineAdd, MdOutlineFilterAlt, MdOutlineKeyboardArrowDown } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { routes } from "../../../utilities/routes";
 import { CustomInput } from "../../input";
 import { combinedClasses } from "../../../utilities/format";
 import { MyButton } from "../../button";
+import { useEffect } from "react";
+import React from "react";
+import { HiOutlineSelector } from "react-icons/hi";
+
 
 export const MedicinesListComp = () => {
     return (
@@ -34,19 +38,70 @@ export const MedicinesListMain = () => {
                     </button>
                 </div>
             </div>
-            <div>
+            <div className={style.head2}>
                 <CustomInput type="search" placeholder="Search" className={style.search} />
                 <div>
                     <MdOutlineFilterAlt />
-                    <MyButton type='outline'
+                    <MyButton type='outline' className={style.button}
                     // onClick={handleLogin} 
                     >
-                        <p>- Select Group -</p>
-                        <MdOutlineKeyboardArrowDown/>
+                        <p> - Select Group - </p>
+                        <MdOutlineKeyboardArrowDown />
                     </MyButton>
                 </div>
             </div>
+            <Table />
 
+        </div>
+    )
+}
+
+export const Table = () => {
+    const [data, setData] = React.useState([])
+    // useEffect(()=>{
+    //     axios.get('')
+    //     .then(res=>
+    // setData(res.data);
+    // console.log(res))
+    //     .catch(err=console.log(err))
+    // })
+
+    return (
+
+        <div>
+            <table>
+                <thead>
+                    <tr className={style.headrow}>
+                        <th className={style.head}>Medicine Name
+                        <HiOutlineSelector/>
+                        </th>
+                        <th className={style.head}>Medicine ID
+                        <HiOutlineSelector/>
+                        </th>
+                        <th className={style.head}>Group Name
+                        <HiOutlineSelector/>
+                        </th>
+                        <th className={style.head}>Stock in Qty
+                        <HiOutlineSelector/>
+                        </th>
+                        <th className={style.head}>Action
+                        <HiOutlineSelector/>
+                        </th>
+                        <th>View Full Detail</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {/* {data.map((user, index) =>
+                        <tr key={index}>
+                            <td>{user.name}
+
+                            </td>
+                            <td>{user.id}</td>
+                            <td>{user.groupName}</td>
+                        </tr>
+                    )} */}
+                </tbody>
+            </table>
         </div>
     )
 }

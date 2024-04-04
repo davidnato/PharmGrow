@@ -36,11 +36,12 @@
     font-weight: 600;
     font-size: 16px;
 }
-.prescription div p{
+.prescription div textarea{
     height: 50px;
     background-color: #ffffff;
     border: 1px solid rgb(29, 36, 46, 0.3);
     padding: 12px;
+    width: 100%;
 }
 .eachNewInfo h6{
     font-size: 14px;

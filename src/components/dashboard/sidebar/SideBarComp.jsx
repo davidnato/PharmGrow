@@ -20,6 +20,7 @@ export const SideBarDiv = () => {
     const navDropDown = () => {
         setDropDown(!dropDown)
     }
+
     return (
         <div className={style.sidebar}>
             <div className={style.headermain}>
@@ -63,21 +64,26 @@ export const SideBarDiv = () => {
                         </div> */}
                     </div>
                     <div className={style.navBarDiv}>
-                        <div className={style.navDiv1}>
+                        <div  className={style.navDiv1}>
                             {
                                 sideBarNavs1.map((nav) =>
                                     <Link to={nav.url} className={combinedClasses(style.navBar, 'bluebglink')}>
-                                        <div onClick={nav.dropDown && navDropDown}>
+                                        <div  className={style.navBardiv}>
                                             {nav.icon}
-                                            <h6>{nav.title}</h6>
-                                            {dropDown &&
-                                                <div className={style.navDropDown}>
-                                                    {/* {sideBarNavs1[1].map((sub) =>
-                                                        <h6>{sub.title}</h6>
-                                                    )} */}
-                                                </div>}
+                                            <div className={style.navTitle}>
+                                                <h6>{nav.title}</h6>
+                                                {dropDown &&
+                                                    nav.subtitle &&
+                                                    <div className={style.subtitle}>
+                                                        {nav.subtitle &&
+                                                            nav.subtitle.map((subData) =>
+                                                                <Link to={subData.url} className={combinedClasses(style.subdata, 'bluebglink')}>{subData.title}</Link>
+                                                            )}
+                                                    </div>
+                                                }
+                                            </div>
                                         </div>
-                                        {nav.dropDown}
+                                        <div onClick={navDropDown}>{nav.dropDown}</div>
                                     </Link>
                                 )
                             }
@@ -85,12 +91,20 @@ export const SideBarDiv = () => {
                         <div className={style.navDiv2}>
                             {
                                 sideBarNavs2.map((nav) =>
-                                    <Link to={nav.url} className={combinedClasses(style.navBar, 'bluebglink')}
-                                    // onClick={handleDropDown}
-                                    >
-                                        <div>
+                                    <Link to={nav.url} className={combinedClasses(style.navBar, 'bluebglink')}>
+                                        <div onClick={navDropDown} className={style.navBardiv}>
                                             {nav.icon}
-                                            <h6>{nav.title}</h6>
+                                            <div className={style.navTitle}>
+                                                <h6>{nav.title}</h6>
+                                                {nav.subtitle &&
+                                                    <div className={style.subtitle}>
+                                                        {nav.subtitle &&
+                                                            nav.subtitle.map((subData) =>
+                                                                <li>{subData.title}</li>
+                                                            )}
+                                                    </div>
+                                                }
+                                            </div>
                                         </div>
                                         {nav.dropDown}
                                     </Link>
@@ -101,9 +115,19 @@ export const SideBarDiv = () => {
                             {
                                 sideBarNavs3.map((nav) =>
                                     <Link to={nav.url} className={combinedClasses(style.navBar, 'bluebglink')}>
-                                        <div>
+                                        <div onClick={navDropDown} className={style.navBardiv}>
                                             {nav.icon}
-                                            <h6>{nav.title}</h6>
+                                            <div className={style.navTitle}>
+                                                <h6>{nav.title}</h6>
+                                                {nav.subtitle &&
+                                                    <div className={style.subtitle}>
+                                                        {nav.subtitle &&
+                                                            nav.subtitle.map((subData) =>
+                                                                <li>{subData.title}</li>
+                                                            )}
+                                                    </div>
+                                                }
+                                            </div>
                                         </div>
                                         {nav.dropDown}
                                     </Link>

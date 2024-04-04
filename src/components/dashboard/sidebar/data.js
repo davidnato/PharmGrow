@@ -8,8 +8,8 @@ export const sideBarNavs1 = [
     {
         icon: <MdOutlineInventory2 />, title: 'Inventory',
         subtitle: [
-            { title: 'List of Medicines', url: '' },
-            { title: 'Medicine Groups', url: '' }],
+            { title: 'List of Medicines', url: routes.medicineslist() },
+            { title: 'Medicine Groups', url: routes.medicinegroups()}],
         dropDown: <MdOutlineKeyboardArrowDown />, arrowUp: <MdOutlineKeyboardArrowUp />
     },
     { icon: <IoAnalytics />, title: 'Reports', dropDown: <MdOutlineKeyboardArrowDown />, url: routes.reports() },

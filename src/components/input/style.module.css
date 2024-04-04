@@ -1,4 +1,4 @@
-.inputDiv label{
+.bg{
     color: #28374B;
     font-size: 14px;
     font-weight: 500;
@@ -8,6 +8,13 @@
     z-index: 5;
     right: -10px;
     
+}
+.nobg{
+    background: none;
+    color: #28374B;
+    font-size: 14px;
+    font-weight: 500;
+    padding-bottom: 20px !important;
 }
 input ::placeholder{
     font-weight: 400;

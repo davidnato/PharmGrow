@@ -6,10 +6,53 @@
     padding: var(--side-bar-padding);
     background: var(--dashboard-bg);
     width: 100%;
+    font-family: 'Poppins', sans-serif;
+    color: var(--primary-blue);
 }
 .downloadButton{
     display: flex;
     flex-direction: row;
     align-items: center;
     gap: 10px;
+}
+.head2{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 14px;
+    font-weight: 400;
+    color: #1D242E;
+}
+.head2 div{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+.head2 div svg{
+    width: 14px;
+    height: 14px;
+}
+.button{
+    color: var(--primary-blue);
+    font-size: 14px;
+    font-weight: 400;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border: 0.4px solid #1D242E;
+    border-radius: 5px;
+    gap: 30px;
+    padding: 10px 15px;
+}
+tr{
+    border: 0.4px solid rgb(40, 55, 75, 0.25);
+}
+.head, .headrow{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.head{
+    gap: 5px;
 }

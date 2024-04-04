@@ -34,7 +34,7 @@ export const CustomInput = ({ ...props }) => {
                     </div>
                 </div> :
                 <div className={style.labelInput}>
-                    <label>{label}</label>
+                    <label className={type==='text' ? style.nobg : style.bg}>{label}</label>
                     <div className={style.inputFieldDiv}>
                         <input {...props} type={type} />
                         {

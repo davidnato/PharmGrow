@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import style from './style.module.css'
 import { LayoutHeader } from "../../header";
 import dashboardstyle from '../../dashboard/style.module.css'
 import { MdOutlineKeyboardArrowRight, MdOutlineKeyboardArrowDown } from "react-icons/md";
 import { CustomInput } from "../../input";
 import { combinedClasses } from "../../../utilities/format";
-import {MyButton} from '../../button'
+import { MyButton } from '../../button'
 
 export const AddMedicineComp = () => {
     return (
@@ -35,44 +35,68 @@ export const AddMedicineMain = () => {
                     <p>All fields are mandatory except mentioned as optional</p>
                 </div>
             </div>
-            <div className={style.newInfo}>
-                <div className={style.eachNewInfo}>
-                    <h6>Medicine Name</h6>
-                    <CustomInput type="text" className={style.type} />
-                </div>
-                <div className={style.eachNewInfo}>
-                    <h6>Medicine ID</h6>
-                    <CustomInput type="text" className={style.type}/>
-                </div>
-                <div className={style.eachNewInfo}>
-                    <h6>Medicine Group</h6>
-                    <CustomInput type="select" className={style.type} placeholder= '- Select Group - '/>
-                    {/* <CustomInput type="select" placeholder='- Select Group -'>
-                        <MdOutlineKeyboardArrowDown />
-                    </CustomInput> */}
-                </div>
-                <div className={style.eachNewInfo}>
-                    <h6>Quantity in Number</h6>
-                    <CustomInput type="number" className={style.type}/>
-                </div>
-            </div>
-            <div className={style.prescription}>
-                <div>
-                    <h6>How to use</h6>
-                    <p></p>
-                    {/* <p>Take this medication by mouth with or without food as directed by your doctor, usually once daily.</p> */}
-                </div>
-                <div>
-                    <h6>Side Effects</h6>
-                    <p></p>
-                    {/* <p>Dizziness, lightheadedness, drowsiness, nausea, vomiting, tiredness, excess saliva/drooling, blurred vision, weight gain, constipation, headache, and trouble sleeping may occur. If any of these effects persist or worsen, consult your doctor.</p> */}
-                </div>
-            </div>
-            <MyButton type='primary' title='Save Details' className={style.btn}
-                        // onClick={handleadd}
-                        // disabled={isSubmitting}
-                         />
-                    
+            <Form />
         </div>
     )
+}
+
+
+export const Form = () => {
+    const [data, setData]=useState('');
+    // const [id, setId]=useState
+    useEffect(()=>{
+        fetch('http://localhost:8000/stock')
+        .then(result=>{
+            console.log(result)})
+            
+        .catch(error=>console.log(error))
+
+        // fetch('https://dummyjson.com/auth/login', {
+        //     method: 'POST',
+        //     headers: { 'Content-Type': 'application/json' },
+        //     body: JSON.stringify(payload)
+        //     //note that payload is defined already, the object details can be used directly here
+        // })
+    }, [])
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        const id = data.length + 1;
+        // fetch('http://localhost:8000/stock',{
+        //     // { name: name, id: id, group: group, quantity: quantity }
+            
+        //         method: "POST",
+        //         body: JSON.stringify(body),
+        //       })
+        //     .then(result =>{
+            
+        // setData(result.data)
+        //         console.log(result);
+        //         location.reload()})
+        //     .catch(error => console.log(error))
+    }
+    return <form action="" onSubmit={handleSubmit}>
+        <div className={style.inputs}>
+            <CustomInput type="text" label={"Medicine Name"} className={style.type} />
+            <CustomInput type="text" label={"Medicine ID"} className={style.type} />
+            <CustomInput type="text" label={"Medicine Group"} className={style.type} />
+            <CustomInput type="text" label={"Quantity in Number"} className={style.type} />
+        </div>
+        <div className={style.prescription}>
+            <div>
+                <h6>How to use</h6>
+                <textarea name="" id="" cols="30" rows="10"></textarea>
+                {/* <p>Take this medication by mouth with or without food as directed by your doctor, usually once daily.</p> */}
+            </div>
+            <div>
+                <h6>Side Effects</h6>
+                <textarea name="" id="" cols="30" rows="10"></textarea>
+                {/* <p>Dizziness, lightheadedness, drowsiness, nausea, vomiting, tiredness, excess saliva/drooling, blurred vision, weight gain, constipation, headache, and trouble sleeping may occur. If any of these effects persist or worsen, consult your doctor.</p> */}
+            </div>
+        </div>
+        <MyButton type='primary' title='Save Details' className={style.btn}
+        // onClick={handleadd}
+        // disabled={isSubmitting}
+        />
+    </form>
+
 }
