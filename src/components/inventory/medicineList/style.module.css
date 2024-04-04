@@ -8,6 +8,7 @@
     width: 100%;
     font-family: 'Poppins', sans-serif;
     color: var(--primary-blue);
+    font-family: 'Poppins', sans-serif;
 }
 .downloadButton{
     display: flex;
@@ -45,14 +46,37 @@
     gap: 30px;
     padding: 10px 15px;
 }
-tr{
-    border: 0.4px solid rgb(40, 55, 75, 0.25);
-}
-.head, .headrow{
+/* table{
     display: flex;
-    flex-direction: row;
-    align-items: center;
+    justify-content: space-between;
+} */
+.table{
+    border-collapse: collapse;
+    background: #ffffff;
+    color: rgb(40, 55, 75, 0.9);
+    min-width: 400px;
+    border-radius: 5px;
+    width: 100%;
 }
-.head{
-    gap: 5px;
+.table thead{
+    font-weight: 500;
+    font-size: 16px;
+}
+.table thead tr{
+    text-align: left;
+    border-bottom: 1px solid rgb(40, 55, 75, 0.25);
+}
+/* .table thead svg{
+    height: 12.71px;
+    width: 8px;
+} */
+.table tbody{
+    font-weight: 400;
+    font-size: 14px;
+}
+.table th, .table td{
+    padding: 10px 25px;
+}
+.table tbody tr{
+    border-bottom: 1px solid rgb(40, 55, 75, 0.25);
 }

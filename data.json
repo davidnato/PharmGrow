@@ -1,25 +1,22 @@
 {
-    "stock": [
-        {
-            "name": "Augmentin 625 Duo Tablet",
-            "id": "1",
-            "group": "Generic Medicine",
-            "qty": "350"
-            
-        },
-        {
-            "name": "Augmentin 625 Duo Tablet",
-            "id": "1",
-            "group": "Generic Medicine",
-            "qty": "350"
-
-        },
-        {
-            "name": "Augmentin 625 Duo Tablet",
-            "id": "1",
-            "group": "Generic Medicine",
-            "qty": "350"
-
-        }
-    ]
+  "stock": [
+    {
+      "name": "Augmentin 625 Duo Tablet",
+      "id": "1",
+      "group": "Generic Medicine",
+      "qty": "350"
+    },
+    {
+      "name": "Augmentin 625 Duo Tablet",
+      "id": "1",
+      "group": "Generic Medicine",
+      "qty": "350"
+    },
+    {
+      "name": "Augmentin 625 Duo Tablet",
+      "id": "1",
+      "group": "Generic Medicine",
+      "qty": "350"
+    }
+  ]
 }

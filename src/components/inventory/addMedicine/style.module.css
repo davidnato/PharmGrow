@@ -54,3 +54,6 @@
     width: 150px;
     cursor: pointer;
 }
+.success{
+    background: var(--primary-blue);
+}

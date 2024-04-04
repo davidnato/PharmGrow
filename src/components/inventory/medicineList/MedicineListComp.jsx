@@ -10,6 +10,9 @@ import { MyButton } from "../../button";
 import { useEffect } from "react";
 import React from "react";
 import { HiOutlineSelector } from "react-icons/hi";
+import axios from 'axios';
+
+
 
 
 export const MedicinesListComp = () => {
@@ -58,48 +61,51 @@ export const MedicinesListMain = () => {
 
 export const Table = () => {
     const [data, setData] = React.useState([])
-    // useEffect(()=>{
-    //     axios.get('')
-    //     .then(res=>
-    // setData(res.data);
-    // console.log(res))
-    //     .catch(err=console.log(err))
-    // })
+
+    useEffect(() => {
+        axios.get('http://localhost:3000/stock')
+            .then(result => {
+                setData(result.data);
+                console.log(data)
+            })
+            .catch(error => console.log(error))
+    })
 
     return (
 
         <div>
-            <table>
+            <table className={style.table}>
                 <thead>
                     <tr className={style.headrow}>
                         <th className={style.head}>Medicine Name
-                        <HiOutlineSelector/>
+                            <HiOutlineSelector />
                         </th>
                         <th className={style.head}>Medicine ID
-                        <HiOutlineSelector/>
+                            <HiOutlineSelector />
                         </th>
                         <th className={style.head}>Group Name
-                        <HiOutlineSelector/>
+                            <HiOutlineSelector />
                         </th>
                         <th className={style.head}>Stock in Qty
-                        <HiOutlineSelector/>
+                            <HiOutlineSelector />
                         </th>
                         <th className={style.head}>Action
-                        <HiOutlineSelector/>
+                            <HiOutlineSelector />
                         </th>
-                        <th>View Full Detail</th>
+                        {/* <th>View Full Detail</th> */}
                     </tr>
                 </thead>
                 <tbody>
-                    {/* {data.map((user, index) =>
-                        <tr key={index}>
-                            <td>{user.name}
 
-                            </td>
+                    {data.map((user, index) =>
+                        <tr key={index}>
+                            <td>{user.name}</td>
                             <td>{user.id}</td>
-                            <td>{user.groupName}</td>
+                            <td>{user.group}</td>
+                            <td>{user.qty}</td>
+                            <td>View Full Detail</td>
                         </tr>
-                    )} */}
+                    )}
                 </tbody>
             </table>
         </div>

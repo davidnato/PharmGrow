@@ -6,6 +6,9 @@ import { MdOutlineKeyboardArrowRight, MdOutlineKeyboardArrowDown } from "react-i
 import { CustomInput } from "../../input";
 import { combinedClasses } from "../../../utilities/format";
 import { MyButton } from '../../button'
+import axios from "axios";
+import toast from "react-hot-toast";
+import errorstyle from '../../login/style.module.css'
 
 export const AddMedicineComp = () => {
     return (
@@ -35,6 +38,7 @@ export const AddMedicineMain = () => {
                     <p>All fields are mandatory except mentioned as optional</p>
                 </div>
             </div>
+            
             <Form />
         </div>
     )
@@ -42,44 +46,81 @@ export const AddMedicineMain = () => {
 
 
 export const Form = () => {
-    const [data, setData]=useState('');
-    // const [id, setId]=useState
-    useEffect(()=>{
-        fetch('http://localhost:8000/stock')
-        .then(result=>{
-            console.log(result)})
-            
-        .catch(error=>console.log(error))
-
-        // fetch('https://dummyjson.com/auth/login', {
-        //     method: 'POST',
-        //     headers: { 'Content-Type': 'application/json' },
-        //     body: JSON.stringify(payload)
-        //     //note that payload is defined already, the object details can be used directly here
-        // })
-    }, [])
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        const id = data.length + 1;
-        // fetch('http://localhost:8000/stock',{
-        //     // { name: name, id: id, group: group, quantity: quantity }
-            
-        //         method: "POST",
-        //         body: JSON.stringify(body),
-        //       })
-        //     .then(result =>{
-            
-        // setData(result.data)
-        //         console.log(result);
-        //         location.reload()})
-        //     .catch(error => console.log(error))
+    const [data, setData]=React.useState('');
+    const [success, setSuccess]=React.useState(false)
+    const [stock, setStock] = React.useState({
+        name: " ",
+        id: " ",
+        group: " ",
+        qty: " "
+    })
+    const handleInput = (e) => {
+        e.persist()
+        setStock({ ...stock, [e.target.name]: e.target.value })
     }
-    return <form action="" onSubmit={handleSubmit}>
+    const saveStock = (e) => {
+        e.preventDefault()
+        const data = {
+            name: stock.name,
+            id: stock.id,
+            group: stock.group,
+            qty: stock.qty
+        }
+        axios.post('http://localhost:3000/stock', data)
+        .then(result => {
+            setData(result.data)
+            toast('Stock Succesfully Added')
+            setSuccess('Stock Successfully Added')
+        })
+        .catch(error => console.log(error))
+
+        // const stock ={
+        //     name: "",
+        //     id: "",
+        //     group: "",
+        //     qty: ""
+        // }
+    }
+    
+    // const [id, setId] = useState
+    // useEffect(() => {
+    //     fetch('http://localhost:8000/stock')
+    //         .then(result => {
+    //             console.log(result)
+    //         })
+
+    //         .catch(error => console.log(error))
+
+    //     // fetch('https://dummyjson.com/auth/login', {
+    //     //     method: 'POST',
+    //     //     headers: { 'Content-Type': 'application/json' },
+    //     //     body: JSON.stringify(payload)
+    //     //     //note that payload is defined already, the object details can be used directly here
+    //     // })
+    // }, [])
+    // const handleSubmit = (event) => {
+    //     event.preventDefault();
+    //     const id = data.length + 1;
+    //     // fetch('http://localhost:8000/stock',{
+    //     //     // { name: name, id: id, group: group, quantity: quantity }
+
+    //     //         method: "POST",
+    //     //         body: JSON.stringify(body),
+    //     //       })
+    //     //     .then(result =>{
+
+    //     // setData(result.data)
+    //     //         console.log(result);
+    //     //         location.reload()})
+    //     //     .catch(error => console.log(error))
+    // }
+    return <form action="" onSubmit={saveStock}>
+        {success && <div className={combinedClasses(errorstyle.error, style.success)}>{success}</div>}
         <div className={style.inputs}>
-            <CustomInput type="text" label={"Medicine Name"} className={style.type} />
-            <CustomInput type="text" label={"Medicine ID"} className={style.type} />
-            <CustomInput type="text" label={"Medicine Group"} className={style.type} />
-            <CustomInput type="text" label={"Quantity in Number"} className={style.type} />
+            <CustomInput type="text" name='name' onChange={handleInput} label={"Medicine Name"} className={style.type} />
+            <CustomInput type="text" name='id' onChange={handleInput} label={"Medicine ID"} className={style.type} />
+            <CustomInput type="text" name='group' onChange={handleInput} label={"Medicine Group"} className={style.type} />
+            <CustomInput type="text" name='qty' onChange={handleInput} label={"Quantity in Number"} className={style.type} />
         </div>
         <div className={style.prescription}>
             <div>
