@@ -1,5 +1,5 @@
 export const logout =()=>{
-
+    localStorage.removeItem()
 }
 
 export const isUserLogin=()=>{

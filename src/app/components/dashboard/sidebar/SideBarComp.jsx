@@ -17,8 +17,14 @@ export const SideBarDiv = () => {
 
         // !show ? arrow===<MdOutlineKeyboardArrowDown/>:<MdOutlineKeyboardArrowUp/>
     }
-    const navDropDown = () => {
-        setDropDown(!dropDown)
+    const navDropDown = (e) => {
+        if(e.target.className!=style.subdata){
+            setDropDown(!dropDown)
+        }
+        else{
+            setDropDown(dropDown)
+        }
+        
     }
 
     return (

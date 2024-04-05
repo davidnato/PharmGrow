@@ -82,7 +82,17 @@ export const LoginDiv = () => {
                         resolve(response.json())
                     })
                 }) */
-
+                // .then((result)=>{
+                //     const data = await response.json();
+                // if (response.status >= 400) {
+                //     toast.error(error.message)
+                //     setError(error.message)
+                // } else {
+                //     console.log('Success', response)
+                //     localStorage.setItem('user', JSON.stringify(response))
+                //     window.location.href = routes.dashboard()
+                // }
+                // })
             .then((response) => {
                 console.log('Success', response)
                 localStorage.setItem('user', JSON.stringify(response))

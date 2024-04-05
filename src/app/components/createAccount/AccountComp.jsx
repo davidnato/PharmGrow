@@ -17,6 +17,7 @@ export const CreateAccount = () => {
     const [success, setSuccess] = React.useState(false)
     const [error, setError] = React.useState(false)
     const [data, setData]=React.useState('');
+    const [isSubmitting, setIsSubmitting]=React.useState(false)
     const [input, setInput] = React.useState({
         username: " ",
         password: " ",
@@ -26,18 +27,40 @@ export const CreateAccount = () => {
         e.persist()
         setInput({ ...input, [e.target.name]: e.target.value })
     }
+    // const handleEmail = (event) => {
+    //     setEmail(event.target.value)
+    // }
+    // const handlePassword = (event) => {
+    //     setPassword(event.target.value)
+    // }
+    // const handleRememberCheckbox = (event) => {
+    //     setRemeberMe(event.target.checked)
+    // }
+    // const handleLogin = async () => {
+    //     setIsSubmitting(true)
+    //     const payload = {
+    //         username: email,
+    //         password: password,
+    //         rememberMe
+    //     }
     const handleSignUp = (e) => {
         e.preventDefault()
+        
         const data = {
             username: input.name,
             password: input.password,
             cPassword: input.cPassword
         }
-        axios.post('http://localhost:3000/stock', data)
+        axios.post('http://localhost:3000/', data)
         .then(result => {
             setData(result.data)
             toast('Stock Succesfully Added')
             setSuccess('Stock Successfully Added')
+        })
+        .then((response) => {
+            console.log('Success', response)
+            localStorage.setItem('user', JSON.stringify(response))
+            window.location.href = '/login'
         })
         .catch(error => console.log(error))
     }
