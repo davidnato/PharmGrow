@@ -11,6 +11,7 @@ import loginstyle from '../login/style.module.css'
 import React from 'react';
 import axios from 'axios';
 import toast from 'react-hot-toast';
+import { Link } from 'react-router-dom'
 
 
 export const CreateAccount = () => {
@@ -96,7 +97,7 @@ export const CreateAccount = () => {
                     // disabled={isSubmitting}
                     >Continue with Google <span><FcGoogle /></span></MyButton>
                     <p>Already have an account? &nbsp;
-                        <a href="/login">  Sign in</a></p>
+                        <Link to="/login">  Sign in</Link></p>
                 </form>
 
             </main>

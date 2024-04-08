@@ -9,6 +9,7 @@ import { Logo } from '../logo'
 import { ReactComponent as Img } from '../../assests/images/right-column.svg'
 import { FcGoogle } from "react-icons/fc";
 import { routes } from '../../../app/utilities/routes'
+import { Link } from 'react-router-dom'
 
 export const LoginDiv = () => {
     const [email, setEmail] = useState("")
@@ -144,7 +145,7 @@ export const LoginDiv = () => {
                         onClick={handleLogin}
                         disabled={isSubmitting}>Sign in with Google <span><FcGoogle/></span></MyButton>
                     <p>Need an account? &nbsp;
-                        <a href="signUP">  Create one</a></p>
+                        <Link to="/signUP">  Create one</Link></p>
                 </form>
 
             </main>
