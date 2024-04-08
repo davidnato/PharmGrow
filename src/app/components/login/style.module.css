@@ -81,6 +81,12 @@
     font-weight: 600;
     color: var(--primary-blue);
 }
+.loginlink{
+    color:  #FEFEFE;
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+}
 .divider{
     margin: 30px auto;
     border-top: 1px solid #D9DADC;

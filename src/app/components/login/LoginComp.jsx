@@ -10,6 +10,7 @@ import { ReactComponent as Img } from '../../assests/images/right-column.svg'
 import { FcGoogle } from "react-icons/fc";
 import { routes } from '../../../app/utilities/routes'
 import { Link } from 'react-router-dom'
+import { combinedClasses } from '../../utilities/format'
 
 export const LoginDiv = () => {
     const [email, setEmail] = useState("")
@@ -137,9 +138,10 @@ export const LoginDiv = () => {
                         <label htmlFor="rememberMe">&nbsp; Keep me logged in</label>
                     </div>
                     {/* <MyButton  type='primary' title='LOGIN'/> */}
-                    <MyButton type='primary' title='Sign In'
+                    <MyButton type='primary'
                         onClick={handleLogin}
-                        disabled={isSubmitting} />
+                        disabled={isSubmitting}><Link to="/dashboard" className={combinedClasses(style.loginlink, 'link')}> Sign In </Link></MyButton>
+                       
                     <div className={style.divider}><span>or</span></div>
                     <MyButton type='outline' className={style.loginBtn}
                         onClick={handleLogin}
