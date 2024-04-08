@@ -11,14 +11,15 @@ import { useEffect } from "react";
 import React from "react";
 import { HiOutlineSelector } from "react-icons/hi";
 import axios from 'axios';
+import { LayoutHeader } from '../../header';
 
 
 
 
 export const MedicinesListComp = () => {
     return (
-        <section className={style.MedicinesListComp}>
-            <SideBar />
+        <section className={style.medicinesListComp}>
+            <header className={style.header}><LayoutHeader /></header>
             <MedicinesListMain />
         </section>
     )

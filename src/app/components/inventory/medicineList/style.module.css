@@ -1,14 +1,28 @@
-.MedicinesListComp{
+
+.medicinesList section{
+    width: 100%;
+    background: var(--dashboard-bg);
+}
+.header{
+    background: #ffffff;
+}
+
+.medicinesList{
     display: flex;
     flex-direction: row;
+}
+.medicinesListComp{
+    display: flex;
+    flex-direction: column;
 }
 .main{
     padding: var(--side-bar-padding);
     background: var(--dashboard-bg);
-    width: 100%;
+    /* width: 100%; */
     font-family: 'Poppins', sans-serif;
     color: var(--primary-blue);
     font-family: 'Poppins', sans-serif;
+    
 }
 .downloadButton{
     display: flex;
