@@ -95,12 +95,12 @@ export const LoginDiv = () => {
                 //     window.location.href = routes.dashboard()
                 // }
                 // })
-            .then((response) => {
-                console.log('Success', response)
-                localStorage.setItem('user', JSON.stringify(response))
-                window.location.href = routes.dashboard()
-                console.log(response)
-            })
+            // .then((response) => {
+            //     console.log('Success', response)
+            //     localStorage.setItem('user', JSON.stringify(response))
+            //     window.location.href = routes.dashboard()
+            //     console.log(response)
+            // })
             .catch((error) => {
                 console.log("Failed", error.message)
                 toast(error.message)
