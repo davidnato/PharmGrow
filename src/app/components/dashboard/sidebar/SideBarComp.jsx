@@ -7,6 +7,7 @@ import { MdOutlineAccountCircle, MdOutlineLogout, MdOutlineKeyboardArrowDown, Md
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { combinedClasses } from '../../../../app/utilities/format';
+import { NavLink } from 'react-router-dom';
 // import { HandleDropDown } from '../../hooks/toggle';
 
 export const SideBarDiv = () => {
@@ -18,13 +19,17 @@ export const SideBarDiv = () => {
         // !show ? arrow===<MdOutlineKeyboardArrowDown/>:<MdOutlineKeyboardArrowUp/>
     }
     const navDropDown = (e) => {
-        if(e.target.className!=style.subdata){
-            setDropDown(!dropDown)
-        }
-        else{
-            setDropDown(dropDown)
-        }
+        // setDropDown(!dropDown)
+        (e.target.className === style.subData) ? setDropDown(dropDown) : setDropDown(!dropDown)
+        // let subMenu= e.target.querySelector(style.subData)
         
+        // if (e.target.className != style.subtitle) {
+        //     setDropDown(!dropDown)
+        //     style[subtitle].style.background="red"
+        // }
+        // if (e.target.className === style.subtitle) {
+        //     setDropDown(dropDown)
+        // }
     }
 
     return (
@@ -70,27 +75,49 @@ export const SideBarDiv = () => {
                         </div> */}
                     </div>
                     <div className={style.navBarDiv}>
-                        <div  className={style.navDiv1}>
+                        <div className={combinedClasses(style.navDiv1, 'navDiv')} >
                             {
-                                sideBarNavs1.map((nav) =>
-                                    <Link to={nav.url} className={combinedClasses(style.navBar, 'bluebglink')}>
-                                        <div  className={style.navBardiv}>
+                                sideBarNavs1.map((nav, index) =>
+                                    <NavLink to={nav.url}
+                                        className={combinedClasses(style.navBar, 'bluebglink')}>
+                                        <div className={style.navBardiv} >
                                             {nav.icon}
                                             <div className={style.navTitle}>
                                                 <h6>{nav.title}</h6>
-                                                {dropDown &&
-                                                    nav.subtitle &&
-                                                    <div className={style.subtitle}>
-                                                        {nav.subtitle &&
-                                                            nav.subtitle.map((subData) =>
-                                                                <Link to={subData.url} className={combinedClasses(style.subdata, 'bluebglink')}>{subData.title}</Link>
+
+                                                {/* <div>
+                    {item.subNav && subnav
+                        ? item.iconOpened
+                        : item.subNav
+                        ? item.iconClosed
+                        : null}
+                </div>
+            </SidebarLink>
+            {subnav &&
+                item.subNav.map((item, index) => {
+                    return (
+                        <DropdownLink
+                            to={item.path}
+                            key={index}
+                        >
+                            {item.icon}
+                            <SidebarLabel>
+                                {item.title}
+                            </SidebarLabel>
+                        </DropdownLink>
+                    ); */}
+                                                {
+                                                    nav.subtitle && dropDown &&
+                                                    <div className={combinedClasses(style.subtitle, 'navDiv')} dropDown={dropDown}>
+                                                        {nav.subtitle && nav.subtitle.map((subData) =>
+                                                                <NavLink to={subData.url} className={combinedClasses(style.subdata, 'bluebglink')}>{subData.title}</NavLink>
                                                             )}
                                                     </div>
                                                 }
                                             </div>
                                         </div>
-                                        <div onClick={navDropDown}>{nav.dropDown}</div>
-                                    </Link>
+                                        <div onClick={navDropDown}>{index == dropDown ? nav.arrowUp : nav.dropDown}</div>
+                                    </NavLink>
                                 )
                             }
                         </div>

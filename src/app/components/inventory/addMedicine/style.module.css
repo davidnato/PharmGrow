@@ -36,7 +36,7 @@
     font-weight: 600;
     font-size: 16px;
 }
-.prescription div textarea{
+.prescription div textarea, .prescriptionText{
     height: 50px;
     background-color: #ffffff;
     border: 1px solid rgb(29, 36, 46, 0.3);

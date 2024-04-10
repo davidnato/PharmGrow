@@ -4,7 +4,7 @@ import { LoginPage } from './pages/Login.jsx'
 import {CreateAccountPage} from './pages/CreateAccount.jsx'
 import { DashboardPage } from './pages/dashboard.jsx';
 import { InventoryPage } from './pages/Inventory.jsx';
-import { MedicineGroupsPage } from './pages/MedicinesGroups.jsx';
+import { MedicineDetailPage } from './pages/medicineDetail.jsx';
 import { AddMedicinePage } from './pages/AddMedicine.jsx';
 import { ToastContainer } from 'react-toastify';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
@@ -38,8 +38,12 @@ const router = createBrowserRouter([
     element: <AddMedicinePage/>
   },
   {
+    path: routes.medicineDetail(),
+    element: <MedicineDetailPage/>
+  },
+  {
     path: routes.medicinegroups(),
-    element: <MedicineGroupsPage/>
+    element: ''
   },
   {
     path: routes.medicineslist(),

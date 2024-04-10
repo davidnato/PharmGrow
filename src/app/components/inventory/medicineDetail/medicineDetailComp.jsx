@@ -10,21 +10,21 @@ import { Link } from 'react-router-dom';
 import { routes } from '../../../utilities/routes';
 import { combinedClasses } from '../../../utilities/format';
 
-export const MedicinesGroupsComp = () => {
+export const MedicinesDetailComp = () => {
     return (
         <section className={style.inventory}>
             <header className={style.header}><LayoutHeader /></header>
-            <MedicinesGroupsMain />
+            <MedicinesDetailMain />
         </section>
     )
 }
 
-export const MedicinesGroupsMain = () => {
+export const MedicinesDetailMain = () => {
     return (
         <div className={combinedClasses(dashboardstyle.main, style.main)}>
             <div className={dashboardstyle.head}>
                 <div className={dashboardstyle.info}>
-                    <h3 className={style.title}>Inventory <span>&nbsp; <MdOutlineKeyboardArrowRight /></span> &nbsp;List of Medicines</h3>
+                    <h3 className={style.title}>Inventory <span>&nbsp; <MdOutlineKeyboardArrowRight /></span> &nbsp;Medicine Details</h3>
                     <p>List of Medicines available for sales</p>
                 </div>
                 <div className={dashboardstyle.downloadButton}>
@@ -38,17 +38,18 @@ export const MedicinesGroupsMain = () => {
             </div>
             <CustomInput type="search" placeholder="Search" className={style.search} />
             <AnalysisTwo />
+            
             <div>
                 {/* <div className={dashboardstyle.eachAnalysis}> */}
                 <div className={addstyle.prescription}>
                     <div>
                         <h6>How to use</h6>
-                        <textarea name="" id="" cols="30" rows="10"></textarea>
+                        <div className={addstyle.prescriptionText} name="" id="" cols="30" rows="10"></div>
                         {/* <p>Take this medication by mouth with or without food as directed by your doctor, usually once daily.</p> */}
                     </div>
                     <div>
                         <h6>Side Effects</h6>
-                        <textarea name="" id="" cols="30" rows="10"></textarea>
+                        <div  className={addstyle.prescriptionText} name="" id="" cols="30" rows="10"></div>
                         {/* <p>Dizziness, lightheadedness, drowsiness, nausea, vomiting, tiredness, excess saliva/drooling, blurred vision, weight gain, constipation, headache, and trouble sleeping may occur. If any of these effects persist or worsen, consult your doctor.</p> */}
                     </div>
                 </div>

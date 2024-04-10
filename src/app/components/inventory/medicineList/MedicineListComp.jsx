@@ -104,7 +104,8 @@ export const Table = () => {
                             <td>{user.id}</td>
                             <td>{user.group}</td>
                             <td>{user.qty}</td>
-                            <td>View Full Detail</td>
+                            <td>
+                                <Link to={routes.medicineDetail()}>View Full Detail</Link></td>
                         </tr>
                     )}
                 </tbody>

@@ -14,6 +14,10 @@ export const routes={
         const medicinelist=this.inventory()
         return medicinelist + '/medicinesList'
     },
+    medicineDetail(){
+        const medicinegroup=this.inventory()
+        return medicinegroup +'/medicinedetail'
+    },
     medicinegroups(){
         const medicinegroup=this.inventory()
         return medicinegroup +'/medicinegroups'

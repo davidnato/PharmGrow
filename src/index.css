@@ -34,3 +34,6 @@ code {
   text-decoration: none;
   color: #ffffff;
 }
+.navDiv a.active {
+  background-color: rgb(48, 64, 127, 0.7);
+}
