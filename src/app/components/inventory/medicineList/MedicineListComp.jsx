@@ -67,7 +67,7 @@ export const Table = () => {
         axios.get('http://localhost:3000/stock')
             .then(result => {
                 setData(result.data);
-                console.log(data)
+                // console.log(data)
             })
             .catch(error => console.log(error))
     })

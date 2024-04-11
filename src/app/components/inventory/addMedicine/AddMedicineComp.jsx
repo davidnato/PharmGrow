@@ -53,6 +53,7 @@ export const Form = () => {
         id: " ",
         group: " ",
         qty: " "
+
     })
     const handleInput = (e) => {
         e.persist()
@@ -64,7 +65,9 @@ export const Form = () => {
             name: stock.name,
             id: stock.id,
             group: stock.group,
-            qty: stock.qty
+            qty: stock.qty,
+            usage: stock.usage,
+            sideEffects: stock.sideEffects
         }
         axios.post('http://localhost:3000/stock', data)
         .then(result => {
@@ -125,12 +128,12 @@ export const Form = () => {
         <div className={style.prescription}>
             <div>
                 <h6>How to use</h6>
-                <textarea name="" id="" cols="30" rows="10"></textarea>
+                <textarea name="usage" id="" cols="30" rows="10"></textarea>
                 {/* <p>Take this medication by mouth with or without food as directed by your doctor, usually once daily.</p> */}
             </div>
             <div>
                 <h6>Side Effects</h6>
-                <textarea name="" id="" cols="30" rows="10"></textarea>
+                <textarea name="sideEffects" id="" cols="30" rows="10"></textarea>
                 {/* <p>Dizziness, lightheadedness, drowsiness, nausea, vomiting, tiredness, excess saliva/drooling, blurred vision, weight gain, constipation, headache, and trouble sleeping may occur. If any of these effects persist or worsen, consult your doctor.</p> */}
             </div>
         </div>

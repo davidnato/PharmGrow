@@ -1,0 +1,101 @@
+.header{
+    display: flex;
+    flex-direction: row;
+    color: #0A112F;
+    /* font-family: ; */
+    align-items: center;
+    padding:10px 5% ;
+    justify-content: space-between;
+}
+.landing h1, .landing p{
+    margin: 0;
+    padding: 0;
+}
+.navlist, .navlist li, .navlist li span, .header div{
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-weight: 600;
+    font-size: 18px;    
+    
+}
+.navlist{
+    gap: 48px;
+}
+.navlist li{
+    gap: 8px;
+    
+}
+.header div{
+    gap: 16px;
+}
+.navlist li span, .navlist li span svg{
+    width: 16px;
+    height: 16px;
+}
+.header .loginlink{
+    color: #0A112F;
+}
+.button{
+    color: #0A112F;
+    background: #F4F4F5;
+    font-weight: 600;
+    font-size: 18px;
+    padding: 11px 24px;
+    border-radius: 100px;
+}
+.button2{
+    background: #30407F;
+    color: #ffffff;
+    padding: 22px 32px;
+}
+.headline{
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+.headline h1{
+    
+    font-family: Helvetica;
+    font-weight: 700;
+    font-size: 100px;
+    width: 750px;
+}
+.headline p{
+    color: #585860;
+    /* font-family: ; */
+    font-size: 24px;
+    font-weight: 500;
+}
+.blueh1{
+    color: #30407F;
+}
+.hero{
+    padding: 20px 10%;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding-bottom: 50px;
+}
+.headlinebtn{
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    align-items: center;
+}
+.headlinebtn p{
+    color: #585860;
+    font-size: 18px;
+    font-weight: 400;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    /* font-family: ; */
+}
+.headlinebtn p span{
+    font-weight: 600;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}

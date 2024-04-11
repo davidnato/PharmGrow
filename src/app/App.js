@@ -11,11 +11,12 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import { routes } from './utilities/routes.js';
 import { IsProtectedRoute } from './hoc/isProtectedRoute.jsx';
 import { MedicinesListPage } from './pages/MedicinesList.jsx';
+import { LandingPage } from './pages/Landing.jsx';
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <IsProtectedRoute><LoginPage/></IsProtectedRoute>
+    element: <LandingPage/>
   },
   {
     path: routes.dashboard(),

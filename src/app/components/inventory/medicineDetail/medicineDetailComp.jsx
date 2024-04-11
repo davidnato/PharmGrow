@@ -9,6 +9,8 @@ import { MyButton } from '../../button';
 import { Link } from 'react-router-dom';
 import { routes } from '../../../utilities/routes';
 import { combinedClasses } from '../../../utilities/format';
+import React from 'react';
+import axios from 'axios';
 
 export const MedicinesDetailComp = () => {
     return (
@@ -19,7 +21,30 @@ export const MedicinesDetailComp = () => {
     )
 }
 
+
 export const MedicinesDetailMain = () => {
+    // const [data, setData] = React.useState('');
+    // const [stock, setStock] = React.useState({
+    //     name: " ",
+    //     id: " ",
+    //     group: " ",
+    //     qty: " ",
+    //     usage: " ",
+    //     sideEffect: " ",
+
+    // })
+    const [data, setData] = React.useState([])
+
+    React.useEffect(() => {
+        axios.get('http://localhost:3000/stock')
+            .then(result => {
+                setData(result.data);
+                // console.log(data.usage)
+            })
+            .catch(error => 
+                console.log(error))
+    })
+
     return (
         <div className={combinedClasses(dashboardstyle.main, style.main)}>
             <div className={dashboardstyle.head}>
@@ -38,21 +63,25 @@ export const MedicinesDetailMain = () => {
             </div>
             <CustomInput type="search" placeholder="Search" className={style.search} />
             <AnalysisTwo />
-            
+
             <div>
                 {/* <div className={dashboardstyle.eachAnalysis}> */}
-                <div className={addstyle.prescription}>
-                    <div>
-                        <h6>How to use</h6>
-                        <div className={addstyle.prescriptionText} name="" id="" cols="30" rows="10"></div>
-                        {/* <p>Take this medication by mouth with or without food as directed by your doctor, usually once daily.</p> */}
+                {/* {data.map((medicine, index) => */}
+                    <div className={addstyle.prescription}>
+                         <div>
+
+                            <h6>How to use</h6>
+                            <div className={addstyle.prescriptionText} name="usage" id={data.id} cols="30" rows="10">{data.usage}</div>
+                            {/* <p>Take this medication by mouth with or without food as directed by your doctor, usually once daily.</p> */}
+                        </div>
+                        <div>
+                            <h6>Side Effects</h6>
+                            <div className={addstyle.prescriptionText} name="" id="" cols="30" rows="10">{data.sideEffects}</div>
+                            {/* <p>Dizziness, lightheadedness, drowsiness, nausea, vomiting, tiredness, excess saliva/drooling, blurred vision, weight gain, constipation, headache, and trouble sleeping may occur. If any of these effects persist or worsen, consult your doctor.</p> */}
+                        </div>
+
                     </div>
-                    <div>
-                        <h6>Side Effects</h6>
-                        <div  className={addstyle.prescriptionText} name="" id="" cols="30" rows="10"></div>
-                        {/* <p>Dizziness, lightheadedness, drowsiness, nausea, vomiting, tiredness, excess saliva/drooling, blurred vision, weight gain, constipation, headache, and trouble sleeping may occur. If any of these effects persist or worsen, consult your doctor.</p> */}
-                    </div>
-                </div>
+                {/* )} */}
                 <MyButton type='outline' title='Save Details' className={addstyle.btn}
                 // onClick={handleadd}
                 // disabled={isSubmitting}
