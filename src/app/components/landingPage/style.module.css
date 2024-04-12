@@ -5,7 +5,7 @@
     /* font-family: ; */
     align-items: center;
     padding:10px 5% ;
-    justify-content: space-between;
+   justify-content: space-between;
 }
 .landing h1, .landing p{
     margin: 0;
@@ -54,13 +54,15 @@
     display: flex;
     flex-direction: column;
     gap: 24px;
+    max-width: 750px;
+    width: 100%;
+    /* flex-wrap: wrap; */
 }
 .headline h1{
-    
     font-family: Helvetica;
     font-weight: 700;
     font-size: 100px;
-    width: 750px;
+    
 }
 .headline p{
     color: #585860;
@@ -72,7 +74,7 @@
     color: #30407F;
 }
 .hero{
-    padding: 20px 10%;
+    padding: 0 10%;
     display: flex;
     flex-direction: column;
     gap: 40px;
@@ -99,3 +101,56 @@
     flex-direction: row;
     align-items: center;
 }
+
+.menuicon {
+    display: none;
+}
+
+@media (max-width:1100px) {
+   
+   .header .navlistBar{
+    flex-direction: row-reverse !important;
+   }
+    .menuicon {
+        display: block;
+    }
+   
+    .menu {
+        flex-direction: column;
+        position: absolute;
+        /* left: 0; */
+        right: 40px;
+        
+        top: 80px;
+        padding: var(--app-padding);
+        background-color: var(--app-header-background);
+    }
+    .menu ul {
+        padding: 0;
+        background-color: #ffffff;
+        width: 150px;
+        padding-left: 15px;
+    }
+    .menu ul.mobile {
+        display: block;
+    }
+    .menu ul li {
+        padding: 10px 0;
+    }
+    .menu ul.hidden {
+        display: none;
+    }
+}
+@media (max-width: 1500px) {
+    .navlist{
+        gap: 20px;
+    }
+}
+.dashboardView, .dashboardView svg g{
+    width: 100%;
+    background: none;
+}
+
+/* .dashboardView svg rect{
+    fill: none;
+} */

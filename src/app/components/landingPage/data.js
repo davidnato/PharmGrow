@@ -6,3 +6,7 @@ export const navBar=[
     {title: 'Pricing'},
     {title: 'Resources', arrow: <MdOutlineArrowDropDown/>}
 ]
+
+export const navList=[
+    
+]

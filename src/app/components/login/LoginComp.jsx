@@ -13,6 +13,7 @@ import { Link } from 'react-router-dom'
 import { combinedClasses } from '../../utilities/format'
 
 
+
 export const LoginDiv = () => {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
@@ -129,6 +130,7 @@ export const LoginDiv = () => {
                     <h3>Sign in</h3>
                     <p>Please login to continue to your account</p>
                 </div>
+                
                 <form action="" className={style.myForm}>
                     <div className={style.inputs}>
                         <CustomInput onChange={handleEmail} type="email" placeholder="Username" label={"Username"} />
