@@ -9,6 +9,7 @@ import { HiOutlineGlobeAlt } from 'react-icons/hi'
 import React from 'react'
 import { ReactComponent as MenuIcon } from '../../assests/icon/menu.svg'
 import { ReactComponent as Dashboard } from '../../assests/icon/dashboard.svg'
+import { FaInstagram, FaFacebookF, FaLinkedin, FaTwitter } from "react-icons/fa6";
 
 export const LandingHeader = () => {
     const [showMenu, setMenu] = React.useState(false);
@@ -97,10 +98,12 @@ export const LandingFooter = () => {
             <div className={style.footer1}>
                 <Logo className={style.logo} />
                 {/* <Navigation/> */}
-                {navList.map((lists) => {
-                    return <Navigation {...lists} />
-                })
-                }
+                <div className={style.footerlistBar}>
+                    {navList.map((lists) => {
+                        return <Navigation {...lists} />
+                    })
+                    }
+                </div>
 
 
             </div>
@@ -127,9 +130,11 @@ export const Navigation = (props) => {
 export const SocialLinks = () => {
     return (
         <div className={style.socials}>
-            {/* <div><FaInstagram className={style.logo} /></div>
+            <div><FaInstagram className={style.logo} /></div>
+            <div><FaFacebookF className={style.logo} /></div>
+            <div><FaLinkedin className={style.logo} /></div>
             <div><FaTwitter className={style.logo} /></div>
-            <div><FaFacebookF className={style.logo} /></div> */}
+
         </div>
     )
 }
