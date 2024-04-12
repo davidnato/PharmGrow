@@ -1,6 +1,6 @@
 import { Logo } from '../logo'
 import style from './style.module.css'
-import { navBar,navList } from './data'
+import { navBar, navList } from './data'
 import { Link } from 'react-router-dom'
 import { routes } from '../../utilities/routes'
 import { MyButton } from '../button'
@@ -81,7 +81,13 @@ export const DashboardView = () => {
 }
 export const Offer = () => {
     return (
-        <section></section>
+        <section className={style.offer}>
+            <h1 className={style.blueh1}>Get Started</h1>
+            <p>Streamline your global business and grow your team effortlessly.</p>
+            <MyButton type='primary' className={combinedClasses(style.button, style.button2)}>
+                <Link to='/signUP' className={combinedClasses(style.button2, 'link')}>Create Account</Link>
+            </MyButton>
+        </section>
     )
 }
 
@@ -91,13 +97,12 @@ export const LandingFooter = () => {
             <div className={style.footer1}>
                 <Logo className={style.logo} />
                 {/* <Navigation/> */}
-                <div className={style.navDiv}>
-                    {navList.map((lists) => {
-                        return <Navigation {...lists} />
-                    })
-                    }
-                </div>
-                <SocialLinks />
+                {navList.map((lists) => {
+                    return <Navigation {...lists} />
+                })
+                }
+
+
             </div>
             <div>
                 <Footerfooter />
@@ -112,7 +117,7 @@ export const Navigation = (props) => {
             <p className={style.navTitle}>{props.navTitle} </p>
             <ul className={style.navList}>
                 {props.navs.map((nav) =>
-                    <li className='p-sixteen'>{nav}</li>
+                    <li className={style.footerSubList}>{nav}</li>
                 )}
             </ul>
         </div>
@@ -133,15 +138,11 @@ export const Footerfooter = () => {
     return (
         <div className={style.footer2}>
             <ul className={style.footerlist}>
-                <li>Privacy Center</li>
+                <li>©2022. All Rights Reserved.r</li>
                 <li>Privacy Policy</li>
-                <li>Cookies</li>
-                <li>About Ads</li>
+                <li>Terms of Service</li>
             </ul>
-            <div className={style.owner}>
-                {/* <p ><FaEarthAfrica /> India (English)</p> */}
-                <p > &#169; Spotify AB</p>
-            </div>
+            <SocialLinks />
         </div>
 
     )
