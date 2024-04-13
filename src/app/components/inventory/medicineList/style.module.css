@@ -94,3 +94,6 @@
 .table tbody tr{
     border-bottom: 1px solid rgb(40, 55, 75, 0.25);
 }
+.details{
+    cursor: pointer;
+}

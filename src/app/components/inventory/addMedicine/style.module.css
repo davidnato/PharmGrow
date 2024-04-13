@@ -32,9 +32,18 @@
    
     
 }
+.prescription{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 30px;
+    margin-top: 30px;
+}
+
 .prescription div h6{
     font-weight: 600;
     font-size: 16px;
+    margin-bottom: 10px;
 }
 .prescription div textarea, .prescriptionText{
     height: 50px;

@@ -1,4 +1,4 @@
-import { MdOutlineHealthAndSafety, MdOutlineKeyboardArrowDown, MdKeyboardDoubleArrowRight, MdOutlineMedicalServices } from 'react-icons/md';
+import { MdOutlineHealthAndSafety, MdOutlineKeyboardArrowDown, MdKeyboardDoubleArrowRight, MdOutlineMedicalServices, } from 'react-icons/md';
 import { FaNotesMedical } from "react-icons/fa6";
 import { HiOutlineExclamationTriangle } from "react-icons/hi2";
 import { routes } from '../../utilities/routes';
@@ -13,6 +13,6 @@ export const analysisOne = [
 
 export const analysisTwo=[
     {title: 'Medicine', count1: '302', count2: '11', count1Title: 'Total no of Medicines', count2Title: 'Medicine Groups'},
-    {title: 'Inventory in Qty', navigate: 'Send Stock Request', arrow: <MdOutlineKeyboardArrowDown/>, count1: '302', count2: '11', count1Title: 'Qty of Medicines sold', count2Title: 'Invoices Generated', count3: '08', count3Title: 'Stock Left'},
+    {title: 'Inventory in Qty', navigate: 'Send Stock Request', arrow: <MdKeyboardDoubleArrowRight/>, count1: '302', count2: '11', count1Title: 'Qty of Medicines sold', count2Title: 'Invoices Generated', count3: '08', count3Title: 'Stock Left'},
    
 ]

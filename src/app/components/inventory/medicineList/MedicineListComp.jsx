@@ -1,7 +1,7 @@
 import { SideBar } from "../../dashboard/sidebar"
 import style from './style.module.css';
 import dashboardstyle from '../../dashboard/style.module.css'
-import { MdOutlineKeyboardArrowRight, MdOutlineAdd, MdOutlineFilterAlt, MdOutlineKeyboardArrowDown } from "react-icons/md";
+import { MdOutlineKeyboardArrowRight, MdOutlineAdd, MdOutlineFilterAlt, MdOutlineKeyboardArrowDown, MdKeyboardDoubleArrowRight } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { routes } from "../../../utilities/routes";
 import { CustomInput } from "../../input";
@@ -12,6 +12,8 @@ import React from "react";
 import { HiOutlineSelector } from "react-icons/hi";
 import axios from 'axios';
 import { LayoutHeader } from '../../header';
+import { Navigate } from "react-router-dom";
+import { MedicinesDetailMain } from "../medicineDetail/medicineDetailComp";
 
 
 
@@ -62,6 +64,7 @@ export const MedicinesListMain = () => {
 
 export const Table = () => {
     const [data, setData] = React.useState([])
+    const [index, setIndex] = React.useState()
 
     useEffect(() => {
         axios.get('http://localhost:3000/stock')
@@ -70,11 +73,18 @@ export const Table = () => {
                 // console.log(data)
             })
             .catch(error => console.log(error))
-    })
-
+    }, [])
+    const handleMore = (id) => {
+        console.log(id)
+        setIndex(id)
+        // Navigate(routes.medicineDetail())
+    }
     return (
 
         <div>
+            {index ?
+            <MedicinesDetailMain index={index}/>
+            :
             <table className={style.table}>
                 <thead>
                     <tr className={style.headrow}>
@@ -104,12 +114,16 @@ export const Table = () => {
                             <td>{user.id}</td>
                             <td>{user.group}</td>
                             <td>{user.qty}</td>
-                            <td>
-                                <Link to={routes.medicineDetail()}>View Full Detail</Link></td>
+                            <td onClick={() => handleMore(user.id)} className={style.details}>View Full Detail &nbsp;
+                                <MdKeyboardDoubleArrowRight/>
+                            </td>
+
                         </tr>
                     )}
                 </tbody>
             </table>
+            }
+            
         </div>
     )
 }

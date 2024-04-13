@@ -30,3 +30,21 @@
     gap: 10px;
     background: #ffffff;
   }
+
+  .deletebtn{
+    color: #28374B;
+    background-color: #ffffff;
+    margin: 30px 0;
+    display: flex;
+    align-items: center;
+  }
+  .nowrap{
+    display: flex;
+    flex-direction: row;
+    gap: 10%;
+    flex-wrap: nowrap;
+    height: 100%;
+  }
+  .eachAnalysis{
+    /* height: 100%; */
+  }

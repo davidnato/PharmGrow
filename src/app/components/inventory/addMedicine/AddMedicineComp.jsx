@@ -52,18 +52,32 @@ export const Form = () => {
         name: " ",
         id: " ",
         group: " ",
-        qty: " "
+        qty: " ",
+        usage: " ",
+        sideEffects: " "
 
     })
+    React.useEffect(() => {
+        axios.get('http://localhost:3000/stock')
+            .then(result => {
+                
+                setData(result.data);
+                
+            })
+            .catch(error =>
+                console.log(error))
+    }, [])
+    const id=data.length + 1
     const handleInput = (e) => {
         e.persist()
         setStock({ ...stock, [e.target.name]: e.target.value })
     }
     const saveStock = (e) => {
         e.preventDefault()
+        
         const data = {
             name: stock.name,
-            id: stock.id,
+            id: id,
             group: stock.group,
             qty: stock.qty,
             usage: stock.usage,
@@ -72,6 +86,7 @@ export const Form = () => {
         axios.post('http://localhost:3000/stock', data)
         .then(result => {
             setData(result.data)
+            console.log(data)
             toast('Stock Succesfully Added')
             setSuccess('Stock Successfully Added')
         })
@@ -127,13 +142,13 @@ export const Form = () => {
         </div>
         <div className={style.prescription}>
             <div>
-                <h6>How to use</h6>
-                <textarea name="usage" id="" cols="30" rows="10"></textarea>
+                <h6 >How to use</h6>
+                <textarea name="usage" id="" cols="30" rows="10" onChange={handleInput}></textarea>
                 {/* <p>Take this medication by mouth with or without food as directed by your doctor, usually once daily.</p> */}
             </div>
             <div>
                 <h6>Side Effects</h6>
-                <textarea name="sideEffects" id="" cols="30" rows="10"></textarea>
+                <textarea name="sideEffects" id="" cols="30" rows="10" onChange={handleInput}></textarea>
                 {/* <p>Dizziness, lightheadedness, drowsiness, nausea, vomiting, tiredness, excess saliva/drooling, blurred vision, weight gain, constipation, headache, and trouble sleeping may occur. If any of these effects persist or worsen, consult your doctor.</p> */}
             </div>
         </div>

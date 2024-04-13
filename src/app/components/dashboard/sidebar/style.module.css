@@ -32,7 +32,22 @@
     display: flex;
     align-items: center;
 }
-
+/* .head-widget .pic-status, .head-widget .pic-status img{
+    height: 40px;
+    width: 40px;
+    z-index: 1;
+    position: relative;
+} */
+.picDiv div{
+    background-color: #95CF48;
+    border-radius: 50%;
+    width: 8px;
+    height: 8px;
+    z-index: 2;
+    position: absolute;
+    bottom: 2px;
+    right: -3px;
+}
 .pic{
     height: 42px;
     width: 42px;
