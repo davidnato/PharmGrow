@@ -22,10 +22,13 @@ export const routes={
         const medicinegroup=this.inventory()
         return medicinegroup +'/medicinegroups'
     },
-    reports(){
-        return '/report'
+    analysis(){
+        return '/analysis'
     },
     configuration(){
+        return '/report'
+    },
+    report(){
         return '/report'
     },
     account(){
@@ -38,7 +41,7 @@ export const routes={
         return '/report'
     },
     settings(){
-        return '/report'
+        return '/settings'
     },
     help(){
         return '/report'

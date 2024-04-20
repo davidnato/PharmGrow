@@ -67,7 +67,7 @@ export const Table = () => {
     const [index, setIndex] = React.useState()
 
     useEffect(() => {
-        axios.get('http://localhost:3000/stock')
+        axios.get('http://localhost:3001/stock')
             .then(result => {
                 setData(result.data);
                 // console.log(data)

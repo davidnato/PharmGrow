@@ -8,7 +8,7 @@ export const analysisOne = [
         icon: <FaNotesMedical />, title: "Rs. 8,55,875", description: 'Revenue :', descriptionInfo: 'Jan 2022', dropDown: <MdOutlineKeyboardArrowDown />,
          footer: "View Detailed Report", arrowRight: <MdKeyboardDoubleArrowRight/>,url: routes.revenue()
     },
-    { icon: <MdOutlineMedicalServices />, title: "298", description: "Medicines Available", url: routes.available(),
+    { icon: <MdOutlineMedicalServices />, title: "298", description: "Medicines Available", url: routes.medicineslist(),
     footer: "View Detailed Report", arrowRight: <MdKeyboardDoubleArrowRight /> },
     { icon: <FaNotesMedical />, title: "01", description: "Medicine Shortage", url: routes.notavailable(),
      footer: "View Detailed Report", arrowRight: <MdKeyboardDoubleArrowRight /> }
@@ -17,7 +17,7 @@ export const analysisOne = [
 export const analysisTwo=[
     {title: 'Inventory', navigate: 'Go to Configuration', url: routes.configuration(), arrow: <MdKeyboardDoubleArrowRight/>, url: routes.medicinegroups(),
      count1: '302', count2: '11', count1Title: 'Total no of Medicines', count2Title: 'Medicine Groups'},
-    {title: 'Quick Report', navigate: 'March 2024', url: routes.reports(), arrow: <MdOutlineKeyboardArrowDown/>, url: routes.reports(),
+    {title: 'Quick Report', navigate: 'March 2024', arrow: <MdOutlineKeyboardArrowDown/>, url: routes.report(),
      count1: '302', count2: '11', count1Title: 'Qty of Medicines sold', count2Title: 'Invoices Generated'},
     {title: 'My Pharmacy', navigate: 'Go to User Management', url: routes.settings(), arrow: <MdKeyboardDoubleArrowRight/>, url: routes.management(),
     count1: '302', count2: '11', count1Title: 'Total no of Suppliers', count2Title: 'Total no of Users'},

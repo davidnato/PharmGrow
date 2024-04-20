@@ -19,8 +19,8 @@ export const InventoryComp = () => {
 export const InventoryMain = () => {
     return (
         <div className={combinedClasses(dashboardstyle.main, style.mainDiv)}>
-            <div className={dashboardstyle.head}>
-                <div className={dashboardstyle.info}>
+            <div className={combinedClasses(dashboardstyle.head, style.head)}>
+                <div className={combinedClasses(dashboardstyle.info, style.info)}>
                     <h3>Inventory</h3>
                     <p>List of Medicines available for sales</p>
                 </div>
@@ -40,7 +40,7 @@ export const InventoryMain = () => {
 
 export const AnalysisOne = () => {
     return (
-        <div className={dashboardstyle.analysis}>
+        <div className={combinedClasses(dashboardstyle.analysis, style.analysis)}>
             {
                 analysisOne.map((analysis) =>
                     <div className={dashboardstyle.eachAnalysis}>

@@ -1,0 +1,96 @@
+.analysisRow1{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* grid-template-rows: 1fr 1fr; */
+    font-family: 'Poppins', sans-serif;
+    gap: 15px;
+}
+.eachbox{
+    background: #ffffff;
+    border: 0.7px solid #EDF2F6;
+    box-shadow: 0 2.8 14 0 rgb(238, 238, 238, 0.502);
+    border-radius: 14.4px;
+    padding: 5%;
+}
+.analysisRow2{
+    font-family: 'Poppins', sans-serif;
+    display: grid;
+    grid-template-columns: 1.5fr 1.5fr 1fr;
+    /* grid-template-rows: 1fr 1fr; */
+   color:#05004E;
+    gap: 30px !important;
+}
+.analysisRow2 .gridGrid{
+    /* background: red; */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+   
+    gap: 15px;
+}
+/* .analysisRow2 div{
+    height: ;
+} */
+.analysisRow2 div .eachbox{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.eachbox h6{
+    font-weight: 600;
+    font-size: 17.38px;
+}
+.amount{
+    display: flex;
+    flex-direction: row;
+    gap: 4px;
+    align-items: center;
+}
+.amount h3{
+    font-weight: 600;
+    font-size: 26px;
+}
+.amount div{
+    background: rgb(39, 202, 88, 0.3);
+    padding: 0px 1.2px;
+    display: flex;
+    align-items: center;
+    color: #27CA58;
+    border-radius: 1.2px;
+    font-weight: 400;
+    font-size: 13.6px;
+    height: 90%;
+}
+.p1{
+    color: #5F6671;
+    font-weight: 400;
+    font-size: 15.91px;
+}
+.details{
+    background: #EEEDEE;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 2px 10px;
+    border-radius: 2px;
+    font-weight: 400;
+    font-size: 15.91px;
+    color: rgb(29, 36, 46, 0.93);
+}
+.amount .lastIndex{
+    background: rgb(240, 48, 48, 0.3);
+}
+.table, .table thead, .table tbody{
+    width: 100%;
+}
+table thead tr th{
+    text-align: left;
+    color: #96A5B8;
+    font-weight: 400;
+    font-size: 16.5px;
+}
+table tbody tr td{
+    color: #444A6D;
+    font-weight: 400;
+    font-size: 17px;
+}

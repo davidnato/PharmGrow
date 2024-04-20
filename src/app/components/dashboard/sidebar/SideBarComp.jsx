@@ -18,9 +18,18 @@ export const SideBarDiv = () => {
 
         // !show ? arrow===<MdOutlineKeyboardArrowDown/>:<MdOutlineKeyboardArrowUp/>
     }
+    const makeSubNavActive = ()=> {
+
+    }
     const navDropDown = (e) => {
-        // setDropDown(!dropDown)
-        (e.target.className === style.subData) ? setDropDown(dropDown) : setDropDown(!dropDown)
+        e.preventDefault()
+        // setDropDown(dropDown)
+        if (e.target.className === style.subData){
+             setDropDown(!dropDown)
+        }
+        // else{
+        //     setDropDown(!dropDown)
+        //     }
         // let subMenu= e.target.querySelector(style.subData)
 
         // if (e.target.className != style.subtitle) {
@@ -45,6 +54,7 @@ export const SideBarDiv = () => {
     // const subNavList = sideBarNavs1.subtitle.map((subNav, index) =>
     //     <li key={index}>{subNav.title}</li>
     // )
+
     return (
         <div className={style.sidebar}>
             <div className={style.headermain}>
@@ -53,7 +63,7 @@ export const SideBarDiv = () => {
                     <div className={style.profileHead}>
                         <div className={style.intro}>
                             <div className={style.picDiv}>
-                                <ProfileDP className={style.pic}/>
+                                <ProfileDP className={style.pic} />
                                 <div></div>
                             </div>
                             <div className={style.info}>
@@ -90,7 +100,7 @@ export const SideBarDiv = () => {
                     </div>
                     <div className={style.navBarDiv}>
                         <div className={combinedClasses(style.navDiv1, 'navDiv')} >
-                            {
+                        {
                                 sideBarNavs1.map((nav, index) =>
                                     <div>
                                         <NavLink to={nav.url} className={combinedClasses(style.navBar, 'bluebglink')}>
@@ -175,14 +185,15 @@ export const SideBarDiv = () => {
                                     </Link>
                                 )
                             }
-                        </div>
+                        {/* )} */}
                     </div>
-                </main>
             </div>
-            <footer>
-                <p>Powered by Jasiri © 2024</p>
-                <p>v 1.1.2</p>
-            </footer>
-        </div>
+        </main>
+            </div >
+    <footer>
+        <p>Powered by Jasiri © 2024</p>
+        <p>v 1.1.2</p>
+    </footer>
+        </div >
     )
 }

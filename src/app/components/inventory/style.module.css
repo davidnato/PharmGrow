@@ -23,3 +23,9 @@
     align-items: center;
     gap: 10px;
   }
+  .analysis{
+    justify-content: flex-start;
+  }
+  .info{
+    align-items: center;
+  }

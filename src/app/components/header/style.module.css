@@ -4,14 +4,20 @@
     flex-direction: row;
     justify-content: space-between !important;
     align-items: center;
-    /* box-shadow: 5px 2px 10px 0 #1A1A1A; */
+    border-bottom: 1px solid #E3EBF3;
     padding: var(--side-bar-padding);
+    background: #F7FAFD;
     gap: 15px;
     /* padding-bottom: 5px; */
     /* width: 100%; */
 }
+@media (max-width:860px) {
+    .header{
+        flex-direction: column-reverse;
+    } 
+}
 /* .search{
-    background: #E3EBF3 !important;
+    background:  !important;
 } */
 .language{
     display: flex;

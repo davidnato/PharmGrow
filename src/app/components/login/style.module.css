@@ -110,8 +110,7 @@
     align-items: center;
 }
 .loginBtn:disabled{
-    background-color: red;
-    /* background-color: rgb(0, 0, 0, 0.5); */
+    background-color: rgb(0, 0, 0, 0.5);
     opacity: 0.3;
     filter: blur();
     filter: brightness(10);
@@ -135,6 +134,7 @@
     align-items: center;
     justify-content: center;
 }
+
 .loginBtn span{
     display: flex;
     align-items: center;

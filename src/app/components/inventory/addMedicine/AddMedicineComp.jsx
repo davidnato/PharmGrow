@@ -58,7 +58,7 @@ export const Form = () => {
 
     })
     React.useEffect(() => {
-        axios.get('http://localhost:3000/stock')
+        axios.get('http://localhost:3001/stock')
             .then(result => {
                 
                 setData(result.data);
@@ -77,13 +77,13 @@ export const Form = () => {
         
         const data = {
             name: stock.name,
-            id: id,
+            id: JSON.stringify(id),
             group: stock.group,
             qty: stock.qty,
             usage: stock.usage,
             sideEffects: stock.sideEffects
         }
-        axios.post('http://localhost:3000/stock', data)
+        axios.post('http://localhost:3001/stock', data)
         .then(result => {
             setData(result.data)
             console.log(data)

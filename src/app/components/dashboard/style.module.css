@@ -7,6 +7,7 @@
 }
 .dashboardSection{
     width: 100%;
+    background: var(--dashboard-bg);
 }
 
 .dashboardMain .main{
@@ -17,6 +18,19 @@
     gap: 30px;
     background: var(--dashboard-bg);
     margin-bottom: 30px;
+}
+@media (max-width:850px) {
+    .main .head{
+        flex-direction: column;
+        justify-content: center;
+
+    }
+    .main .head .downloadButton{
+        margin-top: 20px;
+    }
+    .analysis{
+        flex-direction: column;
+    }
 }
 .main h3, .main h6, .main p{
     margin: 0;
@@ -82,29 +96,43 @@
 } */
 .analysis {
     gap: 36px;
+    justify-content: center;
 }
 .analysis2{
     gap: 32px;
+    justify-content: center;
 }
 .eachAnalysis{
     display: flex;
     flex-direction: column;
     border: 1px solid #C2C1DD;
     border-radius: 5px;
-    /* max-width: 275px; */
-    max-width: 22.5%;
+    max-width: 283px;
+    /* max-width: 22.5%; */
     width: 100%;
-    justify-content: space-between;
+    
     background: #ffffff;
+
+
     
     /* margin: 0 auto; */
 }
+/* @media (min-width:1200px) and (max-width: 1595px) {
+    .analysis, .analysis2{
+        justify-content: flex-start;
+        padding-left: 5%;
+    }
+} */
+
+.analysis .eachAnalysis .main{
+    padding: 10px 15px;
+}
 
 .analysis2 .eachAnalysis{
-    max-width: 48.3%;
+    max-width: 605px;
     width: 100%;
     /* max-width: 590px; */
-    border: 1px solid rgb(40, 55, 75, 0.25);
+    border: 1px solid #28374B;
     background: #ffffff;
     padding-top: 25px;
     padding-bottom: 25px;
@@ -192,20 +220,54 @@
     font-weight: 700;
     font-size: 20px;
 } 
+.mainIndex .main .image, .mainIndex{
+    border: 1px solid #C2C1DD;
+}
+.mainIndex .main .image svg{
+    color: #C2C1DD;
+}
+.mainIndex .footer{
+    background-color: #C2C1DD ;
+}
+.index1, .index1 .main .image, .index1 .main .image svg{
+    border: 1px solid rgb(255, 207, 92, 0.5);
+    color: rgb(255, 207, 92, 0.5);
+}
+.index1 .footer{
+    background: rgb(255, 207, 92, 0.5) !important;
+}
+.index2, .index2 .main .image, .index2 .main .image svg{
+    border: 1px solid rgb(65, 53, 243, 0.5);
+    color: rgb(65, 53, 243, 0.5);
+}
+.index2 .footer{
+    background: rgb(65, 53, 243, 0.5) !important;
+}
+
 .eachAnalysis .footer{
     background: #C2C1DD;
     display: flex;
-    flex-direction: row;
+    flex-direction: row !important;
     gap: 10px;
     align-items: center;
+    justify-content: space-between;
     padding: 7px 0;
-    justify-content: center;
     font-size: 12px;
     font-weight: 400;
     /* position: relative;
     bottom: 0; */
     width: 100%;
     cursor: pointer;
+    margin: 0 auto;
+}
+.eachAnalysis .footer p{
+    display: flex;
+    justify-content: center;
+    padding-left: 15px;
+    /* width: 100%; */
+}
+.eachAnalysis .footer svg{
+    padding-right: 15px;
 }
 .description{
     display: flex;

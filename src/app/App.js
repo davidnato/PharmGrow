@@ -12,15 +12,22 @@ import { routes } from './utilities/routes.js';
 import { IsProtectedRoute } from './hoc/isProtectedRoute.jsx';
 import { MedicinesListPage } from './pages/MedicinesList.jsx';
 import { LandingPage } from './pages/Landing.jsx';
+import { AnalysisPage } from './pages/Analysis.jsx';
+import { ReportPage } from './pages/Report.jsx';
+import { SettingsPage } from './pages/Settings.jsx';
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <LandingPage/>
   },
+  // {
+  //   path: routes.dashboard(),
+  //   element: <IsProtectedRoute><DashboardPage/></IsProtectedRoute>
+  // },
   {
     path: routes.dashboard(),
-    element: <IsProtectedRoute><DashboardPage/></IsProtectedRoute>
+    element:<DashboardPage/>
   },
   {
     path: '/login',
@@ -49,6 +56,18 @@ const router = createBrowserRouter([
   {
     path: routes.medicineslist(),
     element: <MedicinesListPage/>
+  },
+  {
+    path: routes.analysis(),
+    element: <AnalysisPage/>
+  },
+  {
+    path: routes.report(),
+    element: <ReportPage/>
+  },
+  {
+    path: routes.settings(),
+    element: <SettingsPage/>
   },
   {
     path: '*',

@@ -1,0 +1,54 @@
+.cancelbtn{
+    border: 2px solid #273360;
+    color: #273360;
+}
+.buttons{
+    display: flex;
+    gap: 20px;
+}
+.buttons button{
+    width: 128px;
+    text-align: center;
+}
+.settings{
+    display: flex;
+    flex-direction: row;
+    padding: 30px;
+    background-color: #ffffff;
+    font-family: 'Inter', sans-serif;
+}
+.column1{
+    padding-right: 15px;
+    border-right: 0.75px solid rgb(0, 0, 0, 0.15);
+}
+.list{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: #273360;
+    border-radius: 5px;
+    background-color: rgb(79, 128, 225, 0.15);
+    font-size: 12.76px;
+    font-weight: 500;
+    gap: 15px;
+    padding: 10px;
+    margin: 5px 0;
+}
+.intro{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+.dp svg{
+    height: 55px;
+    width: 55px;
+}
+.dp{
+    border-radius: 50%;
+    height: 48px;
+    width: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}

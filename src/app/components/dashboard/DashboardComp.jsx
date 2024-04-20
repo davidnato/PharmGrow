@@ -71,8 +71,9 @@ export const AnalysisOne = () => {
     return (
         <div className={style.analysis}>
             {
-                analysisOne.map((analysis) =>
-                    <div className={style.eachAnalysis}>
+                analysisOne.map((analysis, index) =>
+                    <div key={index} className={combinedClasses(style.eachAnalysis, index===0&2 && style.mainIndex || index===1 && style.index1
+                        || index===3 && style.index2 || index===4 && style.index3)}>
                         <div className={style.main}>
                             <div className={style.image}>{analysis.icon}</div>
                             <h6>{analysis.title}</h6>
