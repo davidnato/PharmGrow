@@ -30,6 +30,7 @@ import {
     Legend,
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
+// import { ReportMain } from '../shortage/ShortageComp';
 
 ChartJS.register(
     CategoryScale,
@@ -42,7 +43,7 @@ ChartJS.register(
     Legend
 );
 
-export const ReportMain = () => {
+export const ReportComp = () => {
 
     return (
         <section className={dashboardStyle.dashboardSection}>
@@ -61,7 +62,7 @@ export const Main = () => {
     return (
         <section className={dashboardStyle.main}>
             <Head />
-            <SalesMain />
+            <ReportMain />
         </section>
     )
 }
@@ -103,7 +104,7 @@ export const Head = () => {
         </div>
     </div>
 }
-export const SalesMain = () => {
+export const ReportMain = () => {
     return <section className={style.salesMain}>
         <div className={style.row1}>
             <div className={combinedClasses(analysisStyle.eachbox, style.eachbox)}>

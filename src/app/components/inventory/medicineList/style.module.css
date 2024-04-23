@@ -37,6 +37,7 @@
     font-size: 14px;
     font-weight: 400;
     color: #1D242E;
+    margin-bottom: 20px;
 }
 .head2 div{
     display: flex;
@@ -97,10 +98,13 @@
 .details{
     cursor: pointer;
 }
-.headrow .head{
-    height: 50px;
-    /* background: blue; */
-}
+/* .table th{ */
+    /* height: 50px; */
+    /* background: blue;
+    display: flex;
+    align-items: center; */
+    /* flex-direction: row; */
+/* } */
 .headrow .head svg{
     margin-top: 10px;
 }

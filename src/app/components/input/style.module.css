@@ -94,5 +94,23 @@ input ::placeholder{
     align-items: center;
     margin-top: 7px;
     cursor: pointer;
+    
 }
-
+.icon svg {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 30px;
+}
+.searchDiv{
+    position: relative;
+}
+.searchList{
+    position: absolute;
+    top: 50px;
+    /* border-radius: 15px;
+    padding: 20px; */
+}
+.searchList li{
+    list-style: none;
+}

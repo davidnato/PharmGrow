@@ -34,11 +34,11 @@ export const Head = () => {
         setShow(!show)
         // !show ? arrow===<MdOutlineKeyboardArrowDown/>:<MdOutlineKeyboardArrowUp/>
     }
-    const handleSubmit=()=>{
+    const handleSubmit = () => {
 
     }
-    const handleCancel=()=>{
-        
+    const handleCancel = () => {
+
     }
     return <div className={dashboardStyle.head}>
         <div className={dashboardStyle.info}>
@@ -48,15 +48,15 @@ export const Head = () => {
         <div className={style.buttons} onClick={handleDropDown}>
             <MyButton type='primary'
                 onClick={handleSubmit}
-                //disabled={isSubmitting}
-                >
+            //disabled={isSubmitting}
+            >
                 {/* <Link to="/dashboard" className={combinedClasses(style.loginlink, 'link')}> Sign In </Link> */}
                 Save Changes
             </MyButton>
             <MyButton type='outline' className={style.cancelbtn}
                 onClick={handleCancel}
-                //disabled={isSubmitting}
-                >
+            //disabled={isSubmitting}
+            >
                 {/* <Link to="/dashboard" className={combinedClasses(style.loginlink, 'link')}> Sign In </Link> */}
                 Cancel
             </MyButton>
@@ -64,16 +64,16 @@ export const Head = () => {
     </div>
 }
 export const SettingsMain = () => {
-    const handleChange=()=>{
+    const handleChange = () => {
 
     }
-    const handleDelete=()=>{
-        
+    const handleDelete = () => {
+
     }
     return (
         <section className={style.settings}>
             <div className={style.column1}>
-                {data.map((list)=>
+                {data.map((list) =>
                     <div className={style.list}>
                         {list.icon}
                         <p>{list.title}</p>
@@ -88,7 +88,7 @@ export const SettingsMain = () => {
                 <div>
                     <h6>Profile Picture</h6>
                     <div>
-                    <div className={style.intro}>
+                        <div className={style.intro}>
                             <div className={style.picDiv}>
                                 <div className={style.dp}><ProfileDP className={style.pic} /></div>
                                 <div></div>
@@ -100,21 +100,21 @@ export const SettingsMain = () => {
                             </div>
                         </div>
                         <div className={style.buttons}>
-            <MyButton type='primary'
-                onClick={handleChange}
-                //disabled={isSubmitting}
-                >
-                {/* <Link to="/dashboard" className={combinedClasses(style.loginlink, 'link')}> Sign In </Link> */}
-                Change
-            </MyButton>
-            <MyButton type='outline' className={style.cancelbtn}
-                onClick={handleDelete}
-                //disabled={isSubmitting}
-                >
-                {/* <Link to="/dashboard" className={combinedClasses(style.loginlink, 'link')}> Sign In </Link> */}
-                Delete
-            </MyButton>
-        </div>
+                            <MyButton type='primary'
+                                onClick={handleChange}
+                            //disabled={isSubmitting}
+                            >
+                                {/* <Link to="/dashboard" className={combinedClasses(style.loginlink, 'link')}> Sign In </Link> */}
+                                Change
+                            </MyButton>
+                            <MyButton type='outline' className={style.cancelbtn}
+                                onClick={handleDelete}
+                            //disabled={isSubmitting}
+                            >
+                                {/* <Link to="/dashboard" className={combinedClasses(style.loginlink, 'link')}> Sign In </Link> */}
+                                Delete
+                            </MyButton>
+                        </div>
                     </div>
                 </div>
                 <div></div>

@@ -6,11 +6,12 @@ import { MdOutlineKeyboardArrowDown, MdOutlineKeyboardArrowRight } from 'react-i
 // import { analysisOne, analysisTwo } from './data';
 import { AiOutlineFileExcel, AiOutlineFilePdf } from "react-icons/ai";
 // import { HandleDropDown } from '../hooks/toggle';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { getRevenue } from '../../utilities/API';
 import axios from 'axios';
 import { MdOutlineArrowUpward } from "react-icons/md";
 import { mapData } from './data'
+import ProgressBar from "@ramonak/react-progress-bar";
 import {
     Chart as ChartJS,
     CategoryScale,
@@ -21,6 +22,7 @@ import {
     Legend,
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
+import { combinedClasses } from '../../utilities/format';
 
 ChartJS.register(
     CategoryScale,
@@ -57,7 +59,7 @@ export const Main = () => {
 
     return (
         <section className={dashboardStyle.main}>
-            <Head/>
+            <Head />
             <div className={style.analysisRow1}>
                 <div className={style.eachbox}><Chart /></div>
                 <div className={style.eachbox}><CustomTable /></div>
@@ -126,6 +128,21 @@ export const Head = () => {
         </div>
     </div>
 }
+export const ProgressDiv = (props) => {
+    const index = props.index[0, 1, 2, 3, 4, 5]
+    return <ProgressBar completed={60}
+        className={combinedClasses(style.wrapper,
+            index === 0 && style.wrapper1 || index === 1 && style.wrapper2 || index === 2 && style.wrapper3 || index === 3 && style.wrapper4 || index === 4 && style.wrapper5)}
+
+        barContainerClassName={combinedClasses(style.container,
+            index === 0 && style.container1 || index === 1 && style.container2 || index === 2 && style.container3 || index === 3 && style.container4 || index === 4 && style.container5)}
+
+        completedClassName={combinedClasses(style.barCompleted,
+            index === 0 && style.barCompleted1 || index === 1 && style.barCompleted2 || index === 2 && style.barCompleted3 || index === 3 && style.barCompleted4 || index === 4 && style.barCompleted5)}
+
+        labelClassName={combinedClasses(style.label,
+            index === 0 && style.label1 || index === 1 && style.label2 || index === 2 && style.label3 || index === 3 && style.label4 || index === 4 && style.label5)} />
+}
 export const Chart = () => {
     const [dataNew, setDataNew] = React.useState([])
     const [revenueData, setRevenueData] = React.useState({
@@ -142,13 +159,13 @@ export const Chart = () => {
             .then(res => {
                 // console.log(res)
                 setDataNew(res.carts)
-                console.log(res.carts)
+                // console.log(res.carts)
                 let allItems = res.carts
-                console.log(allItems)
+                // console.log(allItems)
                 const inventory = allItems.map((stock) => {
                     return stock.discountedTotal;
                 });
-                console.log(inventory)
+                // console.log(inventory)
                 // setDataNew(inventory)
                 const labels = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
                 const dataSource = {
@@ -162,7 +179,7 @@ export const Chart = () => {
                     ],
                 };
                 setRevenueData(dataSource)
-                console.log(revenueData)
+                // console.log(revenueData)
             })
             // console.log(dataNew)
             // console.log('dataNew')
@@ -191,8 +208,12 @@ export const Chart = () => {
 
     }, [])
 
-    return <Bar options={options} data={revenueData} />;
+    return <div>
+        <h6>Total Revenue</h6>
+        <Bar options={options} data={revenueData} />
+    </div>;
 }
+
 export const options = {
     responsive: true,
     plugins: {
@@ -207,6 +228,16 @@ export const options = {
 };
 
 export const CustomTable = () => {
+    const [data, setData] = React.useState([])
+    axios.get('https://dummyjson.com/products?limit=5')
+        .then(res => {
+            setData(res.data.products)
+        })
+    // .then(res=>{
+    //     setData(res)
+
+    // })
+    // console.log(data)
     return <section className={style.tableSection}>
         <h6>Top Products</h6>
         <table className={style.table}>
@@ -220,15 +251,15 @@ export const CustomTable = () => {
             </thead>
             <tbody>
 
-                {/* {data.map((user, index) => */}
-                    <tr>
-                        <td>id</td>
-                        <td>name</td>
-                        <td>Popularity chart</td>
-                        <td>%</td>
+                {data.map((item, index) =>
+                    <tr key={index}>
+                        <td>{item.id}</td>
+                        <td>{item.title}</td>
+                        <td key={index}><ProgressDiv index={item} /></td>
+                        <td>45%</td>
 
                     </tr>
-                {/* )} */}
+                )}
             </tbody>
         </table>
     </section>

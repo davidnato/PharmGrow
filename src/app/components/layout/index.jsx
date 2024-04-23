@@ -6,8 +6,10 @@ import style from './style.module.css'
 export const Layout=()=>{
     return (
         <section className={style.layout}>
-            <SideBar/>
-            <LayoutHeader/>
+            <SideBar className={style.sidebar}/>
+            <LayoutHeader className={style.dashboard}/>
+            {/* <SideBar />
+            <ShortageComp /> */}
         </section>
     )
 }

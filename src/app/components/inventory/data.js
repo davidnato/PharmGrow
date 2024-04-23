@@ -8,7 +8,7 @@ export const analysisOne = [
     {
         icon: <MdOutlineMedicalServices />, title: "02", description: 'Medicine groups', arrowRight: <MdKeyboardDoubleArrowRight />, footer: "View Full List",  url: routes.medicinegroups()
     },
-    { icon: <HiOutlineExclamationTriangle />, title: "01", description: "Medicines Shortage", footer: "Resolve Now", arrowRight: <MdKeyboardDoubleArrowRight />,  url: routes.notavailable() }
+    { icon: <HiOutlineExclamationTriangle />, title: "01", description: "Medicines Shortage", footer: "Resolve Now", arrowRight: <MdKeyboardDoubleArrowRight />,  url: routes.addMedicine() }
 ]
 
 export const analysisTwo=[

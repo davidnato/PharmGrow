@@ -54,7 +54,8 @@ export const Form = () => {
         group: " ",
         qty: " ",
         usage: " ",
-        sideEffects: " "
+        sideEffects: " ",
+        price: ""
 
     })
     React.useEffect(() => {
@@ -81,7 +82,8 @@ export const Form = () => {
             group: stock.group,
             qty: stock.qty,
             usage: stock.usage,
-            sideEffects: stock.sideEffects
+            sideEffects: stock.sideEffects,
+            price: stock.price
         }
         axios.post('http://localhost:3001/stock', data)
         .then(result => {
@@ -139,6 +141,8 @@ export const Form = () => {
             <CustomInput type="text" name='id' onChange={handleInput} label={"Medicine ID"} className={style.type} />
             <CustomInput type="text" name='group' onChange={handleInput} label={"Medicine Group"} className={style.type} />
             <CustomInput type="text" name='qty' onChange={handleInput} label={"Quantity in Number"} className={style.type} />
+            <CustomInput type="text" name='price' onChange={handleInput} label={"Price"} className={style.type} />
+            
         </div>
         <div className={style.prescription}>
             <div>

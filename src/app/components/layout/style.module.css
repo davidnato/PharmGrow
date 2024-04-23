@@ -2,3 +2,9 @@
     display: flex;
     flex-direction: row;
 }
+.sidebar{
+    flex: 1;
+}
+.dashboard{
+    flex: 5;
+}

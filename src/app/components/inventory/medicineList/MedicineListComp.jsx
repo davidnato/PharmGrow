@@ -4,7 +4,7 @@ import dashboardstyle from '../../dashboard/style.module.css'
 import { MdOutlineKeyboardArrowRight, MdOutlineAdd, MdOutlineFilterAlt, MdOutlineKeyboardArrowDown, MdKeyboardDoubleArrowRight } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { routes } from "../../../utilities/routes";
-import { CustomInput } from "../../input";
+import { CustomInput, Search } from "../../input";
 import { combinedClasses } from "../../../utilities/format";
 import { MyButton } from "../../button";
 import { useEffect } from "react";
@@ -45,8 +45,9 @@ export const MedicinesListMain = () => {
                 </div>
             </div>
             <div className={style.head2}>
-                <CustomInput type="search" placeholder="Search" className={style.search} />
-                <div>
+                {/* <CustomInput type="search" placeholder="Search" className={style.search} /> */}
+                <Search type="search" placeholder="Search"  className={style.search}/>
+                {/* <div>
                     <MdOutlineFilterAlt />
                     <MyButton type='outline' className={style.button}
                     // onClick={handleLogin} 
@@ -54,7 +55,7 @@ export const MedicinesListMain = () => {
                         <p> - Select Group - </p>
                         <MdOutlineKeyboardArrowDown />
                     </MyButton>
-                </div>
+                </div> */}
             </div>
             <Table />
 
@@ -83,47 +84,47 @@ export const Table = () => {
 
         <div>
             {index ?
-            <MedicinesDetailMain index={index}/>
-            :
-            <table className={style.table}>
-                <thead>
-                    <tr className={style.headrow}>
-                        <th className={style.head}>Medicine Name
-                            <HiOutlineSelector />
-                        </th>
-                        <th className={style.head}>Medicine ID
-                            <HiOutlineSelector />
-                        </th>
-                        <th className={style.head}>Group Name
-                            <HiOutlineSelector />
-                        </th>
-                        <th className={style.head}>Stock in Qty
-                            <HiOutlineSelector />
-                        </th>
-                        <th className={style.head}>Action
-                            <HiOutlineSelector />
-                        </th>
-                        {/* <th>View Full Detail</th> */}
-                    </tr>
-                </thead>
-                <tbody>
-
-                    {data.map((user, index) =>
-                        <tr key={index}>
-                            <td>{user.name}</td>
-                            <td>{user.id}</td>
-                            <td>{user.group}</td>
-                            <td>{user.qty}</td>
-                            <td onClick={() => handleMore(user.id)} className={style.details}>View Full Detail &nbsp;
-                                <MdKeyboardDoubleArrowRight/>
-                            </td>
-
+                <MedicinesDetailMain index={index} />
+                :
+                <table className={style.table}>
+                    <thead>
+                        <tr className={style.headrow}>
+                            <th className={style.head}>Medicine Name
+                                <span><HiOutlineSelector /></span>
+                            </th>
+                            <th className={style.head}>Medicine ID
+                                <span><HiOutlineSelector /></span>
+                            </th>
+                            <th className={style.head}>Group Name
+                                <span><HiOutlineSelector /></span>
+                            </th>
+                            <th className={style.head}>Stock in Qty
+                                <span><HiOutlineSelector /></span>
+                            </th>
+                            <th className={style.head}>Action
+                                <span><HiOutlineSelector /></span>
+                            </th>
+                            {/* <th>View Full Detail</th> */}
                         </tr>
-                    )}
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+
+                        {data.map((user, index) =>
+                            <tr key={index}>
+                                <td>{user.name}</td>
+                                <td>{user.id}</td>
+                                <td>{user.group}</td>
+                                <td>{user.qty}</td>
+                                <td onClick={() => handleMore(user.id)} className={style.details}>View Full Detail &nbsp;
+                                    <MdKeyboardDoubleArrowRight />
+                                </td>
+
+                            </tr>
+                        )}
+                    </tbody>
+                </table>
             }
-            
+
         </div>
     )
 }

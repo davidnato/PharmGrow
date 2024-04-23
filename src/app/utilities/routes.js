@@ -35,10 +35,10 @@ export const routes={
         return '/report'
     },
     chat(){
-        return '/report'
+        return '/chat'
     },
     notification(){
-        return '/report'
+        return '/notification'
     },
     settings(){
         return '/settings'
@@ -52,8 +52,8 @@ export const routes={
     available(){
         return '/avalable'
     },
-    notavailable(){
-        return './notavailable'
+    medicinesShortage(){
+        return '/inventory/medicinesShortage'
     },
     management(){
         return'./management'

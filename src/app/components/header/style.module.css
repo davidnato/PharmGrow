@@ -8,8 +8,17 @@
     padding: var(--side-bar-padding);
     background: #F7FAFD;
     gap: 15px;
+    padding-bottom: 10px;
     /* padding-bottom: 5px; */
     /* width: 100%; */
+}
+.header2{
+    display: flex;
+    flex-direction: column;
+    justify-items: flex-end;
+    align-items: flex-end;
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
 @media (max-width:860px) {
     .header{

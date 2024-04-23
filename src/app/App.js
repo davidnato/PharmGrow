@@ -15,6 +15,9 @@ import { LandingPage } from './pages/Landing.jsx';
 import { AnalysisPage } from './pages/Analysis.jsx';
 import { ReportPage } from './pages/Report.jsx';
 import { SettingsPage } from './pages/Settings.jsx';
+import { RevenuePage } from './pages/Revenue.jsx';
+import { ShortagePage } from './pages/shortage.jsx';
+import { GroupPage } from './pages/Groups.jsx';
 
 const router = createBrowserRouter([
   {
@@ -51,7 +54,7 @@ const router = createBrowserRouter([
   },
   {
     path: routes.medicinegroups(),
-    element: ''
+    element: <GroupPage/>
   },
   {
     path: routes.medicineslist(),
@@ -65,6 +68,15 @@ const router = createBrowserRouter([
     path: routes.report(),
     element: <ReportPage/>
   },
+  {
+    path: routes.revenue(),
+    element: <RevenuePage/>
+  },
+  {
+    path: routes.medicinesShortage(),
+    element: <ShortagePage/>
+  },
+  
   {
     path: routes.settings(),
     element: <SettingsPage/>

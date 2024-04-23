@@ -14,11 +14,12 @@ export const sideBarNavs1 = [
         dropDown: <MdOutlineKeyboardArrowDown />, arrowUp: <MdOutlineKeyboardArrowUp />
     },
     { icon: <IoAnalytics />, title: 'Business Analysis', dropDown: <MdOutlineKeyboardArrowDown />, arrowUp: <MdOutlineKeyboardArrowUp />, url: routes.analysis() },
-    { icon: <MdOutlineTune />, title: 'Sales', url: routes.report() }
+    
 ]
 
 export const sideBarNavs2 = [
-    { icon: <MdOutlinePeople />, title: 'Account', dropDown: <MdOutlineKeyboardArrowDown />, arrowUp: <MdOutlineKeyboardArrowUp />, url: routes.account() },
+    // { icon: <MdOutlinePeople />, title: 'Account', dropDown: <MdOutlineKeyboardArrowDown />, arrowUp: <MdOutlineKeyboardArrowUp />, url: routes.account() },
+    { icon: <MdOutlineTune />, title: 'Sales', url: routes.report() },
     { icon: <MdOutlineNotifications />, title: 'Notifications', url: routes.notification() },
     { icon: <PiChatDots />, title: 'Chat with Suppliers', url: routes.chat() },
 

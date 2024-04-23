@@ -8,13 +8,19 @@ import { HandleDropDown } from '../hooks/toggle';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { combinedClasses } from '../../utilities/format';
+import { useEffect } from 'react';
+import axios from 'axios';
+import { Layout } from '../layout';
 
 export const DashboardMain = () => {
     return (
         <section className={style.dashboardSection}>
             <header>
-                <LayoutHeader />
+                <LayoutHeader onClick={false} />
             </header>
+            {/* <header>
+                <Layout/>
+            </header> */}
             <div className={style.dashboardMain}>
                 <Main />
             </div>
@@ -38,7 +44,7 @@ export const Main = () => {
                 <div className={style.downloadButton} onClick={handleDropDown}>
                     <button>Download Report
                         <div className={style.buttonDropdown} >
-                            <MdOutlineKeyboardArrowDown  />
+                            <MdOutlineKeyboardArrowDown />
                             {show &&
                                 <div className={style.dashboardhover}>
                                     <div className={sideBarstyle.whitebg}>
@@ -68,15 +74,39 @@ export const Main = () => {
 }
 
 export const AnalysisOne = () => {
+    const [data, setData] = React.useState([])
+    const [index, setIndex] = React.useState()
+    const [revenue, setRevenue] = React.useState()
+    const [inventory, setInventory] = React.useState()
+    const [shortage, setShortage] = React.useState()
+
+    useEffect(() => {
+        axios.get('http://localhost:3001/stock')
+            .then(result => {
+                setData(result.data);
+                setInventory(data);
+                setShortage();
+                console.log(data)
+            })
+            .catch(error => console.log(error))
+    }, [])
+    const monthRevenue = revenue;
+    const totalInventory = inventory;
+    const totalShortage = shortage;
     return (
         <div className={style.analysis}>
             {
                 analysisOne.map((analysis, index) =>
-                    <div key={index} className={combinedClasses(style.eachAnalysis, index===0&2 && style.mainIndex || index===1 && style.index1
-                        || index===3 && style.index2 || index===4 && style.index3)}>
+                    <div key={index} className={combinedClasses(style.eachAnalysis, index === 0 & 2 && style.mainIndex || index === 1 && style.index1
+                        || index === 3 && style.index2 || index === 4 && style.index3)}>
                         <div className={style.main}>
+                            {/* <div className={style.image}>{analysis.icon}</div>
+                            {index === 1 && <h6># {monthRevenue}</h6> ||
+                                index === 2 && <h6>{totalInventory}</h6> ||
+                                index === 3 && <h6>{totalShortage}</h6> ||
+                                index === 0 && <h6>{analysis.title}</h6>} */}
                             <div className={style.image}>{analysis.icon}</div>
-                            <h6>{analysis.title}</h6>
+                            {analysis.title}
                             <div className={style.description}><p>{analysis.description}
                                 <span>&nbsp; {analysis.descriptionInfo} &nbsp; {analysis.dropDown}</span>
                             </p></div>
@@ -100,7 +130,7 @@ export const AnalysisTwo = () => {
                     <div className={style.eachAnalysis}>
                         <div className={style.row1}>
                             <h6>{analysis.title}</h6>
-                            <Link to={analysis.url} className='link'>{analysis.navigate} &nbsp; <span>{analysis.arrow}</span></Link>
+                            <Link to={analysis.url} className={combinedClasses(style.navigate, 'link')}>{analysis.navigate} &nbsp; <span>{analysis.arrow}</span></Link>
                         </div>
                         <div className={style.row2}>
                             <div>

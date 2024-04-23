@@ -83,6 +83,10 @@
 .table, .table thead, .table tbody{
     width: 100%;
 }
+tr{
+    display: grid;
+    grid-template-columns: 0.5fr 1fr 2fr 0.5fr;
+}
 table thead tr th{
     text-align: left;
     color: #96A5B8;
@@ -93,4 +97,43 @@ table tbody tr td{
     color: #444A6D;
     font-weight: 400;
     font-size: 17px;
+    text-wrap: wrap;
+    background-color: purple;
 }
+.wrapper{
+    background: #CDE7FF ;
+    height: 6px;
+    border-radius: 4px;
+    overflow: hidden;
+}
+.barCompleted{
+    background: #0095FF;
+}
+.container1{
+    background: red ;
+}
+.container1{
+    background: red ;
+}
+.container1{
+    background: red ;
+}
+.container1{
+    background: red ;
+}
+.container1{
+    background: red ;
+}
+.barCompleted1{
+
+    color: #0095FF;
+}
+.container{
+
+}
+.barCompleted2{
+    color: red;
+}
+/* .label{
+    display: none;
+} */

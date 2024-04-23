@@ -24,8 +24,13 @@
     gap: 10px;
   }
   .analysis{
-    justify-content: flex-start;
+    justify-content: flex-start !important;
   }
   .info{
     align-items: center;
+  }
+  @media (max-width: 952px) {
+    .analysis{
+      justify-content: center !important;
+    }
   }
