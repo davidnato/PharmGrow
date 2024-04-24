@@ -24,7 +24,11 @@
     gap: 10px;
   }
   .analysis{
+    display: flex;
     justify-content: flex-start !important;
+      gap: 36px;
+      justify-content: center;
+      /* background-color: red; */
   }
   .info{
     align-items: center;

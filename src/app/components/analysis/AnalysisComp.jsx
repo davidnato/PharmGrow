@@ -23,6 +23,7 @@ import {
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
 import { combinedClasses } from '../../utilities/format';
+import { Link } from 'react-router-dom';
 
 ChartJS.register(
     CategoryScale,
@@ -51,7 +52,35 @@ export const AnalysisMain = () => {
 
 export const Main = () => {
     const [show, setShow] = React.useState(false)
+    const [dataNew, setDataNew] = React.useState([])
+    const [revenueData, setRevenueData] = React.useState()
+    const [totalSales, setTotalSales] = React.useState()
+    fetch('https://dummyjson.com/carts')
+        .then(res => res.json())
+        .then(res => {
+            // console.log(res)
+            setDataNew(res.carts)
+            // console.log(res.carts)
+            let allItems = res.carts
+            // console.log(allItems)
+            const revenue = allItems.map((stock) => {
+                return (
+                    stock.discountedTotal,
+                    stock.total
+                );
+            })
+            const stock = allItems.map((stock) => {
+                return (
+                    stock.total
+                );
+            }
+            );
+            // console.log(inventory)
+            // setDataNew(inventory)
 
+            setRevenueData(revenue)
+            setTotalSales(stock)
+        })
     const handleDropDown = () => {
         setShow(!show)
         // !show ? arrow===<MdOutlineKeyboardArrowDown/>:<MdOutlineKeyboardArrowUp/>
@@ -60,33 +89,38 @@ export const Main = () => {
     return (
         <section className={dashboardStyle.main}>
             <Head />
-            <div className={style.analysisRow1}>
-                <div className={style.eachbox}><Chart /></div>
-                <div className={style.eachbox}><CustomTable /></div>
-            </div>
+
             <div className={style.analysisRow2}>
                 <div className={style.gridGrid}>
                     {mapData.map((data, index) => {
                         return <div className={style.eachbox} key={index}>
                             <h6>{data.title}</h6>
                             <div className={style.amount}>
-                                <h3>{data.amount}</h3>
-                                <div className={index === 3 ? style.lastIndex : style.green}>
+                                {/* <h3>{revenueData}</h3> */}
+                                {/* {index === 1 && <h6># {revenueData}</h6> ||
+                                index === 2 && <h6>{totalSales}</h6>} */}
+                                {/* // index === 3 && <h6>{totalShortage}</h6> ||
+                                    // index === 0 && <h6>{analysis.title}</h6> */}
+                                <div className={index === 2 ? style.lastIndex : style.green}>
                                     <MdOutlineArrowUpward /> &nbsp;
-                                    19%</div>
+                                    <span>19%</span></div>
                             </div>
                             <p className={style.p1}>Compared to Last Month</p>
-                            <div className={style.details}>
+                            <Link to={data.url} className={combinedClasses(style.details, 'link') }>
                                 <p>View Details</p>
                                 <MdOutlineKeyboardArrowRight />
-                            </div>
+                            </Link>
                         </div>
 
                     })}
 
                 </div>
-                <div>hello</div>
-                <div>hello</div>
+                {/* <div>hello</div>
+                <div>hello</div> */}
+            </div>
+            <div className={style.analysisRow1}>
+                <div className={style.eachbox}><Chart /></div>
+                <div className={style.eachbox}><CustomTable /></div>
             </div>
         </section>
     )

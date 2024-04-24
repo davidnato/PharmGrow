@@ -20,12 +20,6 @@ export const CustomInput = ({ ...props }) => {
     const handleIconToggle = () => {
         setShow(!show)
     }
-    // const hideShowToggle=()=}{
-
-    // }
-    // <div className={style.inputDiv}>
-    //         <label>{label}</label>
-    //         <div className={style.inputFieldDiv}></div>
     const combineClass = combinedClasses(props.className)
     return (
         <div className={style.inputDiv}>
@@ -56,11 +50,6 @@ export const CustomInput = ({ ...props }) => {
         </div>
     )
 }
-// src/components/Search.js
-
-// import React, { useState } from 'react';
-// import Scroll from './Scroll';
-// import SearchList from './SearchList';
 export const Search = (...props) => {
     
     const [searchField, setSearchField] = useState("false");
@@ -116,76 +105,3 @@ export const Search = (...props) => {
         </div>
     )
 }
-
-// export const SearchList = ({ filteredPersons }) => {
-//     const filtered = filteredPersons.map(person =>
-//         <Card key={person.id} person={person} />);
-//     return (
-//         <div>
-//             {filtered}
-//         </div>
-//     );
-// }
-
-// // export const Scroll = (props) => {
-// //     return (
-// //         <div style={{ overflowY: 'scroll', height: '70vh' }}>
-// //             {props.children}
-// //         </div>
-// //     );
-// // }
-
-// export const Search = ({ details }) => {
-
-//     const [searchField, setSearchField] = useState("");
-//     const [searchShow, setSearchShow] = useState(false);
-
-//     const filteredPersons = details.filter(
-//         person => {
-//             return (
-//                 person
-//                     .name
-//                     .toLowerCase()
-//                     .includes(searchField.toLowerCase()) ||
-//                 person
-//                     .email
-//                     .toLowerCase()
-//                     .includes(searchField.toLowerCase())
-//             );
-//         }
-//     );
-
-    
-
-//     // function searchList() {
-//     //     if (searchShow) {
-//     //         return (
-//     //             <SearchList filteredPersons={filteredPersons} />
-//     //             <Scroll>
-
-//     //             </Scroll>
-//     //         );
-//     //     }
-//     // }
-
-//     return (
-//         <section className="garamond">
-//             <div className="navy georgia ma0 grow">
-//                 <h2 className="f2">Search your course</h2>
-//             </div>
-//             <div className={combinedClasses(style.inputFieldDiv, style.searchField)}>
-//                 <input {...props} type={type} className={style.search} onChange={handleChange} />
-//                 <div className={style.icon}>
-//                     <IoSearchOutline />
-//                 </div>
-//             </div>
-//             {/* <input
-//                     className="pa3 bb br3 grow b--none bg-lightest-blue ma3"
-//                     type="search"
-//                     placeholder="Search People"
-//                     onChange={handleChange}
-//                 /> */}
-//             {searchList()}
-//         </section>
-//     );
-// }

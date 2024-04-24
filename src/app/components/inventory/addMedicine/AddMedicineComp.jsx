@@ -94,46 +94,9 @@ export const Form = () => {
         })
         .catch(error => console.log(error))
 
-        // const stock ={
-        //     name: "",
-        //     id: "",
-        //     group: "",
-        //     qty: ""
-        // }
     }
     
-    // const [id, setId] = useState
-    // useEffect(() => {
-    //     fetch('http://localhost:8000/stock')
-    //         .then(result => {
-    //             console.log(result)
-    //         })
-
-    //         .catch(error => console.log(error))
-
-    //     // fetch('https://dummyjson.com/auth/login', {
-    //     //     method: 'POST',
-    //     //     headers: { 'Content-Type': 'application/json' },
-    //     //     body: JSON.stringify(payload)
-    //     //     //note that payload is defined already, the object details can be used directly here
-    //     // })
-    // }, [])
-    // const handleSubmit = (event) => {
-    //     event.preventDefault();
-    //     const id = data.length + 1;
-    //     // fetch('http://localhost:8000/stock',{
-    //     //     // { name: name, id: id, group: group, quantity: quantity }
-
-    //     //         method: "POST",
-    //     //         body: JSON.stringify(body),
-    //     //       })
-    //     //     .then(result =>{
-
-    //     // setData(result.data)
-    //     //         console.log(result);
-    //     //         location.reload()})
-    //     //     .catch(error => console.log(error))
-    // }
+   
     return <form action="" onSubmit={saveStock}>
         {success && <div className={combinedClasses(errorstyle.error, style.success)}>{success}</div>}
         <div className={style.inputs}>
@@ -157,7 +120,7 @@ export const Form = () => {
             </div>
         </div>
         <MyButton type='primary' title='Save Details' className={style.btn}
-        // onClick={handleadd}
+        onClick={saveStock}
         // disabled={isSubmitting}
         />
     </form>

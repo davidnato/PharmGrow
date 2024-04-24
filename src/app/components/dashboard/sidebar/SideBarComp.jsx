@@ -108,6 +108,7 @@ export const SideBarDiv = () => {
                                                 {nav.icon}
                                                 <div className={style.navTitle}>
                                                     <h6 className={style.navTitle}>{nav.title}</h6>
+                                                    
                                                     {
                                                         nav.subtitle && dropDown &&
                                                         <div className={combinedClasses(style.subtitle, 'navDiv')}>
@@ -150,6 +151,7 @@ export const SideBarDiv = () => {
                                             {nav.icon}
                                             <div className={style.navTitle}>
                                                 <h6>{nav.title}</h6>
+                                                {nav.badge}
                                                 {/* {nav.subtitle &&
                                                     <div className={style.subtitle}>
                                                         {nav.subtitle &&

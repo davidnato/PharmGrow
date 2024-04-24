@@ -12,6 +12,7 @@ import React from 'react';
 import axios from 'axios';
 import toast from 'react-hot-toast';
 import { Link, useNavigate } from 'react-router-dom'
+import Cookies from 'universal-cookie';
 
 
 export const CreateAccount = () => {
@@ -24,6 +25,7 @@ export const CreateAccount = () => {
         password: ''
         // checkbox: ""
     })
+    const [cookies, setCookies]= React.useState(new Cookies())
     // const handleRememberCheckbox = (event) => {
     //     setRemeberMe(event.target.checked)
     // }
@@ -31,34 +33,47 @@ export const CreateAccount = () => {
         e.preventDefault()
         setInput({ ...input, [e.target.name]: e.target.value })
     }
-    const handleSignUp = (event) => {
+    // const handleInput = (e) => {
+    //     e.persist()
+    //     setStock({ ...stock, [e.target.name]: e.target.value })
+    // }
+    const handleSignUp = (e) => {
+        e.preventDefault()
         const user = {
             username: input.username,
             password: input.password
         }
-        event.preventDefault()
-        axios.post('http://localhost:3002/user', user)
+        axios.post('http://localhost:3001/user', user)
             .then(result => {
-                setUser(result.user)
+                setUser(result.data)
                 console.log(user)
-                // if (result.user === 'success') {
-                //     navigate('/login')
-                // }
-                toast('User Succesfully Added')
-                setSuccess('User Successfully Added')
+                toast('Account Successfully created')
+                setSuccess('Account Successfully created')
             })
+            .catch(error => console.log(error))
+
             .finally(() => {
                 setIsSubmitting(false)
-            })
+            });
 
-        // axios.post('https://dummyjson.com/auth/login', user)
-        //     .then(result => {
-        //         console.log('Success', result)
-        //         localStorage.setItem('user', JSON.stringify(result))
-        //     })
+            setCookies('password', user.password)
+            setCookies('username', user.username)
+            setCookies('hashedPassword', user.hashedPassword)
 
-        //note that payload is defined already, the object details can be used directly here
+            window.location.reload();
     }
+
+    // const handleSignUp = (event) => {
+    //    
+
+    //     // axios.post('https://dummyjson.com/auth/login', user)
+    //     //     .then(result => {
+    //     //         console.log('Success', result)
+    //     //         localStorage.setItem('user', JSON.stringify(result))
+    //     //     })
+
+    //     //note that payload is defined already, the object details can be used directly here
+    // }
 
     return (
         <section className={loginstyle.login}>
@@ -84,8 +99,8 @@ export const CreateAccount = () => {
                     </div>
                     {/* <MyButton  type='primary' title='LOGIN'/> */}
                     <MyButton type='primary' title='Sign Up'
-                        
-                    disabled={isSubmitting} 
+
+                        disabled={isSubmitting}
                     />
                     <div className={loginstyle.divider}><span>or</span></div>
                     <MyButton type='outline' className={loginstyle.loginBtn}

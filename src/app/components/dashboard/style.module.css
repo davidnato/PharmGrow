@@ -123,11 +123,16 @@
         padding-left: 5%;
     }
 } */
-
+.analysis .eachAnalysis{
+    position: relative;
+}
 .analysis .eachAnalysis .main{
     padding: 10px 15px;
 }
-
+.analysis .eachAnalysis .footer{
+    position: absolute;
+    bottom: 0;
+}
 .analysis2 .eachAnalysis{
     max-width: 605px;
     width: 100%;

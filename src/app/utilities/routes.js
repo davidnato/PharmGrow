@@ -57,5 +57,11 @@ export const routes={
     },
     management(){
         return'./management'
+    },
+    suppliers(){
+        return'/suppliersInfo'
+    },
+    addSupplier(){
+        return'/suppliersInfo/addSupplier'
     }
 }

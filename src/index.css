@@ -37,3 +37,6 @@ code {
 .navDiv a.active {
   background-color: rgb(48, 64, 127, 0.7);
 }
+.nav_brand, .nav_menu_1{
+  display: none !important;
+}

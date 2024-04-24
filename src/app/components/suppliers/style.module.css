@@ -1,0 +1,17 @@
+.addSection{
+    padding: 3% 7%;
+}
+
+.buttons{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+
+}
+.buttons button{
+    width: 150px;
+}
+.deletebtn{
+    color: var(--primary-blue);
+    border: red 1px solid;
+}

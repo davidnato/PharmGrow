@@ -18,6 +18,7 @@ import { SettingsPage } from './pages/Settings.jsx';
 import { RevenuePage } from './pages/Revenue.jsx';
 import { ShortagePage } from './pages/shortage.jsx';
 import { GroupPage } from './pages/Groups.jsx';
+import { AddNewSupplierPage, SupplierPage } from './pages/Supplier.jsx';
 
 const router = createBrowserRouter([
   {
@@ -80,6 +81,14 @@ const router = createBrowserRouter([
   {
     path: routes.settings(),
     element: <SettingsPage/>
+  },
+  {
+    path: routes.suppliers(),
+    element: <SupplierPage/>
+  },
+  {
+    path: routes.addSupplier(),
+    element: <AddNewSupplierPage/>
   },
   {
     path: '*',

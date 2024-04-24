@@ -12,6 +12,7 @@ import { routes } from '../../../app/utilities/routes'
 import { Link } from 'react-router-dom'
 import { combinedClasses } from '../../utilities/format'
 import axios from 'axios'
+import Cookies from 'universal-cookie';
 
 
 
@@ -20,9 +21,8 @@ export const LoginDiv = () => {
     // const [rememberMe, setRemeberMe] = useState(false)
     const [isSubmitting, setIsSubmitting] = useState(false)
     const [error, setError] = useState(false)
-    const handleSearch = (event) => {
-        setSearch(event.target.value)
-    }
+    const [user, setUser] = React.useState([])
+    const [cookies, setCookies]= React.useState(new Cookies)
     const [input, setInput] = React.useState({
         username: '',
         password: ''
@@ -35,31 +35,55 @@ export const LoginDiv = () => {
         e.persist()
         setInput({ ...input, [e.target.name]: e.target.value })
     }
-    useEffect(() => {
-        axios.get('http://localhost:3002/user')
-        .then(result => {console.log(result)
-        })
-        .catch(error => console.log(error))
-    }, [])
-    const handleLogin = () => {
-        axios.get('http://localhost:3002/user')
-        .then(result => {console.log(result)
-        })
-        .catch(error => console.log(error))
+    const handleLogin = (e) => {
+        e.preventDefault()
+        const user = {
+            username: input.username,
+            password: input.password
+        }
+        axios.post('http://localhost:3001/user', user)
+            .then(result => {
+                setUser(result.data)
+                console.log(user)
+                // toast('Account Successfully created')
+                // setSuccess('Account Successfully created')
+            })
+            .catch(error => console.log(error))
 
+            .finally(() => {
+                setIsSubmitting(false)
+            });
 
-        // }, [])
+            setCookies('password', user.password)
+            setCookies('username', user.username)
 
-        .catch((error) => {
-            console.log("Failed", error.message)
-            toast(error.message)
-            setError(error.message)
-        })
-        .finally(() => {
-            setIsSubmitting(false)
-        })
-        .then(console.log);
+            window.location.reload();
     }
+    // useEffect(() => {
+    //     axios.get('http://localhost:3002/user')
+    //     .then(result => {console.log(result)
+    //     })
+    //     .catch(error => console.log(error))
+    // }, [])
+    // const handleLogin = () => {
+    //     axios.get('http://localhost:3002/user')
+    //     .then(result => {console.log(result)
+    //     })
+    //     .catch(error => console.log(error))
+
+
+    //     // }, [])
+
+    //     .catch((error) => {
+    //         console.log("Failed", error.message)
+    //         toast(error.message)
+    //         setError(error.message)
+    //     })
+    //     .finally(() => {
+    //         setIsSubmitting(false)
+    //     })
+    //     .then(console.log);
+    // }
     // useEffect(() => {
     
 

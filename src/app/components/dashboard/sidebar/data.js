@@ -2,6 +2,7 @@ import { MdOutlineSpaceDashboard, MdOutlineInventory2, MdOutlineKeyboardArrowDow
 import { PiChatDots } from "react-icons/pi";
 import { IoAnalytics } from "react-icons/io5";
 import { routes } from '../../../../app/utilities/routes'
+// import { Notification } from "../../notifications";
 
 export const sideBarNavs1 = [
     { icon: <MdOutlineSpaceDashboard />, title: 'Dashboard', url: routes.dashboard() },
@@ -20,8 +21,10 @@ export const sideBarNavs1 = [
 export const sideBarNavs2 = [
     // { icon: <MdOutlinePeople />, title: 'Account', dropDown: <MdOutlineKeyboardArrowDown />, arrowUp: <MdOutlineKeyboardArrowUp />, url: routes.account() },
     { icon: <MdOutlineTune />, title: 'Sales', url: routes.report() },
-    { icon: <MdOutlineNotifications />, title: 'Notifications', url: routes.notification() },
-    { icon: <PiChatDots />, title: 'Chat with Suppliers', url: routes.chat() },
+    { icon: <MdOutlineNotifications />, title: "Notification", 
+    // badge:<Notification/>, 
+    url: routes.notification() },
+    { icon: <PiChatDots />, title: 'Suppliers Info', url: routes.suppliers() },
 
    
 

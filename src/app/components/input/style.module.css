@@ -108,9 +108,15 @@ input ::placeholder{
 .searchList{
     position: absolute;
     top: 50px;
+    background-color: white;
+    padding: 0 !important;
+    border-radius: 15px;
     /* border-radius: 15px;
     padding: 20px; */
 }
 .searchList li{
     list-style: none;
+    padding: 10px;
+    
 }
+/* .s */
