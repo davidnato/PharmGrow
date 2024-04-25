@@ -63,5 +63,11 @@ export const routes={
     },
     addSupplier(){
         return'/suppliersInfo/addSupplier'
+    },
+    addUser(){
+        return'/settings/addUser'
+    },
+    userList(){
+        return'/settingso/userList'
     }
 }

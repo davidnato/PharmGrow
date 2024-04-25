@@ -13,6 +13,7 @@ import { Link } from 'react-router-dom'
 import { combinedClasses } from '../../utilities/format'
 import axios from 'axios'
 import Cookies from 'universal-cookie';
+import {useSignIn} from 'react-auth-kit';
 
 
 
@@ -28,6 +29,7 @@ export const LoginDiv = () => {
         password: ''
         // checkbox: ""
     })
+    const signIn= useSignIn()
     // const handleRememberCheckbox = (event) => {
     //     setRemeberMe(event.target.checked)
     // }
@@ -45,6 +47,12 @@ export const LoginDiv = () => {
             .then(result => {
                 setUser(result.data)
                 console.log(user)
+                signIn({
+                    token: result.data.token,
+                    expiresIn: 3600,
+                    tokenType: "Bearer",
+                    authState: {username: input.username}
+                })
                 // toast('Account Successfully created')
                 // setSuccess('Account Successfully created')
             })
@@ -54,10 +62,7 @@ export const LoginDiv = () => {
                 setIsSubmitting(false)
             });
 
-            setCookies('password', user.password)
-            setCookies('username', user.username)
-
-            window.location.reload();
+            
     }
     // useEffect(() => {
     //     axios.get('http://localhost:3002/user')

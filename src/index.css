@@ -29,6 +29,7 @@ code {
 .link{
   text-decoration: none;
   color: var(--primary-blue);
+  cursor: pointer;
 }
 .bluebglink{
   text-decoration: none;
@@ -39,4 +40,7 @@ code {
 }
 .nav_brand, .nav_menu_1{
   display: none !important;
+}
+button{
+  cursor: pointer;
 }

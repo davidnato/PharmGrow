@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import { LoginPage } from './pages/Login.jsx'
-import {CreateAccountPage} from './pages/CreateAccount.jsx'
+import { CreateAccountPage } from './pages/CreateAccount.jsx'
 import { DashboardPage } from './pages/dashboard.jsx';
 import { InventoryPage } from './pages/Inventory.jsx';
 import { MedicineDetailPage } from './pages/medicineDetail.jsx';
@@ -14,16 +14,17 @@ import { MedicinesListPage } from './pages/MedicinesList.jsx';
 import { LandingPage } from './pages/Landing.jsx';
 import { AnalysisPage } from './pages/Analysis.jsx';
 import { ReportPage } from './pages/Report.jsx';
-import { SettingsPage } from './pages/Settings.jsx';
+import { AddUserPage, SettingsPage, UserListPage } from './pages/Settings.jsx';
 import { RevenuePage } from './pages/Revenue.jsx';
 import { ShortagePage } from './pages/shortage.jsx';
 import { GroupPage } from './pages/Groups.jsx';
 import { AddNewSupplierPage, SupplierPage } from './pages/Supplier.jsx';
 
+
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <LandingPage/>
+    element: <LandingPage />
   },
   // {
   //   path: routes.dashboard(),
@@ -31,64 +32,72 @@ const router = createBrowserRouter([
   // },
   {
     path: routes.dashboard(),
-    element:<DashboardPage/>
+    element: <DashboardPage />
   },
   {
     path: '/login',
-    element: <LoginPage/>
+    element: <LoginPage />
   },
   {
     path: '/signUP',
-    element: <CreateAccountPage/>
+    element: <CreateAccountPage />
   },
   {
     path: routes.inventory(),
-    element: <InventoryPage/>
+    element: <InventoryPage />
   },
   {
     path: routes.addMedicine(),
-    element: <AddMedicinePage/>
+    element: <AddMedicinePage />
   },
   {
     path: routes.medicineDetail(),
-    element: <MedicineDetailPage/>
+    element: <MedicineDetailPage />
   },
   {
     path: routes.medicinegroups(),
-    element: <GroupPage/>
+    element: <GroupPage />
   },
   {
     path: routes.medicineslist(),
-    element: <MedicinesListPage/>
+    element: <MedicinesListPage />
   },
   {
     path: routes.analysis(),
-    element: <AnalysisPage/>
+    element: <AnalysisPage />
   },
   {
     path: routes.report(),
-    element: <ReportPage/>
+    element: <ReportPage />
   },
   {
     path: routes.revenue(),
-    element: <RevenuePage/>
+    element: <RevenuePage />
   },
   {
     path: routes.medicinesShortage(),
-    element: <ShortagePage/>
+    element: <ShortagePage />
   },
-  
+
   {
     path: routes.settings(),
-    element: <SettingsPage/>
+    element: <SettingsPage />
   },
   {
     path: routes.suppliers(),
-    element: <SupplierPage/>
+    element: <SupplierPage />
   },
   {
     path: routes.addSupplier(),
-    element: <AddNewSupplierPage/>
+    element: <AddNewSupplierPage />
+  },
+  {
+    path: routes.addUser(),
+    element: <AddUserPage />
+  },
+  {
+    path: routes.userList(),
+    element: <UserListPage />
   },
   {
     path: '*',
@@ -96,12 +105,12 @@ const router = createBrowserRouter([
   }
 ])
 function App() {
-  const [info, setInfo] = React.useState({})
+  // const [info, setInfo] = React.useState({})
   return (
-  <>
-  <ToastContainer/>
-  <RouterProvider router={router}/>
-  </>
+    <>
+      <ToastContainer />
+        <RouterProvider router={router} />
+    </>
   );
 }
 

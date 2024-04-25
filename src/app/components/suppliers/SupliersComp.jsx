@@ -144,6 +144,7 @@ export const Table = () => {
 export const AddSupplier = () => {
     const [userData, setUserData] = React.useState('');
     const [success, setSuccess] = React.useState(false)
+    const [edit, setEdit]= React.useState(-1)
     const [person, setPerson] = React.useState({
         id: " ",
         fullName: " ",
@@ -198,11 +199,12 @@ export const AddSupplier = () => {
         //     qty: ""
         // }
     }
-    const handleChange = () => {
-
+    const handleChange = (id) => {
+        
     }
-    const handleDelete = () => {
-
+    const handleDelete = (id) => {
+        axios.delete(''+id)
+        .then(res=>console.log('deleted'))
     }
 
     return (
@@ -229,7 +231,7 @@ export const AddSupplier = () => {
                 // disabled={isSubmitting}
                 />
             <MyButton type='outline' className={style.deletebtn}
-                onClick={handleDelete}
+                onClick={()=> handleDelete(userData.id)}
             //disabled={isSubmitting}
             >
                 {/* <Link to="/dashboard" className={combinedClasses(style.loginlink, 'link')}> Sign In </Link> */}

@@ -235,3 +235,9 @@
 /* .navTitle h6 div div{
     display: none;
 } */
+.profilepic{
+    color: var(--primary-blue);
+    text-decoration: none;
+    padding: 10px;
+
+}

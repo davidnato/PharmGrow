@@ -8,6 +8,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { combinedClasses } from '../../../../app/utilities/format';
 import { NavLink } from 'react-router-dom';
+import { routes } from '../../../utilities/routes';
 // import { HandleDropDown } from '../../hooks/toggle';
 
 export const SideBarDiv = () => {
@@ -80,7 +81,8 @@ export const SideBarDiv = () => {
                                     <div className={style.myProfileDiv}>
                                         <div className={style.myProfile}>
                                             <MdOutlineAccountCircle />
-                                            <p>My Profile</p>
+                                            <NavLink to={routes.settings()} className={combinedClasses(style.profilepic)}>My Profile</NavLink>
+                                            {/* <p>My Profile</p> */}
                                         </div>
                                         <div className={style.logout}>
                                             <MdOutlineLogout />
