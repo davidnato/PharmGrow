@@ -21,24 +21,24 @@ import { HiOutlineSelector } from "react-icons/hi";
 
 
 
-export const SuppliersSection = () => {
+// export const SuppliersSection = () => {
 
-    return (
-        <section className={dashboardStyle.dashboardSection}>
-            <header>
-                <LayoutHeader />
-            </header>
-            <div className={dashboardStyle.dashboardMain}>
-                <Main />
-            </div>
-        </section>
-    )
-}
+//     return (
+//         <section className={dashboardStyle.dashboardSection}>
+//             <header>
+//                 <LayoutHeader />
+//             </header>
+//             <div className={dashboardStyle.dashboardMain}>
+//                 <Main />
+//             </div>
+//         </section>
+//     )
+// }
 
 export const Main = () => {
 
     return (
-        <section className={dashboardstyle.main}>
+        <section className={combinedClasses( style.main)}>
             <Head />
             <SuppliersMain />
         </section>
@@ -46,8 +46,9 @@ export const Main = () => {
 }
 export const Head = () => {
     return (
-        <div className={combinedClasses(dashboardstyle.main, style.main)}>
-            <div className={dashboardstyle.head}>
+        // className={combinedClasses(dashboardstyle.main, style.main)}
+        // <div className={combinedClasses(dashboardstyle.main, style.main)}>
+            <div className={combinedClasses(dashboardstyle.head, style.head)}>
                 <div className={dashboardstyle.info}>
                     <h3 className={style.title}>Suppliers List</h3>
                     <p>List of Medicines Suppliers</p>
@@ -61,12 +62,12 @@ export const Head = () => {
                     </button>
                 </div>
             </div>
-            {/* <div className={style.head2}> */}
-            {/* <CustomInput type="search" placeholder="Search" className={style.search} /> */}
-            {/* <Search type="search" placeholder="Search" className={style.search} />
+            // {/* <div className={style.head2}> */}
+            // {/* <CustomInput type="search" placeholder="Search" className={style.search} /> */}
+            // {/* <Search type="search" placeholder="Search" className={style.search} />
 
-            </div> */}
-        </div>
+            // </div> */}
+        // </div>
     )
 }
 
@@ -92,7 +93,7 @@ export const Table = () => {
     }, [])
     return (
 
-        <div>
+        <div className={listStyle.scroll}>
 
             <table className={listStyle.table}>
                 <thead>
@@ -208,9 +209,9 @@ export const AddSupplier = () => {
     }
 
     return (
-        <section className={style.addSection}>
+        <section className={combinedClasses( style.main)}>
 
-            <form action="" onSubmit={saveperson}>
+            <form action="" onSubmit={saveperson} className={style.form}>
                 {success && <div className={combinedClasses(errorstyle.error, style.success)}>{success}</div>}
                 <div className={addStyle.inputs}>
                     <CustomInput type="text" name='fullName' onChange={handleInput} label={"Full Name"} className={style.type} />

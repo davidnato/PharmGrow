@@ -6,15 +6,17 @@ import DateTime from '../dateTime';
 import { combinedClasses } from '../../utilities/format';
 import { Search } from '../input';
 
+
 export const LayoutHeader = (props) => {
 
     return (
         props.onClick ?
             <div className={combinedClasses(style.header, style.header2)}>
+                {/* <IoMenu className={style.menuIcon} /> */}
                 <div className={style.greetingTime}>
 
                     <div className={style.greeting}>
-                        <div></div>
+                        <div>hello</div>
                         <p><Greeting /></p>
                     </div>
 
@@ -27,6 +29,7 @@ export const LayoutHeader = (props) => {
             </div> :
 
             <div className={style.header}>
+                
                 {/* <CustomInput type="search" placeholder="Search for Available Medicines" className={style.search} /> */}
                 <Search type="search" placeholder="Search for Available Medicines" className={style.search}/>
                 {/* <div className={style.language}>
@@ -37,9 +40,9 @@ export const LayoutHeader = (props) => {
                 <MdOutlineKeyboardArrowDown />
             </div> */}
                 <div className={style.greetingTime}>
-
+                {/* <IoMenu className={style.menuIcon}/> */}
                     <div className={style.greeting}>
-                        <div></div>
+                    
                         <p><Greeting /></p>
                     </div>
 
@@ -48,7 +51,9 @@ export const LayoutHeader = (props) => {
                         {/* <p>14 January 2022</p>
                     <p>22:45:04</p> */}
                     </div>
+                    
                 </div>
+                
             </div>
     )
 }

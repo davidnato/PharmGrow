@@ -1,9 +1,13 @@
+.main{
+    padding: var(--side-bar-padding);
+}
 .analysisRow1{
     display: grid;
     grid-template-columns: 1fr 1fr;
     /* grid-template-rows: 1fr 1fr; */
     font-family: 'Poppins', sans-serif;
     gap: 15px;
+    margin-top: 30px;
 }
 .eachbox{
     background: #ffffff;
@@ -17,6 +21,7 @@
 .analysisRow2 .eachbox{
     box-shadow: 4px 4px 7px 0 rgb(0, 0, 0, 0.5);
 }
+
 .analysisRow2{
     font-family: 'Poppins', sans-serif;
     width: 100%;
@@ -27,12 +32,16 @@
    color:#05004E;
     gap: 30px !important;
     margin-bottom: 0 !important;
-    
 }
 .analysisRow2 .gridGrid{
     /* background: red; */
+    /* display: flex;
+    flex-direction: row;
+    flex-wrap: wrap; */
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    /* place-self: center; */
+    
     /* grid-template-rows: 1fr 1fr; */
    
     gap: 15px;
@@ -173,3 +182,8 @@
 /* .label{
     display: none;
 } */
+@media (max-width: 725px) {
+    .analysisRow1, .analysisRow2 .gridGrid{
+        grid-template-columns: none;
+    }
+}

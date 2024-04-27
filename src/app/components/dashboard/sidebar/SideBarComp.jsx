@@ -9,9 +9,10 @@ import { Link } from 'react-router-dom';
 import { combinedClasses } from '../../../../app/utilities/format';
 import { NavLink } from 'react-router-dom';
 import { routes } from '../../../utilities/routes';
+import { IoMenu } from "react-icons/io5";
 // import { HandleDropDown } from '../../hooks/toggle';
 
-export const SideBarDiv = () => {
+export const SideBarDiv = (props) => {
     const [show, setShow] = React.useState(false)
     const [dropDown, setDropDown] = React.useState(false)
     const handleDropDown = () => {
@@ -19,8 +20,13 @@ export const SideBarDiv = () => {
 
         // !show ? arrow===<MdOutlineKeyboardArrowDown/>:<MdOutlineKeyboardArrowUp/>
     }
+    const [notification, setNotification] = React.useState()
     const makeSubNavActive = ()=> {
+        
 
+    }
+    const handleNotification=(e)=>{
+        e.preventdefault()
     }
     const navDropDown = (e) => {
         // e.preventDefault()
@@ -57,7 +63,9 @@ export const SideBarDiv = () => {
     // )
 
     return (
-        <div className={style.sidebar}>
+        <div className={combinedClasses(style.sidebar, props.className)}>
+            
+            
             <div className={style.headermain}>
                 <header><Logo useWhite={true} /></header>
                 <main>
@@ -165,6 +173,9 @@ export const SideBarDiv = () => {
                                             </div>
                                         </div>
                                         {nav.dropDown}
+                                        {index===4 &&
+                                         nav.dropdown === <div className={style.badge} onClick={handleNotification}></div>
+                                        }
                                     </Link>
                                 )
                             }

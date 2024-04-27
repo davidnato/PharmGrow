@@ -9,25 +9,35 @@ import { MyButton } from '../../button'
 import axios from "axios";
 import toast from "react-hot-toast";
 import errorstyle from '../../login/style.module.css'
+import listStyle from '../medicineList/style.module.css'
 
-export const AddMedicineComp = () => {
-    return (
-        <section>
-            <header className={style.header}>
-                <LayoutHeader />
-            </header>
-            <main className={style.main}>
-                <AddMedicineMain />
-            </main>
-        </section>
-    )
-}
+// export const AddMedicineComp = () => {
+//     return (
+//         <section>
+//             {/* <header className={style.header}>
+//                 <LayoutHeader />
+//             </header> */}
+//             <main className={style.main}>
+//                 <AddMedicineMain />
+//             </main>
+//         </section>
+//     )
+// }
 
 export const AddMedicineMain = () => {
     return (
-        <div className={combinedClasses(dashboardstyle.main, style.main)}>
+        <div className={combinedClasses(style.main)}>
             <div className={dashboardstyle.head}>
-                <div className={dashboardstyle.info}>
+            <div className={dashboardstyle.info}>
+            <div className={listStyle.headSpan}>
+                <h3 className={listStyle.title}>Inventory
+                    <span>&nbsp; <MdOutlineKeyboardArrowRight /></span> &nbsp; </h3>
+                <h3 className={listStyle.h32}>List of Medicines</h3>
+                <h3>Add new Medicine</h3>
+            </div>
+            <p>All fields are mandatory except mentioned as optional</p>
+        </div>
+                {/* <div className={dashboardstyle.info}>
 
                     <h3 className={style.title}><span>Inventory &nbsp;
                         <MdOutlineKeyboardArrowRight /> &nbsp;
@@ -36,7 +46,7 @@ export const AddMedicineMain = () => {
                         Add new Medicine &nbsp;</span> </h3>
 
                     <p>All fields are mandatory except mentioned as optional</p>
-                </div>
+                </div> */}
             </div>
             
             <Form />

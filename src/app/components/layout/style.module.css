@@ -1,10 +1,67 @@
 .layout{
     display: flex;
     flex-direction: row;
+    width: 100%;
+    background: var(--dashboard-bg);
+    position: relative;
+    /* /* background: var(--dashboard-bg); */
+    /* background: var(--dashboard-bg);  */
 }
-.sidebar{
-    flex: 1;
+.viewMerge{
+    display: flex;
+    flex-direction: column;
+    background: var(--dashboard-bg);
+    width: 100%;
+}
+.menuIcon{
+    display: none;
+    color: #000000;
+    cursor: pointer;
+    width: 36px;
+    height: 24px;
+    margin-top: 18px;
+}
+.menu{
+    background: var(--side-bar-bg);
+}
+.menu .aside{
+    height: 100%;
+    border-bottom: #000000 5px solid;
+
+}
+@media (max-width: 375px) {
+    .menu aside{
+        display: none;
+        /* display: block; */
+        /* flex-direction: column;
+        gap: 0;
+        position: absolute;
+        right: 0;
+        background-color: #000000;
+        cursor: pointer; */
+    }
+    /* .menu ul{
+        
+    } */
+    aside.mobile{
+        display: block;
+    }
+    .menu.mobile aside.mobile{
+        display: block;
+    }
+    .menuIcon{
+        display: block;
+    }
+    .menuIcon{
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 5px;
+    }
+}
+/* .sidebar{
+    flex: 2;
 }
 .dashboard{
     flex: 5;
-}
+} */

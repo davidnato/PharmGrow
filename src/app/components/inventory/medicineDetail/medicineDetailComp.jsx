@@ -15,14 +15,14 @@ import axios from 'axios';
 import toast from 'react-hot-toast';
 import { MedicinesListComp } from '../medicineList/MedicineListComp';
 
-export const MedicinesDetailComp = () => {
-    return (
-        <section className={style.inventory}>
-            <header className={style.header}><LayoutHeader /></header>
+// export const MedicinesDetailComp = () => {
+//     return (
+//         <section className={style.inventory}>
+//             <header className={style.header}><LayoutHeader /></header>
 
-        </section>
-    )
-}
+//         </section>
+//     )
+// }
 
 // const MedicineDetails = ({ ...data }) => {
 //     <div key={data.id}>
@@ -102,7 +102,7 @@ export const MedicinesDetailMain = (props) => {
 
     return (
 
-        <div key={index} className={combinedClasses(dashboardstyle.main, style.main)}>
+        <div key={index} className={combinedClasses(style.main)}>
 
             {/* <div className={dashboardstyle.head}>
                 <div className={dashboardstyle.info}>

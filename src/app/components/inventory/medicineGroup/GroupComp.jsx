@@ -9,25 +9,26 @@ import axios from 'axios';
 // import { HandleDropDown } from '../hooks/toggle';
 import React from 'react';
 import { useEffect, useState } from 'react';
+import { combinedClasses } from '../../../utilities/format';
 
-export const GroupComp = () => {
+// export const GroupComp = () => {
 
-    return (
-        <section className={dashboardStyle.dashboardSection}>
-            <header>
-                <LayoutHeader />
-            </header>
-            <div className={dashboardStyle.dashboardMain}>
-                <Main />
-            </div>
-        </section>
-    )
-}
+//     return (
+//         <section className={dashboardStyle.dashboardSection}>
+//             <header>
+//                 <LayoutHeader />
+//             </header>
+//             <div className={dashboardStyle.dashboardMain}>
+//                 <Main />
+//             </div>
+//         </section>
+//     )
+// }
 
 export const Main = () => {
 
     return (
-        <section className={dashboardStyle.main}>
+        <section className={combinedClasses(style.mainDiv)}>
             <Head />
             <GroupMain />
         </section>
@@ -148,7 +149,7 @@ export const GroupMain = () => {
     //     });
     // }
     return (
-        <section>
+        <section className={style.main}>
             <table className={listStyle.table}>
                 <thead>
                     <tr className={listStyle.headrow}>

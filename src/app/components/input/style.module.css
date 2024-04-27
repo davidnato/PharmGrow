@@ -40,10 +40,21 @@ input ::placeholder{
     border: 1.5px solid #30407F;
     outline: none;
 }
-/* .searchFieldDiv input{
-    box-shadow: none;
-    background-color: #e91429;
-} */
+.searchField{
+    
+    max-width: 325px;
+    width: 100%;
+}
+.searchField input{
+    width: 375px;
+    /* width: 100%; */
+    background: #E3EBF3;
+}
+@media (max-width:375px) {
+    .searchField input{
+        width: 100%;
+    }
+}
 .inputFieldDiv input::placeholder{
     color: #6A6A6A;
     font-weight: 400;
@@ -52,13 +63,13 @@ input ::placeholder{
 }
 
 .search{
-    background: #E3EBF3;
+    
     margin-top: 10px;
-    padding: 15px 25px !important;
-    box-shadow: none !important;
+    /* padding: 15px 25px !important; */
+    /* box-shadow: none !important;
     width: 100%;
     display: flex;
-    align-items: center;
+    align-items: center; */
     
 }
 
@@ -76,12 +87,13 @@ input ::placeholder{
     display: flex;
     flex-direction: row;
     align-items: center;
-    width: 357px;
+    max-width: 357px;
+    width: 100%;
 }
 @media (max-width: 650px) {
-    .inputDiv .inputFieldDiv{
-        width: fit-content;
-    }
+    /* .inputDiv .inputFieldDiv{
+        width: 100%;
+    } */
 }
 /* .searchField{
     display: flex;
@@ -96,6 +108,10 @@ input ::placeholder{
     cursor: pointer;
     
 }
+.searchIcon{
+    right: 10px;
+    
+}
 .icon svg {
     display: flex;
     flex-direction: row;
@@ -104,6 +120,10 @@ input ::placeholder{
 }
 .searchDiv{
     position: relative;
+    display: flex;
+    flex-direction: row;
+    align-self: center;
+    align-content: center;
 }
 .searchList{
     position: absolute;

@@ -1,12 +1,35 @@
 
-.medicinesList section{
+/* .medicinesList section{
     width: 100%;
     background: var(--dashboard-bg);
 }
 .header{
     background: #ffffff;
+} */
+.headSpan{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: center;
 }
-
+.head{
+    padding-bottom: 0 !important;
+}
+.headSpan h3{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    
+}
+.headSpan h3 span{
+    display: flex;
+    align-items: center;
+}
+@media (max-width:320px) {
+    .title span, .headSpan .h32{
+        display: none;
+    }
+}
 .medicinesList{
     display: flex;
     flex-direction: row;
@@ -15,6 +38,7 @@
 .medicinesListComp{
     display: flex;
     flex-direction: column;
+    width: 100%;
 }
 .main{
     padding: var(--side-bar-padding);
@@ -23,7 +47,11 @@
     font-family: 'Poppins', sans-serif;
     color: var(--primary-blue);
     font-family: 'Poppins', sans-serif;
+    gap: 0;
     
+}
+.scroll{
+    overflow-x: scroll;
 }
 .downloadButton{
     display: flex;

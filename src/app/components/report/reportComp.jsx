@@ -43,24 +43,24 @@ ChartJS.register(
     Legend
 );
 
-export const ReportComp = () => {
+// export const ReportComp = () => {
 
-    return (
-        <section className={dashboardStyle.dashboardSection}>
-            <header>
-                <LayoutHeader />
-            </header>
-            <div className={dashboardStyle.dashboardMain}>
-                <Main />
-            </div>
-        </section>
-    )
-}
+//     return (
+//         <section className={dashboardStyle.dashboardSection}>
+//             <header>
+//                 <LayoutHeader />
+//             </header>
+//             <div className={dashboardStyle.dashboardMain}>
+//                 <Main />
+//             </div>
+//         </section>
+//     )
+// }
 
 export const Main = () => {
 
     return (
-        <section className={dashboardStyle.main}>
+        <section className={combinedClasses( style.main)}>
             <Head />
             <ReportMain />
         </section>
@@ -130,10 +130,10 @@ export const ReportMain = () => {
                     )}
                 </div>
             </div>
-            <div className={analysisStyle.eachbox}>
+            {/* <div className={analysisStyle.eachbox}>
                 <h6 className={style.divTitle}>Visitor's Insight</h6>
                 <InsightsChart />
-            </div>
+            </div> */}
             <div className={analysisStyle.eachbox}>
                 <h6 className={style.divTitle}>Sales Analytics</h6>
                 <SalesChart />

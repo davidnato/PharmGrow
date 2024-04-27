@@ -1,14 +1,17 @@
 import React from "react"
-import {SideBar } from '../../dashboard/sidebar'
+import {Layout} from '../../layout'
 import style from './style.module.css'
 import dashboardStyle from '../../dashboard/style.module.css'
-import { ShortageComp } from "./ShortageComp"
+import { Main } from "./ShortageComp"
+import { LayoutHeader } from "../../header"
 
 export const Shortage = () => {
     return (
-        <section className={dashboardStyle.dashboard}>
-            <SideBar/>
-            <ShortageComp/>
+        <section>
+           <Layout>
+                <LayoutHeader  />
+                <Main />
+            </Layout>
         </section>
     )
 }

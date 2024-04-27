@@ -4,7 +4,7 @@ import { IoPricetagSharp, IoBookmarks } from "react-icons/io5";
 
 export const data = [
 
-    { icon: <BsFileBarGraph />, figure: '$1k', title: 'Total Sales', increase: '8' },
+    { icon: <BsFileBarGraph/>, figure: '$1k', title: 'Total Sales', increase: '8' },
     { icon: <IoBookmarks />, figure: '300', title: 'Total Order', increase: '5' },
     { icon: <IoPricetagSharp />, figure: '5', title: 'Product Sold', increase: '1.2' },
     { icon: <MdOutlinePersonAddAlt1 />, figure: '8', title: 'New Customers', increase: '0.5' }

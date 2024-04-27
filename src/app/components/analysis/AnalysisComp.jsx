@@ -36,19 +36,19 @@ ChartJS.register(
 // import { Link } from 'react-router-dom';
 // import { combinedClasses } from '../../utilities/format';
 
-export const AnalysisMain = () => {
+// export const AnalysisMain = () => {
 
-    return (
-        <section className={dashboardStyle.dashboardSection}>
-            <header>
-                <LayoutHeader />
-            </header>
-            <div className={dashboardStyle.dashboardMain}>
-                <Main />
-            </div>
-        </section>
-    )
-}
+//     return (
+//         <section className={dashboardStyle.dashboardSection}>
+//             <header>
+//                 <LayoutHeader />
+//             </header>
+//             <div className={dashboardStyle.dashboardMain}>
+//                 <Main />
+//             </div>
+//         </section>
+//     )
+// }
 
 export const Main = () => {
     const [show, setShow] = React.useState(false)
@@ -87,7 +87,7 @@ export const Main = () => {
     }
 
     return (
-        <section className={dashboardStyle.main}>
+        <section className={combinedClasses( style.main)}>
             <Head />
 
             <div className={style.analysisRow2}>

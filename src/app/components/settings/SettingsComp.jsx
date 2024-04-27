@@ -19,22 +19,22 @@ import { useEffect } from 'react'
 import addstyle from '../inventory/addMedicine/style.module.css'
 
 
-export const SettingSection = () => {
+// export const SettingSection = () => {
 
-    return (
-        <section className={dashboardStyle.dashboardSection}>
+//     return (
+//         <section className={dashboardStyle.dashboardSection}>
 
-            <div className={dashboardStyle.dashboardMain}>
-                <Main />
-            </div>
-        </section>
-    )
-}
+//             <div className={dashboardStyle.dashboardMain}>
+//                 <Main />
+//             </div>
+//         </section>
+//     )
+// }
 
 export const Main = () => {
 
     return (
-        <section className={combinedClasses(dashboardStyle.main, style.listClass)}>
+        <section className={combinedClasses(dashboardStyle.absolute, style.listClass)}>
             <Head />
             <SettingsMain />
         </section>
@@ -188,7 +188,7 @@ export const UsersList = () => {
 
     }
     return (
-        <section className={style.listClass}>
+        <section className={combinedClasses(style.listClass)}>
             <div className={style.listHead}>
                 <h3>List of Users</h3>
                 <div className={style.buttons} >
@@ -205,7 +205,7 @@ export const UsersList = () => {
                     </MyButton>
                 </div>
             </div>
-            <div>
+            <div className={listStyle.scroll}>
 
                 <table className={listStyle.table}>
                     <thead>
@@ -317,9 +317,24 @@ export const AddUsers = () => {
     }
 
     return (
-        <section className={style.listClass}>
+        <section className={combinedClasses(style.listClass)}>
+            <div className={style.listHead}>
+                <h3>Add a new User</h3>
+                <div className={style.buttons} >
+                    <MyButton type='primary' className={style.button1}
+                    // onClick={handleSubmit}
+                    //disabled={isSubmitting}
+                    >
+                        <Link to={routes.userList()} className={combinedClasses(style.button1, 'link')}> Go Back </Link>
 
-            <form action="" onSubmit={saveperson}>
+                    </MyButton>
+
+                    <MyButton type='outline' className={style.cancelbtn}>
+                        <Link to={routes.settings()} className={combinedClasses('link')}> Cancel </Link>
+                    </MyButton>
+                </div>
+            </div>
+            <form action="" onSubmit={saveperson} className={style.form}>
                 {success && <div className={combinedClasses(errorstyle.error, style.success)}>{success}</div>}
                 <div className={addStyle.inputs}>
                     <CustomInput type="text" name='fullName' onChange={handleInput} label={"Full Name"} className={style.type} />
@@ -334,7 +349,7 @@ export const AddUsers = () => {
 
 
             </form>
-            <div className={style.buttons}>
+            <div className={combinedClasses(style.buttons, style.buttons2)}>
                 <MyButton type='primary' title='Save Details' className={style.btn} onClick={saveperson}
                 // onClick={handleadd}
                 // disabled={isSubmitting}

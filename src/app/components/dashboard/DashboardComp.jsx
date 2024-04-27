@@ -28,21 +28,21 @@ import { Layout } from '../layout';
 //   DropdownMenuSelect
 // } from "@/components/ui/dropdown-menu"
 
-export const DashboardMain = () => {
-    return (
-        <section className={style.dashboardSection}>
-            <header>
-                <LayoutHeader onClick={false} />
-            </header>
-            {/* <header>
-                <Layout/>
-            </header> */}
-            <div className={style.dashboardMain}>
-                <Main />
-            </div>
-        </section>
-    )
-}
+// export const DashboardMain = () => {
+//     return (
+//         <section className={style.dashboardSection}>
+//             <header>
+//                 <LayoutHeader onClick={false} />
+//             </header>
+//             {/* <header>
+//                 <Layout/>
+//             </header> */}
+//             <div className={style.dashboardMain}>
+//                 <Main />
+//             </div>
+//         </section>
+//     )
+// }
 
 export const Main = () => {
     const [show, setShow] = React.useState(false)
@@ -51,7 +51,7 @@ export const Main = () => {
         // !show ? arrow===<MdOutlineKeyboardArrowDown/>:<MdOutlineKeyboardArrowUp/>
     }
     return (
-        <div className={style.main}>
+        <div className={combinedClasses(style.mainDiv)}>
             <div className={style.head}>
                 <div className={style.info}>
                     <h3>Dashboard</h3>

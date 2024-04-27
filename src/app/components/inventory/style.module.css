@@ -1,40 +1,52 @@
-.inventoryComp{
-    display: flex;
-    flex-direction: row;
-    background: var(--dashboard-bg);
-    
-    /* height: fit-content; */
+
+.mainDiv {
+  padding: var(--side-bar-padding);
 }
-.inventoryComp section{
-    width: 100%;
-    
+.container{
+  width: 100%;
 }
-.header{
-    background: #ffffff;
-    color: var(--primary-blue);
+
+.analysis{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
 }
-.inventory .main{
-    padding: var(--side-bar-padding);
-    color: var(--primary-blue);
+h6,
+h3,
+p {
+  margin: 0;
+  padding: 0;
 }
-.downloadButton{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 10px;
+
+.head {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.downloadButton {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
+.analysis {
+  display: flex;
+  gap: 36px;
+  flex-wrap: wrap;
+}
+
+.info {
+  align-items: center;
+}
+
+@media (max-width: 952px) {
+  /* .analysis {
+    justify-content: center !important;
+  } */
+
+  .table {
+    overflow-x: scroll;
   }
-  .analysis{
-    display: flex;
-    justify-content: flex-start !important;
-      gap: 36px;
-      justify-content: center;
-      /* background-color: red; */
-  }
-  .info{
-    align-items: center;
-  }
-  @media (max-width: 952px) {
-    .analysis{
-      justify-content: center !important;
-    }
-  }
+}

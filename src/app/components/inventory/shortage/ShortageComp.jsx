@@ -9,25 +9,27 @@ import axios from 'axios';
 // import { HandleDropDown } from '../hooks/toggle';
 import React from 'react';
 import { useEffect } from 'react';
+import { MdOutlineKeyboardArrowRight } from 'react-icons/md';
+import { combinedClasses } from '../../../utilities/format';
 
-export const ShortageComp = () => {
+// export const ShortageComp = () => {
 
-    return (
-        <section className={dashboardStyle.dashboardSection}>
-            <header>
-                <LayoutHeader />
-            </header>
-            <div className={dashboardStyle.dashboardMain}>
-                <Main />
-            </div>
-        </section>
-    )
-}
+//     return (
+//         <section className={dashboardStyle.dashboardSection}>
+//             <header>
+//                 <LayoutHeader />
+//             </header>
+//             <div className={dashboardStyle.dashboardMain}>
+//                 <Main />
+//             </div>
+//         </section>
+//     )
+// }
 
 export const Main = () => {
 
     return (
-        <section className={dashboardStyle.main}>
+        <section className={combinedClasses(style.main)}>
             <Head />
             <ShortageMain />
         </section>
@@ -42,8 +44,12 @@ export const Head = () => {
     }
     return <div className={dashboardStyle.head}>
         <div className={dashboardStyle.info}>
-            <h3>Medicines Shortage</h3>
-            <p>Medicines Group less than 50</p>
+            <div className={listStyle.headSpan}>
+                <h3 className={listStyle.title}>Medicines Shortage
+                    <span>&nbsp; <MdOutlineKeyboardArrowRight /></span> &nbsp; </h3>
+                <h3 className={listStyle.h32}>List of Medicines</h3>
+            </div>
+            <p>Medicines less than 20 in stock</p>
         </div>
         <div className={dashboardStyle.downloadButton} onClick={handleDropDown}>
             <button>Download Report
@@ -83,12 +89,12 @@ export const ShortageMain = () => {
             })
             .catch(error => console.log(error))
     }, [])
-    return(
+    return (
         <section>
             <table className={listStyle.table}>
                 <thead>
                     <tr className={listStyle.headrow}>
-                        
+
                         <th className={listStyle.head}>Group Name
                             {/* <span><HiOutlineSelector /></span> */}
                         </th>

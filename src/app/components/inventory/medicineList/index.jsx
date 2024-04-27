@@ -1,14 +1,18 @@
 
 import style from './style.module.css';
-import {MedicinesListComp} from './MedicineListComp'
+import {MedicinesListMain} from './MedicineListComp'
 import { SideBar } from '../../dashboard/sidebar';
 import dashboardstyle from '../../dashboard/style.module.css'
+import { Layout } from '../../layout';
+import { LayoutHeader } from '../../header';
 
 export const MedicinesList=()=>{
     return(
-        <section className={style.medicinesList}>
-            <SideBar/>
-            <MedicinesListComp/>
+        <section>
+            <Layout>
+                <LayoutHeader  />
+                <MedicinesListMain />
+            </Layout>
         </section>
     )
 }

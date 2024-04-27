@@ -18,21 +18,25 @@ import { MedicinesDetailMain } from "../medicineDetail/medicineDetailComp";
 
 
 
-export const MedicinesListComp = () => {
-    return (
-        <section className={style.medicinesListComp}>
-            <header className={style.header}><LayoutHeader /></header>
-            <MedicinesListMain />
-        </section>
-    )
-}
+// export const MedicinesListComp = () => {
+//     return (
+//         <section className={style.medicinesListComp}>
+//             {/* <header className={style.header}><LayoutHeader /></header> */}
+//             <MedicinesListMain />
+//         </section>
+//     )
+// }
 
 export const MedicinesListMain = () => {
     return (
-        <div className={combinedClasses(dashboardstyle.main, style.main)}>
-            <div className={dashboardstyle.head}>
+        <div className={combinedClasses(style.main)}>
+            <div className={combinedClasses(dashboardstyle.head, style.head)}>
                 <div className={dashboardstyle.info}>
-                    <h3 className={style.title}>Inventory <span>&nbsp; <MdOutlineKeyboardArrowRight /></span> &nbsp;List of Medicines</h3>
+                    <div className={style.headSpan}>
+                        <h3 className={style.title}>Inventory
+                            <span>&nbsp; <MdOutlineKeyboardArrowRight /></span> &nbsp; </h3>
+                        <h3 className={style.h32}>List of Medicines</h3>
+                    </div>
                     <p>List of Medicines available for sales</p>
                 </div>
                 <div className={dashboardstyle.downloadButton}>
@@ -44,9 +48,9 @@ export const MedicinesListMain = () => {
                     </button>
                 </div>
             </div>
-            <div className={style.head2}>
+            {/* <div className={style.head2}> */}
                 {/* <CustomInput type="search" placeholder="Search" className={style.search} /> */}
-                <Search type="search" placeholder="Search"  className={style.search}/>
+                {/* <Search type="search" placeholder="Search" className={style.search} /> */}
                 {/* <div>
                     <MdOutlineFilterAlt />
                     <MyButton type='outline' className={style.button}
@@ -56,7 +60,7 @@ export const MedicinesListMain = () => {
                         <MdOutlineKeyboardArrowDown />
                     </MyButton>
                 </div> */}
-            </div>
+            {/* </div> */}
             <Table />
 
         </div>
@@ -82,7 +86,7 @@ export const Table = () => {
     }
     return (
 
-        <div>
+        <div className={style.scroll}>
             {index ?
                 <MedicinesDetailMain index={index} />
                 :

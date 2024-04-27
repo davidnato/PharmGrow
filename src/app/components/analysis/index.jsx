@@ -1,14 +1,17 @@
 import React from "react"
-import {SideBar } from '../dashboard/sidebar'
+import {Layout} from '../layout'
 import style from './style.module.css'
-import { AnalysisMain } from "./AnalysisComp"
+import { Main } from "./AnalysisComp"
 import dashboardStyle from '../dashboard/style.module.css'
+import { LayoutHeader } from "../header"
 
 export const Analysis = () => {
     return (
-        <section className={dashboardStyle.dashboard}>
-            <SideBar/>
-            <AnalysisMain/>
+        <section>
+            <Layout>
+                <LayoutHeader  />
+                <Main />
+            </Layout>
         </section>
     )
 }

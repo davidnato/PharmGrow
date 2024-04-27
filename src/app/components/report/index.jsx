@@ -1,14 +1,17 @@
 import React from "react"
-import {SideBar } from '../dashboard/sidebar'
+import {Layout } from '../layout'
 import style from './style.module.css'
-import { ReportComp } from "./reportComp"
+import { Main } from "./reportComp"
 import dashboardStyle from '../dashboard/style.module.css'
+import { LayoutHeader } from "../header"
 
 export const Report = () => {
     return (
         <section className={dashboardStyle.dashboard}>
-            <SideBar/>
-            <ReportComp/>
+            <Layout>
+                <LayoutHeader  />
+                <Main />
+            </Layout>
         </section>
     )
 }

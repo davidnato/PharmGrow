@@ -1,13 +1,19 @@
 import React from "react"
-import {SideBar } from './sidebar/index'
+import { SideBar } from './sidebar/index'
 import style from './style.module.css'
-import { DashboardMain } from "./DashboardComp"
+import { Main } from "./DashboardComp"
+import { Layout } from "../layout"
+import { LayoutHeader } from "../header"
 
 export const Dashboard = () => {
+    // className={style.dashboard}
     return (
-        <section className={style.dashboard}>
-            <SideBar/>
-            <DashboardMain/>
+        <section >
+            <Layout>
+                <LayoutHeader  />
+                <Main/>
+            </Layout>
+            {/* <Main className={style.absolute}/> */}
         </section>
     )
 }

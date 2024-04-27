@@ -7,18 +7,18 @@ import { routes } from '../../utilities/routes';
 import { Link } from 'react-router-dom';
 import { combinedClasses } from '../../utilities/format';
 
-export const InventoryComp = () => {
-    return (
-        <section className={style.inventory}>
-            <header className={style.header}><LayoutHeader /></header>
-            <div className={style.main}><InventoryMain /></div>
-        </section>
-    )
-}
+// export const InventoryComp = () => {
+//     return (
+//         <section className={style.inventory}>
+//             <header className={style.header}><LayoutHeader /></header>
+//             <div className={style.main}><InventoryMain /></div>
+//         </section>
+//     )
+// }
 
 export const InventoryMain = () => {
     return (
-        <div className={combinedClasses(dashboardstyle.main, style.mainDiv)}>
+        <div className={combinedClasses( style.mainDiv)}>
             <div className={combinedClasses(dashboardstyle.head, style.head)}>
                 <div className={combinedClasses(dashboardstyle.info, style.info)}>
                     <h3>Inventory</h3>

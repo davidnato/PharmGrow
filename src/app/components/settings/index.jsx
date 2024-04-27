@@ -1,30 +1,37 @@
 import React from "react"
-import {SideBar } from '../dashboard/sidebar'
+import { Layout } from '../layout'
 import style from './style.module.css'
-import { SettingSection, AddUsers, UsersList } from "./SettingsComp"
-import listStyle from '../inventory/medicineList/style.module.css'
+import { Main, AddUsers, UsersList } from "./SettingsComp"
+import dashboardstyle from '../dashboard/style.module.css'
+import { LayoutHeader } from "../header"
 
 export const Settings = () => {
     return (
-        <section className={listStyle.medicinesList}>
-            <SideBar/>
-            <SettingSection/>
+        <section>
+            <Layout>
+                <LayoutHeader />
+                <Main />
+            </Layout>
         </section>
     )
 }
 export const AddUserSection = () => {
     return (
-        <section className={listStyle.medicinesList}>
-            <SideBar/>
-            <AddUsers/>
+        <section >
+            <Layout>
+                <LayoutHeader />
+                <AddUsers />
+            </Layout>
         </section>
     )
 }
 export const UsersListSection = () => {
     return (
-        <section className={listStyle.medicinesList}>
-            <SideBar/>
-            <UsersList/>
+        <section >
+            <Layout>
+                <LayoutHeader />
+                <UsersList />
+            </Layout>
         </section>
     )
 }

@@ -10,8 +10,11 @@
 .header{
     background: #ffffff;
 }
-.medicinesGroups .main{
+/* .medicinesGroups .main{
     padding: var(--side-bar-padding);
+} */
+.main{
+  padding: var(--side-bar-padding);
 }
 .medicinesGroups section{
     width: 100%;
