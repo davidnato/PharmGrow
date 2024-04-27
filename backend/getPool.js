@@ -15,8 +15,3 @@ pool.connect((error) => {
     console.log("MYSQL connected...");
   }
 });
-
-const s_users = "select * from user_table ";
-const insertUser_query =
-  "insert into user_table (Name,email,date_of_birth,password) values(?,?,?,?)";
-module.exports = { pool, s_users, insertUser_query };
