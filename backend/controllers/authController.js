@@ -21,7 +21,7 @@ async function signup(req, res) {
     const hashedPassword = await bcrypt.hash(Password, 10); // Hash password securely
 
     const [rows] = await pool.query(
-      "INSERT INTO users (Fullname, username, Password) VALUES (?, ?, ?)",
+      "INSERT INTO user_login (Fullname, username, Password) VALUES (?, ?, ?)",
       [Fullname, username, hashedPassword]
     );
 
@@ -41,9 +41,10 @@ async function login(req, res) {
   }
 
   try {
-    const [rows] = await pool.query("SELECT * FROM users WHERE username = ?", [
-      username,
-    ]);
+    const [rows] = await pool.query(
+      "SELECT * FROM user_login WHERE username = ?",
+      [username]
+    );
     const user = rows[0];
 
     if (!user) {

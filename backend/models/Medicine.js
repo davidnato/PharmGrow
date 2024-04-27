@@ -12,7 +12,7 @@ class Medicine {
   static async createMedicine(name, price, quantity) {
     try {
       const query =
-        "INSERT INTO Medicines (name, price, quantity) VALUES (?, ?, ?)";
+        "INSERT INTO new_medicine ( Medicine_name, MedicineID, Medicine Group,quantity_in_number, Price,How_to_use, side_effects) VALUES (?, ?, ?, ?, ?, ?, ?)";
       const result = await pool.query(query, [name, price, quantity]);
       return { id: result.insertId, name, price, quantity };
     } catch (error) {
@@ -23,7 +23,7 @@ class Medicine {
   static async updateMedicine(id, name, price, quantity) {
     try {
       const query =
-        "UPDATE Medicines SET name = ?, price = ?, quantity = ? WHERE id = ?";
+        "UPDATE updateMedicine SET name = ?, price = ?, quantity = ? WHERE id = ?";
       await pool.query(query, [name, price, quantity, id]);
     } catch (error) {
       throw error;
@@ -32,7 +32,7 @@ class Medicine {
 
   static async deleteMedicine(id) {
     try {
-      const query = "DELETE FROM Medicines WHERE id = ?";
+      const query = "DELETE FROM new_medicine WHERE id = ?";
       await pool.query(query, [id]);
     } catch (error) {
       throw error;
