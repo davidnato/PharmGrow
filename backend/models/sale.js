@@ -1,37 +1,149 @@
-// model/sale.js
+// models/Sale.js
 
 const pool = require("../getPool"); // Import MySQL connection pool
 
 class Sale {
-  constructor(customerName, medicines) {
+  constructor(customerName, customerId, amount, date) {
     this.customerName = customerName;
-    this.medicines = medicines;
+    this.customerId = customerId;
+    this.amount = amount;
+    this.date = date;
   }
 
-  async save() {
+  static async createSale(customerName, customerId, amount, date) {
     try {
-      // Start transaction
-      await pool.query("START TRANSACTION");
-
-      // Insert sale details into database
-      const insertSaleQuery = "INSERT INTO Sales (customer_name) VALUES (?)";
-      const saleResult = await pool.query(insertSaleQuery, [this.customerName]);
-      const saleId = saleResult.insertId;
-
-      // Insert sale items (medicines) into database
-      const insertSaleItemsQuery =
-        "INSERT INTO SaleItems (sale_id, medicine_id, quantity) VALUES (?, ?, ?)";
-      for (const { medicineId, quantity } of this.medicines) {
-        await pool.query(insertSaleItemsQuery, [saleId, medicineId, quantity]);
-      }
-
-      // Commit transaction
-      await pool.query("COMMIT");
-
-      return saleId;
+      const query =
+        "INSERT INTO Sales (customerName, customerId, amount, date) VALUES (?, ?, ?, ?)";
+      const result = await pool.query(query, [customerName, amount, date]);
+      return { id: result.insertId, customerName, customerId, amount, date };
     } catch (error) {
-      // Rollback transaction on error
-      await pool.query("ROLLBACK");
+      throw error;
+    }
+  }
+
+  static async getTotalSalesPerDay(startDate, endDate) {
+    try {
+      const query = `
+                SELECT DATE(date) AS day, SUM(amount) AS totalSales
+                FROM Sales
+                WHERE date BETWEEN ? AND ?
+                GROUP BY DATE(date)
+            `;
+      const results = await pool.query(query, [startDate, endDate]);
+      return results;
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  static async getTotalOrdersPerDay(startDate, endDate) {
+    try {
+      const query = `
+                SELECT DATE(date) AS day, COUNT(*) AS totalOrders
+                FROM Sales
+                WHERE date BETWEEN ? AND ?
+                GROUP BY DATE(date)
+            `;
+      const results = await pool.query(query, [startDate, endDate]);
+      return results;
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  static async getTotalProductsSold(startDate, endDate) {
+    try {
+      const query = `
+                SELECT DATE(date) AS day, SUM(quantity) AS totalProductsSold
+                FROM Sales
+                WHERE date BETWEEN ? AND ?
+                GROUP BY DATE(date)
+            `;
+      const results = await pool.query(query, [startDate, endDate]);
+      return results;
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  static async getTotalNewCustomersPerDay(startDate, endDate) {
+    try {
+      const query = `
+                SELECT DATE(date) AS day, COUNT(DISTINCT customer_id) AS totalNewCustomers
+                FROM Sales
+                WHERE date BETWEEN ? AND ?
+                GROUP BY DATE(date)
+            `;
+      const results = await pool.query(query, [startDate, endDate]);
+      return results;
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  static async TotalRevenue() {
+    try {
+      const currentDate = new Date();
+      const firstDayOfMonth = new Date(
+        currentDate.getFullYear(),
+        currentDate.getMonth(),
+        1
+      );
+      const lastDayOfMonth = new Date(
+        currentDate.getFullYear(),
+        currentDate.getMonth() + 1,
+        0
+      );
+      const query = `
+                SELECT SUM(price * quantity) AS totalRevenue
+                FROM Sales
+                WHERE date BETWEEN ? AND ?
+            `;
+      const results = await pool.query(query, [
+        firstDayOfMonth,
+        lastDayOfMonth,
+      ]);
+      return results[0].totalRevenue || 0;
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  static async getAllSales() {
+    try {
+      const query = "SELECT * FROM Sales";
+      const results = await pool.query(query);
+      return results;
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  static async getSaleById(id) {
+    try {
+      const query = "SELECT * FROM Sales WHERE id = ?";
+      const results = await pool.query(query, [id]);
+      return results[0];
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  static async updateSale(id, customerName, amount, date) {
+    try {
+      const query =
+        "UPDATE Sales SET customer_name = ?, amount = ?, date = ? WHERE id = ?";
+      await pool.query(query, [customerName, amount, date, id]);
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  static async deleteSale(id) {
+    try {
+      const query = "DELETE FROM Sales WHERE id = ?";
+      await pool.query(query, [id]);
+    } catch (error) {
       throw error;
     }
   }

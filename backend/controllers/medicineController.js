@@ -20,10 +20,11 @@ async function addMedicine(req, res) {
   try {
     // Insert the new medicine into the database
     const query =
-      "INSERT INTO new_medicine ( Medicine_name, MedicineID, Medicine Group,quantity_in_number, Price,How_to_use, side_effects) VALUES (?, ?, ?, ?, ?, ?, ?)";
+      "INSERT INTO new_medicine ( Medicine_Name, MedicineID, Medicine_Group,Quantity_in_number, Price, How_to_use, side_effects) VALUES (?, ?, ?, ?, ?, ?, ?)";
+
     await pool.query(query, [
       Medicine_Name,
-      MedicineID,
+      Medicine_ID,
       Medicine_Group,
       Quantity_in_number,
       Price,
@@ -80,9 +81,50 @@ async function deleteMedicine(req, res) {
   }
 }
 
+async function TopSellingMedicines(req, res) {
+  try {
+    const limit = req.query.limit || 5; // Default limit to 5 if not specified
+    const topMedicines = await Medicine.TopSellingMedicines(limit);
+    res.json(topMedicines);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({
+      message: "An error occurred while fetching top selling medicines",
+    });
+  }
+}
+
+async function MedicineShortage(req, res) {
+  try {
+    const threshold = req.query.threshold || 10; // Default threshold to 10 if not specified
+    const shortageMedicines = await Medicine.MedicineShortage(threshold);
+    res.json(shortageMedicines);
+  } catch (error) {
+    console.error(error);
+    res
+      .status(500)
+      .json({ message: "An error occurred while fetching medicine shortage" });
+  }
+}
+
+async function MedicineGroups(req, res) {
+  try {
+    const medicineGroups = await Medicine.MedicineGroups();
+    res.json(medicineGroups);
+  } catch (error) {
+    console.error(error);
+    res
+      .status(500)
+      .json({ message: "An error occurred while fetching medicine groups" });
+  }
+}
+
 module.exports = {
   getAllMedicines,
   addMedicine,
   updateMedicine,
   deleteMedicine,
+  TopSellingMedicines,
+  MedicineShortage,
+  MedicineGroups,
 };

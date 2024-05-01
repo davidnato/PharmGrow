@@ -8,5 +8,8 @@ router.get("/", medicineController.getAllMedicines);
 router.post("/add", medicineController.addMedicine);
 router.put("/:id", medicineController.updateMedicine);
 router.delete("/:id", medicineController.deleteMedicine);
+router.get("/top-selling", medicineController.TopSellingMedicines);
+router.get("/shortage", medicineController.MedicineShortage);
+router.get("/groups", medicineController.MedicineGroups);
 
 module.exports = router;
