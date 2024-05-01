@@ -3,19 +3,43 @@
 const pool = require("../getPool"); // Import MySQL connection pool
 
 class Sale {
-  constructor(customerName, customerId, amount, date) {
+  constructor(customerName, customerId, MedicineID, quantity, amount, date) {
     this.customerName = customerName;
     this.customerId = customerId;
+    this.MedicineID = MedicineID;
+    this.quantity = quantity;
     this.amount = amount;
     this.date = date;
   }
 
-  static async createSale(customerName, customerId, amount, date) {
+  static async createSale(
+    customerName,
+    customerId,
+    MedicineID,
+    quantity,
+    amount,
+    date
+  ) {
     try {
       const query =
-        "INSERT INTO Sales (customerName, customerId, amount, date) VALUES (?, ?, ?, ?)";
-      const result = await pool.query(query, [customerName, amount, date]);
-      return { id: result.insertId, customerName, customerId, amount, date };
+        "INSERT INTO Sales (customerName, customerId, MedicineID, quantity, amount, date) VALUES (?, ?, ?, ?, ?)";
+      const result = await pool.query(query, [
+        customerName,
+        customerId,
+        MedicineID,
+        quantity,
+        amount,
+        date,
+      ]);
+      return {
+        id: result.insertId,
+        customerName,
+        customerId,
+        MedicineID,
+        quantity,
+        amount,
+        date,
+      };
     } catch (error) {
       throw error;
     }
@@ -69,7 +93,7 @@ class Sale {
   static async getTotalNewCustomersPerDay(startDate, endDate) {
     try {
       const query = `
-                SELECT DATE(date) AS day, COUNT(DISTINCT customer_id) AS totalNewCustomers
+                SELECT DATE(date) AS day, COUNT(DISTINCT customerId) AS totalNewCustomers
                 FROM Sales
                 WHERE date BETWEEN ? AND ?
                 GROUP BY DATE(date)
@@ -132,7 +156,7 @@ class Sale {
   static async updateSale(id, customerName, amount, date) {
     try {
       const query =
-        "UPDATE Sales SET customer_name = ?, amount = ?, date = ? WHERE id = ?";
+        "UPDATE Sales SET customerName = ?, amount = ?, date = ? WHERE id = ?";
       await pool.query(query, [customerName, amount, date, id]);
     } catch (error) {
       throw error;

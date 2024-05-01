@@ -20,7 +20,7 @@ async function addMedicine(req, res) {
   try {
     // Insert the new medicine into the database
     const query =
-      "INSERT INTO new_medicine ( Medicine_Name, MedicineID, Medicine_Group,Quantity_in_number, Price, How_to_use, side_effects) VALUES (?, ?, ?, ?, ?, ?, ?)";
+      "INSERT INTO new_medicine ( Medicine_Name, MedicineID, Group_Name,Quantity_in_number, Price, How_to_use, side_effects) VALUES (?, ?, ?, ?, ?, ?, ?)";
 
     await pool.query(query, [
       Medicine_Name,
@@ -71,7 +71,7 @@ async function deleteMedicine(req, res) {
 
   try {
     // Delete the medicine from the database
-    const query = "DELETE FROM Medicines WHERE id = ?";
+    const query = "DELETE FROM new_medicine WHERE id = ?";
     await pool.query(query, [medicineId]);
 
     res.json({ message: "Medicine deleted successfully" });
@@ -96,7 +96,7 @@ async function TopSellingMedicines(req, res) {
 
 async function MedicineShortage(req, res) {
   try {
-    const threshold = req.query.threshold || 10; // Default threshold to 10 if not specified
+    const threshold = req.query.threshold || 20; // Default threshold to 10 if not specified
     const shortageMedicines = await Medicine.MedicineShortage(threshold);
     res.json(shortageMedicines);
   } catch (error) {

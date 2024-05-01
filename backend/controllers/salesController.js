@@ -1,19 +1,29 @@
 const Sale = require("../models/sale"); // Replace with your actual model path
 
 exports.createSale = async (req, res) => {
-  const { medicineId, quantity, price, customerId } = req.body;
+  const { customerName, customerId, MedicineID, quantity, amount, date } =
+    req.body;
 
   // Input validation
-  if (!medicineId || !quantity || !price || !customerId) {
+  if (
+    !MedicineID ||
+    !quantity ||
+    !amount ||
+    !customerId ||
+    !customerName ||
+    !date
+  ) {
     return res.status(400).json({ message: "Missing required fields" });
   }
 
   try {
     const newSale = await Sale.createSale(
-      medicineId,
+      customerName,
+      customerId,
+      MedicineID,
       quantity,
-      price,
-      customerId
+      amount,
+      date
     );
     res
       .status(201)
@@ -53,10 +63,18 @@ exports.getSaleById = async (req, res) => {
 
 exports.updateSale = async (req, res) => {
   const saleId = req.params.id;
-  const { medicineId, quantity, price, customerId } = req.body;
+  const { customerName, customerId, MedicineID, quantity, amount, date } =
+    req.body;
 
   // Input validation
-  if (!medicineId || !quantity || !price || !customerId) {
+  if (
+    !MedicineID ||
+    !quantity ||
+    !amount ||
+    !customerId ||
+    !customerName ||
+    !date
+  ) {
     return res.status(400).json({ message: "Missing required fields" });
   }
 

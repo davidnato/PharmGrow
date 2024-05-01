@@ -6,7 +6,6 @@ const supplierController = require("../controllers/supplierController");
 
 // Route to get list of suppliers with required information
 router.get("/list", supplierController.getSuppliersList);
-
-// Other routes...
+router.post("/newsupplier", supplierController.createSupplier);
 
 module.exports = router;
