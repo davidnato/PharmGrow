@@ -1,7 +1,7 @@
 // controllers/medicineController.js
 const pool = require("../getPool");
 
-async function getAllMedicines(req, res) {
+async function AllMedicines(req, res) {
   // Implement logic to retrieve all medicines from the database
   try {
     // Query to retrieve all medicines from the database
@@ -120,7 +120,7 @@ async function MedicineGroups(req, res) {
 }
 
 module.exports = {
-  getAllMedicines,
+  AllMedicines,
   addMedicine,
   updateMedicine,
   deleteMedicine,

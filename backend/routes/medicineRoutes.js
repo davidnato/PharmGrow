@@ -1,10 +1,11 @@
 // routes/medicineRoutes.js
 const express = require("express");
 const router = express.Router();
+const app = express();
 const medicineController = require("../controllers/medicineController");
 
 // Define medicine routes
-router.get("/allmedicine", medicineController.getAllMedicines);
+router.get("/AllMedicines", medicineController.AllMedicines);
 router.post("/add", medicineController.addMedicine);
 router.put("/:id", medicineController.updateMedicine);
 router.delete("/:id", medicineController.deleteMedicine);

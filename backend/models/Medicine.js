@@ -92,7 +92,7 @@ class Medicine {
     }
   }
 
-  static async getAllMedicines() {
+  static async AllMedicines() {
     try {
       const query = "SELECT * FROM new_medicine";
       const results = await pool.query(query);
