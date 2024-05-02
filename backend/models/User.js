@@ -10,7 +10,7 @@ class User {
 
   static async createUser(username, password) {
     try {
-      const query = "INSERT INTO Users (username, password) VALUES (?, ?)";
+      const query = "INSERT INTO user_login (username, password) VALUES (?, ?)";
       await pool.query(query, [username, password]);
     } catch (error) {
       throw error;
@@ -19,7 +19,7 @@ class User {
 
   static async getUserByUsername(username) {
     try {
-      const query = "SELECT * FROM Users WHERE username = ?";
+      const query = "SELECT * FROM user_login WHERE username = ?";
       const results = await pool.query(query, [username]);
       return results[0]; // Assuming there's only one user with the given username
     } catch (error) {
@@ -29,7 +29,7 @@ class User {
 
   static async getUserById(id) {
     try {
-      const query = "SELECT * FROM Users WHERE id = ?";
+      const query = "SELECT * FROM user_login WHERE id = ?";
       const results = await pool.query(query, [id]);
       return results[0]; // Assuming there's only one user with the given ID
     } catch (error) {
@@ -39,7 +39,8 @@ class User {
 
   static async verifyUser(username, password) {
     try {
-      const query = "SELECT * FROM Users WHERE username = ? AND password = ?";
+      const query =
+        "SELECT * FROM user_login WHERE username = ? AND password = ?";
       const results = await pool.query(query, [username, password]);
       return results[0]; // If user is found, return user details; otherwise, return undefined
     } catch (error) {

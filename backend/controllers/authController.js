@@ -10,7 +10,7 @@ function generateToken(user) {
 
 async function signup(req, res) {
   // Implement user registration logic
-  const { Fullname, username, password } = req.body;
+  const { Fullname, username, Password } = req.body;
 
   // Input validation (optional, but recommended)
   if (!Fullname || !username || !Password) {

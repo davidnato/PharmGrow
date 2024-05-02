@@ -11,6 +11,7 @@ const PORT = process.env.PORT || 3000;
 
 // Middleware
 app.use(bodyParser.json());
+app.use(express.json());
 
 // Routes
 app.use("/auth", authRoutes);
