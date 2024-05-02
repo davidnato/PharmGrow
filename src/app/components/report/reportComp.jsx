@@ -7,7 +7,8 @@ import listStyle from '../inventory/medicineList/style.module.css'
 import { CustomInput } from '../input';
 import { MyButton } from '../button';
 import { CiExport } from "react-icons/ci";
-import { data } from './data';
+import { data, datanew } from './data';
+import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 // import { analysisOne, analysisTwo } from './data';
 import { AiOutlineFileExcel, AiOutlineFilePdf } from "react-icons/ai";
 // import { HandleDropDown } from '../hooks/toggle';
@@ -25,11 +26,19 @@ import {
     PointElement,
     LineElement,
     Title,
-    Tooltip,
+    // Tooltip,
     Filler,
     Legend,
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
+// import {
+//     AreaChart,
+//     Area,
+//     XAxis,
+//     YAxis,
+//     CartesianGrid,
+//     Tooltip
+// } from "recharts";
 // import { ReportMain } from '../shortage/ShortageComp';
 
 ChartJS.register(
@@ -38,7 +47,7 @@ ChartJS.register(
     PointElement,
     LineElement,
     Title,
-    Tooltip,
+    // Tooltip,
     Filler,
     Legend
 );
@@ -60,7 +69,7 @@ ChartJS.register(
 export const Main = () => {
 
     return (
-        <section className={combinedClasses( style.main)}>
+        <section className={combinedClasses(style.main)}>
             <Head />
             <ReportMain />
         </section>
@@ -201,6 +210,8 @@ export const SalesChart = () => {
     const [revenueData, setRevenueData] = React.useState({
         labels: [],
         datasets: []
+
+
     })
     useEffect(() => {
         // .then(result => {
@@ -248,15 +259,37 @@ export const SalesChart = () => {
 
     }, [])
 
-    return <Line options={areaOption} data={revenueData} />
+    return <div width="100%" height="100%">
+    <AreaChart
+      width={500}
+      height={400}
+      data={data}
+      margin={{
+        top: 10,
+        right: 30,
+        left: 0,
+        bottom: 0,
+      }}
+    >
+
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis dataKey="name" />
+            <YAxis />
+            <Tooltip />
+            <Area type="monotone" dataKey="uv" stackId="1" stroke="#8884d8" fill="#8884d8" />
+            <Area type="monotone" dataKey="pv" stackId="1" stroke="#82ca9d" fill="#82ca9d" />
+            <Area type="monotone" dataKey="amt" stackId="1" stroke="#ffc658" fill="#ffc658"/>
+        </AreaChart>
+     {/* <Line options={areaOption} data={revenueData} /> */}
+    </div>
 }
 
 export const SalesTable = () => {
     return <section className={listStyle.tableSection}>
         <div className={listStyle.head2}>
-        <h6 className={style.divTitle}>Sales Analytics</h6>
+            <h6 className={style.divTitle}>Sales Analytics</h6>
             <div>
-                
+
                 <MyButton type='outline' className={listStyle.button}
                 // onClick={handleLogin} 
                 >

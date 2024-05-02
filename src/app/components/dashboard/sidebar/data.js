@@ -20,10 +20,10 @@ export const sideBarNavs1 = [
 
 export const sideBarNavs2 = [
     // { icon: <MdOutlinePeople />, title: 'Account', dropDown: <MdOutlineKeyboardArrowDown />, arrowUp: <MdOutlineKeyboardArrowUp />, url: routes.account() },
-    { icon: <MdOutlineTune />, title: 'Sales', url: routes.report() },
+    { icon: <MdOutlineTune />, title: 'Sales', url: routes.report()  },
     { icon: <MdOutlineNotifications />, title: "Notification", 
     // badge:<Notification/>, 
-    url: routes.notification() },
+    url: routes.notification(), dropDown:"01" },
     { icon: <PiChatDots />, title: 'Suppliers Info', url: routes.suppliers() },
 
    

@@ -29,22 +29,16 @@
     border-bottom: #000000 5px solid;
 
 }
+
 @media (max-width: 375px) {
-    .menu aside{
+    .menu .aside{
         display: none;
-        /* display: block; */
-        /* flex-direction: column;
-        gap: 0;
-        position: absolute;
-        right: 0;
-        background-color: #000000;
-        cursor: pointer; */
+        width: 100vw;
+        background-color: red;
+        /* display: block; works here though */
     }
-    /* .menu ul{
-        
-    } */
-    aside.mobile{
-        display: block;
+    .menu aside.mobile{
+        display: none;
     }
     .menu.mobile aside.mobile{
         display: block;
@@ -58,6 +52,10 @@
         left: 0;
         top: 5px;
     }
+    .viewMerge{
+        display: none;
+        /* visibility: hidden; */
+    }
 }
 /* .sidebar{
     flex: 2;
@@ -65,3 +63,7 @@
 .dashboard{
     flex: 5;
 } */
+.mobile{
+    color: red;
+    background-color: red;
+}

@@ -42,8 +42,8 @@ export const LayoutHeader = (props) => {
                 <div className={style.greetingTime}>
                 {/* <IoMenu className={style.menuIcon}/> */}
                     <div className={style.greeting}>
-                    
-                        <p><Greeting /></p>
+                        <div></div>
+                        <p><span></span><Greeting /></p>
                     </div>
 
                     <div className={style.time}>

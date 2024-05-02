@@ -8,26 +8,22 @@ import toast from "react-hot-toast"
 
 
 export const Notification = (props) => {
-    const [notification, setNotification] = React.useState()
+    
     const [data, setData] = React.useState([])
+    const [badge, setBadge]=React.useState()
     useEffect(() => {
         axios.get('http://localhost:3001/stock')
             .then(result => {
-                setData(result.message);
-                toast(result.message)
+                setData(result.all);
+                toast(result.all.message)
+
             })
             .catch(error => console.log(error))
+            setBadge(data.length)
     }, [])
     // let index={props.index}
     return (
-        <div>
-            {/* {notification && notification.map((item, index) => */}
-                <ul key={index}>
-                    {result.message && data.map((item, index) =>
-                    <li className={style.message}>{item.message} <span><DateTime/></span></li>
-                    )}
-                </ul>
-        </div>
+        <section></section>
 
 
 

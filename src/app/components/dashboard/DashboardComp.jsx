@@ -12,6 +12,7 @@ import { combinedClasses } from '../../utilities/format';
 import { useEffect } from 'react';
 import axios from 'axios';
 import { Layout } from '../layout';
+import { DropDown } from '../selectDropDown/SelectDropDown';
 // import { MonthPicker } from '../selectDropDown/SelectDropDown';
 // import { DropdownMenuRadioGroup } from '@radix-ui/react-dropdown-menu';
 
@@ -148,8 +149,8 @@ export const AnalysisOne = () => {
         <div className={style.analysis}>
             {
                 analysisOne.map((analysis, index) =>
-                    <div key={index} className={combinedClasses(style.eachAnalysis, index === 0 & 2 && style.mainIndex || index === 1 && style.index1
-                        || index === 3 && style.index2 || index === 4 && style.index3)}>
+                    <div key={index} className={combinedClasses(style.eachAnalysis, (index === 0 & 2 && style.mainIndex) || (index === 1 && style.index1)
+                        || (index === 3 && style.index2) || (index === 4 && style.index3))}>
                         <div className={style.main}>
                             <div className={style.image}>{analysis.icon}</div>
                             {/*{index === 1 && <h6># {monthRevenue}</h6> || index === 2 && <h6>{totalInventory}</h6> || index===0 && <h6>{analysis.title}</h6> 
@@ -157,9 +158,10 @@ export const AnalysisOne = () => {
                             {/* <div className={style.image}>{analysis.icon}</div> */}
                             {/* <select name="" id=""></select> */}
                             <div name="" id="" className={style.description}>
-                                <p>{analysis.description}
-                                <span>&nbsp; {analysis.descriptionInfo} &nbsp; {analysis.dropDown}</span>
-                            </p></div>
+                                <p>{analysis.description}</p>
+                                <span>&nbsp; {index===1 ? <DropDown/> : analysis.descriptionInfo}</span>
+                                {/* &nbsp; {analysis.dropDown} */}
+                            </div>
                             {/* <MonthYear/> */}
                         </div>
                         <Link to={analysis.url} className={combinedClasses(style.footer, 'link')}>

@@ -304,11 +304,20 @@
     font-weight: 500;
     
 }
-.description p span{
+.description span{
+    display: flex;
     font-weight: 400;
     font-size: 12px;
     align-items: center;
 }
+.description span select{
+    display: flex;
+    border: none;
+    align-items: center;
+}
+/* .description span select:focus{
+
+} */
 /* .navigate{
     display:  flex;
     align-items: center;

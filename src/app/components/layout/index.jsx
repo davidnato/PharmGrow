@@ -8,14 +8,7 @@ import React from 'react';
 export const Layout = (props) => {
     const [show, setShow] = React.useState(false)
     const showHide = (e) => {
-        setShow(show)
-        console.log(e.target.className)
-        // if (e.target.className=== "menuIcon"){
-        //     e.target.classList.add("menuIcon2");
-        // } 
-        // else{
-        //     setShow(true)
-        // }
+        setShow(show===false)
 
     }
     // showChats.addEventListener("click", showHide)
@@ -25,8 +18,8 @@ export const Layout = (props) => {
         <section className={style.layout}>
             <div className={style.menu}>
                 <IoMenu className={style.menuIcon} onClick={showHide} />
-
-                <SideBar className={show ? style.mobile : style.aside} />
+                
+                <SideBar className={show && style.mobile} />
             </div>
 
             <section className={style.viewMerge}>

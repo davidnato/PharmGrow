@@ -44,3 +44,9 @@ code {
 button{
   cursor: pointer;
 }
+/* @media (max-width: 375px) {
+  aside.mobile{
+      display: block;
+  }
+  
+} */

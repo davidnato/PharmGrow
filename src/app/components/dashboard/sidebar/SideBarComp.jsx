@@ -10,6 +10,10 @@ import { combinedClasses } from '../../../../app/utilities/format';
 import { NavLink } from 'react-router-dom';
 import { routes } from '../../../utilities/routes';
 import { IoMenu } from "react-icons/io5";
+import axios from 'axios';
+import toast from 'react-hot-toast';
+import { useEffect } from 'react';
+import DateTime from '../../dateTime';
 // import { HandleDropDown } from '../../hooks/toggle';
 
 export const SideBarDiv = (props) => {
@@ -20,13 +24,28 @@ export const SideBarDiv = (props) => {
 
         // !show ? arrow===<MdOutlineKeyboardArrowDown/>:<MdOutlineKeyboardArrowUp/>
     }
-    const [notification, setNotification] = React.useState()
-    const makeSubNavActive = ()=> {
-        
+    const [notification, setNotification] = React.useState(false)
+    const [data, setData] = React.useState([])
+    const [badge, setBadge] = React.useState()
+    useEffect(() => {
+        axios.get('http://localhost:3001/stock')
+            .then(result => {
+                setData(result.all);
+                toast(result.all.message)
+
+            })
+            .catch(error => console.log(error))
+        setBadge(data.length)
+    }, [])
+    const makeSubNavActive = () => {
+
 
     }
-    const handleNotification=(e)=>{
-        e.preventdefault()
+    const handleNotification = (e) => {
+        // e.preventdefault()
+        console.log(badge)
+        setBadge(0)
+        setNotification(!notification)
     }
     const navDropDown = (e) => {
         // e.preventDefault()
@@ -64,8 +83,8 @@ export const SideBarDiv = (props) => {
 
     return (
         <div className={combinedClasses(style.sidebar, props.className)}>
-            
-            
+
+
             <div className={style.headermain}>
                 <header><Logo useWhite={true} /></header>
                 <main>
@@ -110,7 +129,7 @@ export const SideBarDiv = (props) => {
                     </div>
                     <div className={style.navBarDiv}>
                         <div className={combinedClasses(style.navDiv1, 'navDiv')} >
-                        {
+                            {
                                 sideBarNavs1.map((nav, index) =>
                                     <div>
                                         <NavLink to={nav.url} className={combinedClasses(style.navBar, 'bluebglink')}>
@@ -118,7 +137,7 @@ export const SideBarDiv = (props) => {
                                                 {nav.icon}
                                                 <div className={style.navTitle}>
                                                     <h6 className={style.navTitle}>{nav.title}</h6>
-                                                    
+
                                                     {
                                                         nav.subtitle && dropDown &&
                                                         <div className={combinedClasses(style.subtitle, 'navDiv')}>
@@ -154,15 +173,27 @@ export const SideBarDiv = (props) => {
                         <div className={style.navDiv2}>
                             {
                                 sideBarNavs2.map((nav, index) =>
-                                
-                                    <Link to={nav.url} key={index} className={combinedClasses(style.navBar, 'bluebglink')}>
+                                    index === 1 ?
+                                        <div key={index} onClick={handleNotification} className={combinedClasses(style.navBar, 'bluebglink')}>
+                                            <div className={style.navBardiv}>
+                                                {nav.icon}
+                                                <div className={style.navTitle}>
+                                                    <h6>{nav.title}</h6>
+                                                </div>
+                                            </div>
+                                            {nav.dropDown &&
+                                                <div className={style.badge} onClick={handleNotification}>{badge}</div>
+                                            }
+                                        </div> :
 
-                                        <div className={style.navBardiv}>
-                                            {nav.icon}
-                                            <div className={style.navTitle}>
-                                                <h6>{nav.title}</h6>
-                                                {nav.badge}
-                                                {/* {nav.subtitle &&
+                                        <Link to={nav.url} key={index} className={combinedClasses(style.navBar, 'bluebglink')}>
+
+                                            <div className={style.navBardiv}>
+                                                {nav.icon}
+                                                <div className={style.navTitle}>
+                                                    <h6>{nav.title}</h6>
+                                                    {/* {nav.badge} */}
+                                                    {/* {nav.subtitle &&
                                                     <div className={style.subtitle}>
                                                         {nav.subtitle &&
                                                             nav.subtitle.map((subData) =>
@@ -170,21 +201,31 @@ export const SideBarDiv = (props) => {
                                                             )}
                                                     </div>
                                                 } */}
+                                                </div>
                                             </div>
-                                        </div>
-                                        {nav.dropDown}
-                                        {index===4 &&
-                                         nav.dropdown === <div className={style.badge} onClick={handleNotification}></div>
-                                        }
-                                    </Link>
+                                            {/* {nav.dropDown} */}
+
+                                            {/* <div onClick={() => navDropDown(index)}>{index == dropDown ? nav.arrowUp : nav.dropDown}</div>
+                                        {index===1 && onClick={notificationHandler}} */}
+                                        </Link>
                                 )
+                            }
+                            {notification &&
+                                <div>
+
+                                    <ul>
+                                        {data.map((item, index) =>
+                                            <li className={style.message}>{item.message} <span><DateTime /></span></li>
+                                        )}
+                                    </ul>
+                                </div>
                             }
                         </div>
                         <div className={style.navDiv3}>
                             {
                                 sideBarNavs3.map((nav, index) =>
-                                    <Link to={nav.url} key={index}className={combinedClasses(style.navBar, 'bluebglink')}>
-                                        <div className={index===0 ? combinedClasses(style.navBardiv, style.divSpace) : style.navBardiv}>
+                                    <Link to={nav.url} key={index} className={combinedClasses(style.navBar, 'bluebglink')}>
+                                        <div className={index === 0 ? combinedClasses(style.navBardiv, style.divSpace) : style.navBardiv}>
                                             {nav.icon}
                                             <div className={style.navTitle}>
                                                 <h6>{nav.title}</h6>
@@ -202,15 +243,15 @@ export const SideBarDiv = (props) => {
                                     </Link>
                                 )
                             }
-                        {/* )} */}
+                            {/* )} */}
+                        </div>
                     </div>
-            </div>
-        </main>
+                </main>
             </div >
-    <footer>
-        <p>Powered by Jasiri © 2024</p>
-        <p>v 1.1.2</p>
-    </footer>
+            <footer>
+                <p>Powered by Jasiri © 2024</p>
+                <p>v 1.1.2</p>
+            </footer>
         </div >
     )
 }
