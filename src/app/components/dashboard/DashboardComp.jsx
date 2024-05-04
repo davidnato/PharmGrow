@@ -99,7 +99,19 @@ export const AnalysisOne = () => {
     const [dataNew, setDataNew] = React.useState([])
     const [revenueData, setRevenueData] = React.useState([])
     const [totalStock, setTotalStock] = React.useState()
-    fetch('https://dummyjson.com/carts')
+    
+
+    useEffect(() => {
+        axios.get('http://localhost:3001/stock')
+            .then(result => {
+                setData(result.data);
+                setInventory(data);
+                setShortage();
+            })
+            .catch(error => console.log(error))
+
+
+            fetch('https://dummyjson.com/carts')
         .then(res => res.json())
         .then(res => {
             // console.log(res)
@@ -131,16 +143,6 @@ export const AnalysisOne = () => {
             setRevenueData(revenue)
             setTotalStock(stock)
         })
-
-    useEffect(() => {
-        axios.get('http://localhost:3001/stock')
-            .then(result => {
-                setData(result.data);
-                setInventory(data);
-                setShortage();
-                console.log(data)
-            })
-            .catch(error => console.log(error))
     }, [])
     const monthRevenue = revenueData;
     const totalInventory = totalStock;

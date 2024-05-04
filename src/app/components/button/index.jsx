@@ -16,7 +16,7 @@ export const MyButton=(props)=>{
         // <a href='#' className={className}>{props.title}</a>
         // )
         props.onClick ?
-        <button {...props} className={combineClass} >{props.title || props.children}</button> :
+        <button {...props} className={combineClass}>{props.title || props.children}</button> :
 
        <button className={combineClass}>{props.title || props.children}</button> 
         )

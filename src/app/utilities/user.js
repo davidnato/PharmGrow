@@ -1,9 +1,15 @@
 import Cookies from "universal-cookie"
 
 export const logout =()=>{
-    localStorage.removeItem()
+    localStorage.removeItem('user')
 }
 
+export const isUserLogin=()=>{
+    const user =JSON.parse(localStorage.getItem('user') ?? '{}');
+    //make an API with user id
+    console.log(user.email && user.token)
+    return user.email && user.token
+}
 // export const isUserLogin=()=>{
 //     // const user =JSON.parse(localStorage.getItem('user') ?? '{}');
 //     //make an API with user id

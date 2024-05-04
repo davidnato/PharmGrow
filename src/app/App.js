@@ -26,17 +26,17 @@ const router = createBrowserRouter([
     path: '/',
     element: <LandingPage />
   },
-  // {
-  //   path: routes.dashboard(),
-  //   element: <IsProtectedRoute><DashboardPage/></IsProtectedRoute>
-  // },
   {
     path: routes.dashboard(),
-    element: <DashboardPage />
+    element: <IsProtectedRoute><DashboardPage/></IsProtectedRoute>
   },
+  // {
+  //   path: routes.dashboard(),
+  //   element: <DashboardPage />
+  // },
   {
     path: '/login',
-    element: <LoginPage />
+    element:<LoginPage />
   },
   {
     path: '/signUP',

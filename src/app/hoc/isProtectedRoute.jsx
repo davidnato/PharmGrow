@@ -1,8 +1,37 @@
 import { useState, useEffect } from "react"
 import { routes } from "../utilities/routes"
 import axios from "axios"
+import { isUserLogin } from "../utilities/user";
 
-export const IsProtectedRoute = () => {
+// export const IsProtectedRoute=({children})=>{
+//     const user=JSON.parse(localStorage.getItem('user') ?? '{}')
+//     //make an api with user id
+//         // return user.email && user.token
+//         if (user.username && user.token){
+//             return children;
+//         }
+//         window.location.href='/login'
+//         return null
+//     }
+//     
+
+    export const IsProtectedRoute=({children})=>{
+        // const user=JSON.parse(localStorage.getItem('user') ?? '{}')
+        const user= isUserLogin()
+        //make an api with user id
+            // return user.email && user.token
+            // if (user.username && user.token){
+            //     return children;
+            // }
+            // window.location.href='/login'
+            // return null
+            if (user){
+                return children;
+            }
+            window.location.href='/login'
+            return null
+        }
+/*export const IsProtectedRoute = () => {
     const [userLoggedIn, setUserLoggedIn] = useState([])
     useEffect(() => {
         axios.get('http://localhost:3002/user')
@@ -31,4 +60,4 @@ export const IsProtectedRoute = () => {
     //make an api with user id
     // return user.email && user.token
     
-}
+}*/
