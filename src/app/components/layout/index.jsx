@@ -18,7 +18,6 @@ export const Layout = (props) => {
         <section className={style.layout}>
             <div className={style.menu}>
                 <IoMenu className={style.menuIcon} onClick={showHide} />
-                
                 <SideBar className={show && style.mobile} />
             </div>
 
