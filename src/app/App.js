@@ -19,6 +19,9 @@ import { RevenuePage } from './pages/Revenue.jsx';
 import { ShortagePage } from './pages/shortage.jsx';
 import { GroupPage } from './pages/Groups.jsx';
 import { AddNewSupplierPage, SupplierPage } from './pages/Supplier.jsx';
+// import { ThemeProvider, ColorModeProvider } from "@chakra-ui/react"
+import { ChakraProvider } from '@chakra-ui/react'
+// import { useMediaQuery } from '@chakra-ui/react'
 
 
 const router = createBrowserRouter([
@@ -28,7 +31,7 @@ const router = createBrowserRouter([
   },
   {
     path: routes.dashboard(),
-    element: <IsProtectedRoute><DashboardPage/></IsProtectedRoute>
+    element: <IsProtectedRoute><DashboardPage /></IsProtectedRoute>
   },
   // {
   //   path: routes.dashboard(),
@@ -36,7 +39,7 @@ const router = createBrowserRouter([
   // },
   {
     path: '/login',
-    element:<LoginPage />
+    element: <LoginPage />
   },
   {
     path: '/signUP',
@@ -108,8 +111,14 @@ function App() {
   // const [info, setInfo] = React.useState({})
   return (
     <>
-      <ToastContainer />
+      {/* <ThemeProvider>
+        <ColorModeProvider> */}
+      <ChakraProvider>
+        <ToastContainer />
         <RouterProvider router={router} />
+      </ChakraProvider>
+      {/* </ColorModeProvider>
+      </ThemeProvider> */}
     </>
   );
 }

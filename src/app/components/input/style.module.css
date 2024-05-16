@@ -48,9 +48,14 @@ input ::placeholder{
 .searchField input{
     width: 375px;
     /* width: 100%; */
-    background: #E3EBF3;
+    background: hsl(210, 40%, 92%);
 }
-@media (max-width:375px) {
+@media (max-width: 650px) {
+    .searchField input{
+        max-width: 300px;
+    }
+}
+@media (max-width: 621px) {
     .searchField input{
         width: 100%;
     }

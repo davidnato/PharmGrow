@@ -1,6 +1,7 @@
 
 .mainDiv {
   padding: var(--side-bar-padding);
+  margin-bottom: 30px;
 }
 .container{
   width: 100%;

@@ -6,7 +6,7 @@
     position: relative;
     /* /* background: var(--dashboard-bg); */
     /* background: var(--dashboard-bg);  */
-}
+ }
 .viewMerge{
     display: flex;
     flex-direction: column;
@@ -14,31 +14,40 @@
     width: 100%;
 }
 .menuIcon{
-    display: none;
-    color: #000000;
+    /* display: none; */
+    color: var(--primary-blue);
     cursor: pointer;
     width: 36px;
     height: 24px;
     margin-top: 18px;
+    position: absolute;
 }
-.menu{
+.cancel{
+    color: #ffffff;
+    right: 20px;
+    top: 15px;
+}
+/* @media (max-width:560px) {
+    
+} */
+/*.menu{
     background: var(--side-bar-bg);
 }
 .menu .aside{
     height: 100%;
     border-bottom: #000000 5px solid;
 
-}
+} */
 
-@media (max-width: 375px) {
-    .menu .aside{
+/* @media (max-width: 530px) {
+    .menu aside{
         display: none;
         width: 100vw;
         background-color: red;
-        /* display: block; works here though */
+        /* display: block; works here though 
     }
-    .menu aside.mobile{
-        display: none;
+    aside.mobile{
+        display: block;
     }
     .menu.mobile aside.mobile{
         display: block;
@@ -52,11 +61,7 @@
         left: 0;
         top: 5px;
     }
-    .viewMerge{
-        display: none;
-        /* visibility: hidden; */
-    }
-}
+} */
 /* .sidebar{
     flex: 2;
 }

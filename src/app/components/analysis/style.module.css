@@ -1,5 +1,6 @@
 .main{
     padding: var(--side-bar-padding);
+    margin-bottom: 30px;
 }
 .analysisRow1{
     display: grid;
