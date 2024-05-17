@@ -31,7 +31,8 @@ const router = createBrowserRouter([
   },
   {
     path: routes.dashboard(),
-    element: <IsProtectedRoute><DashboardPage /></IsProtectedRoute>
+    // element: <IsProtectedRoute><DashboardPage /></IsProtectedRoute>
+    element: <DashboardPage />
   },
   // {
   //   path: routes.dashboard(),

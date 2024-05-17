@@ -41,6 +41,7 @@ export const LoginDiv = () => {
     const handleLogin = (e) => {
         e.preventDefault()
         setIsSubmitting(true)
+        window.location.href = routes.dashboard()
         const user = {
             username: input.username,
             password: input.password
