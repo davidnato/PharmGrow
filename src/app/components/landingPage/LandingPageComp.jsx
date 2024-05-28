@@ -66,7 +66,7 @@ export const Hero = () => {
                 <h1>A realtime sales tracking system specifically for <span className={style.blueh1}>Pharmacies.</span></h1>
 
 
-                {/* <p>Easily automate inventory, sales, revenues and compliance with a seamless experience.</p> */}
+                <p>Easily automate inventory, sales, revenues and compliance with a seamless experience.</p>
             </div>
 
             <div className={style.headlinebtn}>
@@ -79,9 +79,9 @@ export const Hero = () => {
                         <MyButton type='primary' title='Log in' className={style.button} />
                     </Link>
                 </div>
-                <p>Own an account of the suitable tracking sales app you need for free now&nbsp;
+                {/* <p>Own an account of the suitable tracking sales app you need for free now&nbsp; */}
                     {/* <span> 100+ countries &nbsp; <HiOutlineGlobeAlt /></span> */}
-                </p>
+                {/* </p> */}
             </div>
         </section>
     )
