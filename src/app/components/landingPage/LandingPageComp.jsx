@@ -14,9 +14,11 @@ import phone1 from '../../assests/images/phone1.JPG';
 import phone2 from '../../assests/images/phone2.JPG';
 import phone3 from '../../assests/images/phone3.JPG';
 import { HashLink } from 'react-router-hash-link';
+import { useMediaQuery } from '@chakra-ui/react'
 
 
 export const LandingHeader = () => {
+    const mobileSideBar = useMediaQuery('(max-width: 560px)')
     const [showMenu, setMenu] = React.useState(false);
     const toggleMenu = () => {
         if (showMenu === false) {
@@ -35,11 +37,12 @@ export const LandingHeader = () => {
                     <HeaderNavigation className={showMenu ? style.mobile : style.hidden} />
                 </div>
                 {/* <NavBar /> */}
-                <div>
-                    <Link to='/login' className={combinedClasses(style.loginlink, 'link')}>
-                        <MyButton type='primary' title='Log in' className={style.button} />
-                    </Link>
-                </div>
+                {mobileSideBar.includes(false) &&
+                    <div>
+                        <Link to='/login' className={combinedClasses(style.loginlink, 'link')}>
+                            <MyButton type='primary' title='Log in' className={style.button} />
+                        </Link>
+                    </div>}
             </div>
 
         </header>
@@ -68,9 +71,14 @@ export const Hero = () => {
 
             <div className={style.headlinebtn}>
                 {/* <MyButton type='primary' title='Learn More' className={combinedClasses(style.button, style.button2)} /> */}
-                <MyButton type='primary' className={combinedClasses(style.button, style.button2)}>
-                    <Link to='/signUP' className={combinedClasses(style.button2, 'link')}>Create Account</Link>
-                </MyButton>
+                <div>
+                    <MyButton type='primary' className={combinedClasses(style.button, style.button2)}>
+                        <Link to='/signUP' className={combinedClasses(style.button2, 'link')}>Create Account</Link>
+                    </MyButton>
+                    <Link to='/login' className={combinedClasses(style.loginlink, 'link')}>
+                        <MyButton type='primary' title='Log in' className={style.button} />
+                    </Link>
+                </div>
                 <p>Own an account of the suitable tracking sales app you need for free now&nbsp;
                     {/* <span> 100+ countries &nbsp; <HiOutlineGlobeAlt /></span> */}
                 </p>
@@ -119,7 +127,7 @@ export const Guide = () => {
 
 
             </ol>
-            </section >
+        </section >
     )
 }
 export const Offer = () => {
@@ -137,7 +145,7 @@ export const Offer = () => {
 export const LandingFooter = () => {
     return (
         <footer className={style.footer}>
-            <h3>Powered by <span>JASIRI WOMEN TECHSTERS ©2022. </span>All Rights Reserved.</h3>
+            <h3>Powered by <span>JASIRI WOMEN TECHSTERS ©2024. </span>All Rights Reserved.</h3>
         </footer>
     )
 }

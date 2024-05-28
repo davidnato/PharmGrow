@@ -56,7 +56,7 @@ export const features=[
     {title: 'Summary of all reports at', span: 'the Dashboard', subTitle: 'Access reports of sales activity, revenues and inventory at a glance through an intuitive visual dashboard', pic:dashboard},
     {title: 'Track Inventory', span: 'in Real-Time', subTitle: 'Add and access reports detailing stocks available, stocks in shortage, and easy search for available stock', pic:listPic},
     {title: 'Track Sales', span: 'in Real-Time', subTitle: 'Access graphical reports detailing sales activity, inventory and business growth at a glance', pic:reportPic},
-    {title: 'Medicine Details', subTitle: 'Add and get the use, sideeffects, price and other details for a particular medicine', pic:detailsPic},
+    {title: 'Medicine Details', subTitle: 'Add and get the use, side effects, price and other details for a particular medicine', pic:detailsPic},
     {title: 'Suppliers Customers Relationship Management (CRM)', subTitle: 'Keep and access your suppliers details and contacts easily for effective communication and follow up', pic: suppliersInfo},
     {title: 'Different Device Responsiveness', subTitle: 'Access your account on any device with ease', doublePic: true}
 ]
