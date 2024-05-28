@@ -16,7 +16,7 @@
     margin: 0;
     padding: 0;
 }
-.navlist, .navlist li, .navlist li span, .header div{
+.navlist, .navlist li, .navlist li a span, .header div, .navList li a{
     list-style: none;
     display: flex;
     flex-direction: row;
@@ -24,6 +24,11 @@
     font-weight: 600;
     font-size: 18px;    
     
+}
+.navlink{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 .navlist{
     gap: 48px;
@@ -35,7 +40,7 @@
 .header div{
     gap: 16px;
 }
-.navlist li span, .navlist li span svg{
+.navlist li a span, .navlist li a span svg{
     width: 16px;
     height: 16px;
 }
@@ -71,7 +76,7 @@
     font-size: 100px;
     
 }
-.headline p{
+.headline p, .features>p{
     color: #585860;
     /* font-family: ; */
     font-size: 24px;
@@ -90,6 +95,7 @@
 .headlinebtn{
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     gap: 40px;
     align-items: center;
 }
@@ -181,9 +187,21 @@
 }
 .footer{
     display: flex;
-    flex-direction: column;
-    padding: 50px 5%;
-    gap: 30px;
+    padding: 20px 5%;
+    background: var(--side-bar-bg);
+    color: #ffffff;
+    justify-content: center;
+    align-items: center;
+    
+    font-family: 'Poppins', sans-serif;
+}
+.footer h3{
+    font-size: 14px;
+    font-weight: 400;
+}
+.footer h3 span{
+    font-size: 18px;
+    font-weight: 600;
 }
 .footer1{
     display: flex;
@@ -253,6 +271,7 @@
     font-size: 16px;
     color: #9096A2;
     list-style: none;
+    cursor: pointer;
 }
 .navList li{
     cursor: pointer;
@@ -308,3 +327,66 @@
 /* .dashboardView svg rect{
     fill: none;
 } */
+.features{
+    display: flex;
+    flex-direction: column;
+    /* gap: 5px; */
+    padding: 0 10%;
+    /* align-items: center;
+    background: red; */
+    margin-top: 50px;
+    width: 100%;
+    
+}
+.features h3{
+    font-family: Helvetica;
+    font-weight: 700;
+    font-size: 60px;
+    color: #1A202C;
+}
+.features h3 span{
+    color: #30407F;
+}
+.features img, .features svg{
+    
+    margin: 30px auto;
+}
+.features svg{
+    width: 80%;
+    height: 400px;
+}
+.features img{
+    max-height: 600px;
+    width: fit-content;
+    
+}
+.features>div{
+    width: 70%;
+    display: flex;
+    align-self: center;
+    /* background: var(--dashboard-bg); */
+    margin: 30px auto;
+    flex-wrap: wrap;
+    
+    
+    /* gap: 10px; */
+}
+.features>div>img{
+    background: var(--dashboard-bg);
+    border-radius: 20px;
+    padding: 20px;
+}
+.guide{
+    background: var(--dashboard-bg);
+    padding-top: 30px;
+    padding-bottom: 50px;
+}
+.guide h3, .guide p{
+    text-align: center;
+}
+.guide ol{
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    margin-top: 20px;
+}

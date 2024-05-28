@@ -1,4 +1,4 @@
-import { LandingHeader, LandingFooter, DashboardView, Hero, Offer } from "./LandingPageComp"
+import { LandingHeader, LandingFooter, DashboardView, Hero, Offer, Features, Guide } from "./LandingPageComp"
 import style from './style.module.css'
 
 export const Landing=()=>{
@@ -6,7 +6,9 @@ export const Landing=()=>{
     <section className={style.landing}>
         <LandingHeader/>
         <Hero/>
-        <DashboardView/>
+        {/* <DashboardView/> */}
+        <Features/>
+        <Guide/>
         <Offer/>
         <LandingFooter/>
     </section>

@@ -31,7 +31,7 @@ export const LayoutHeader = (props) => {
             <div className={style.header}>
                 
                 {/* <CustomInput type="search" placeholder="Search for Available Medicines" className={style.search} /> */}
-                <Search type="search" placeholder="Search for Available Medicines" className={style.search}/>
+                <Search type="search" placeholder="Search for a Customer" className={style.search}/>
                 {/* <div className={style.language}>
                 <div className={style.iconTitle}>
                     <IoLanguageOutline />
