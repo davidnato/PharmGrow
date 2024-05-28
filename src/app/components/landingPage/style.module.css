@@ -405,6 +405,7 @@
     } */
     .headline h1{
         font-size: 40px;
+        /* text-align: center; */
         
     }
     .features h3, .offer h2{
@@ -427,5 +428,9 @@
         flex-direction: column;
     align-items: center;
     justify-content: center;
+    }
+    .handlebtn{
+        align-items: center;
+        justify-content: center;
     }
 }
