@@ -66,7 +66,7 @@ export const Hero = () => {
                 <h1>A realtime sales tracking system specifically for <span className={style.blueh1}>Pharmacies.</span></h1>
 
 
-                <p>Easily automate inventory, sales, revenues and compliance with a seamless experience.</p>
+                {/* <p>Easily automate inventory, sales, revenues and compliance with a seamless experience.</p> */}
             </div>
 
             <div className={style.headlinebtn}>
