@@ -365,7 +365,9 @@
     display: flex;
     align-self: center;
     /* background: var(--dashboard-bg); */
-    margin: 30px auto;
+    margin-left:  auto;
+    margin-right:  auto;
+    margin-bottom: 30px;
     flex-wrap: wrap;
     
     
@@ -375,6 +377,7 @@
     background: var(--dashboard-bg);
     border-radius: 20px;
     padding: 20px;
+    margin-top: 0;
 }
 .guide{
     background: var(--dashboard-bg);
