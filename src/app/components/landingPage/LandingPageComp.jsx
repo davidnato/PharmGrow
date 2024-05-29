@@ -29,9 +29,9 @@ export const LandingHeader = () => {
     }
     return (
         <header className={style.header}>
-            <Logo className={style.logo} useWhite={true}/>
+            <Logo className={style.logo}/>
             <div className={style.navlistBar}>
-                <MenuIcon className={style.menuicon} onClick={toggleMenu} fill='white'/>
+                <MenuIcon className={style.menuicon} onClick={toggleMenu} fill='black'/>
 
                 <div className={style.menu}>
                     <HeaderNavigation className={showMenu ? style.mobile : style.hidden} />

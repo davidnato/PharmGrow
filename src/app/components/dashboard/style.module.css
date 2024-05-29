@@ -129,12 +129,18 @@
     max-width: 283px;
     /* max-width: 22.5%; */
     width: 100%;
-    
+    /* height: 100%; */
     background: #ffffff;
 
 
     
     /* margin: 0 auto; */
+}
+@media (max-width:934px) {
+    .analysis .eachAnalysis{
+        max-width: 100%;
+        min-height: 200px;
+}
 }
 /* @media (min-width:1200px) and (max-width: 1595px) {
     .analysis, .analysis2{
@@ -144,13 +150,20 @@
 } */
 .analysis .eachAnalysis{
     position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
 }
 .analysis .eachAnalysis .main{
     padding: 10px 15px;
+    /* position: absolute; */
 }
 .analysis .eachAnalysis .footer{
     /* position: absolute;
     bottom: 0; */
+    padding: 10px;
+    
 }
 .analysis2 .eachAnalysis{
     max-width: 605px;
@@ -294,6 +307,8 @@
 }
 .eachAnalysis .footer svg{
     padding-right: 15px;
+    width: 30px;
+    height: 20px;
 }
 .description{
     display: flex;
@@ -319,10 +334,9 @@
 /* .description span select:focus{
 
 } */
-/* .navigate{
+.navigate{
     display:  flex;
     align-items: center;
-    background-color: red;
     justify-content: center;
     text-align: center;
-} */
+}

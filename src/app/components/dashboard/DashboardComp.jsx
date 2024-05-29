@@ -66,14 +66,24 @@ export const Main = () => {
                                 <div className={style.dashboardhover}>
                                     <div className={sideBarstyle.whitebg}>
                                         <div className={sideBarstyle.dropDown}></div>
-                                        <div className={sideBarstyle.myProfileDiv}>
+                                        {/* <div className={sideBarstyle.myProfileDiv}>
                                             <div className={sideBarstyle.myProfile}>
                                                 <AiOutlineFileExcel />
-                                                <p>Excel</p>
+                                                <p>Sales Report</p>
                                             </div>
                                             <div className={sideBarstyle.logout}>
                                                 <AiOutlineFilePdf />
-                                                <p>PDF</p>
+                                                <p>Inventory Report</p>
+                                            </div>
+                                        </div> */}
+                                        <div className={combinedClasses(style.downloadDD, sideBarstyle.myProfileDiv)}>
+                                            <div className={sideBarstyle.myProfile}>
+                                                <AiOutlineFileExcel />
+                                                <p>Sales Report</p>
+                                            </div>
+                                            <div className={sideBarstyle.logout}>
+                                                <AiOutlineFilePdf />
+                                                <p>Inventory Report</p>
                                             </div>
                                         </div>
                                     </div>
@@ -167,7 +177,7 @@ export const AnalysisOne = () => {
                             {/* <MonthYear/> */}
                         </div>
                         <Link to={analysis.url} className={combinedClasses(style.footer, 'link')}>
-                            <p>{analysis.footer}</p>
+                            {analysis.footer}
                             {analysis.arrowRight}
                         </Link>
                     </div>

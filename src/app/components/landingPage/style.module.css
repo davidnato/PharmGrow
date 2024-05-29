@@ -9,7 +9,7 @@
     /* font-family: ; */
     align-items: center;
     padding:10px 5% ;
-    background-color: var(--side-bar-bg);
+    /* background-color: var(--side-bar-bg); */
    justify-content: space-between;
    gap: 10px;
    margin-bottom: 40px;
@@ -25,7 +25,7 @@
     align-items: center;
     font-weight: 600;
     font-size: 18px; 
-    color: #ffffff;   
+    /* color: #ffffff;    */
     
 }
 .navlink{
@@ -446,7 +446,8 @@
         justify-content: center;
 
     }
-    .logo{
-        width: 150px;
+    .header .logo img{
+        width: 50px !important;
+
     }
 }
