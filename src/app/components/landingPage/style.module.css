@@ -8,11 +8,11 @@
     color: #0A112F;
     /* font-family: ; */
     align-items: center;
-    padding:20px 5% ;
+    padding:10px 5% ;
     background-color: var(--side-bar-bg);
    justify-content: space-between;
    gap: 10px;
-   margin-bottom: 20px;
+   margin-bottom: 40px;
 }
 .landing h1, .landing p{
     margin: 0;
@@ -406,6 +406,9 @@
         justify-content: center;
         align-items: center;
     } */
+    .header{
+        padding:2px 5% ;
+    }
     .headline h1{
         font-size: 32px;
         /* text-align: center; */
@@ -442,5 +445,8 @@
         align-items: center;
         justify-content: center;
 
+    }
+    .logo{
+        width: 150px;
     }
 }
